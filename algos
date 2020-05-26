@@ -1,0 +1,66 @@
+//insertion sort
+
+for j <-2 to n
+a[j]=key
+i=j-1
+while(i>0&&a[j]>key)
+{
+	a[i+]<-a[i]
+	i--
+	
+	}
+	a[i+1]=key
+	
+//merge sort
+
+n=1 done
+1/2 1/2 array divide and sort recurcively
+by same method 
+merge them
+
+//binary search
+a[i]==key done 
+a[i]>key right subarray
+a[i]<key left subarray
+do it again and again till u find it
+
+//quick sort
+
+a[p]<-pivot
+i<-p
+for i<- p+1 to q
+a[j]<pivot
+i++;
+swap a[j] with a[i]
+a[p]<-a[i]
+return i
+//heap sort
+
+size=n
+build max heap
+replace a[n] with a[1]
+n--
+max heapify(a,1)
+do again and again
+//counting sort
+
+for i<- 0 to k(max element)
+c[k]=0
+for j<=0 to n
+c[a[i]]++
+for j<- 1 to k
+c[a[j]]=c[a[j]]+c[a[j-1]]
+for i<-n to 0
+b[c[a[j]]]=a[j]
+c[a[j]]-- 
+
+
+
+
+
+
+
+
+
+
+
