@@ -54,7 +54,13 @@ for i<-n to 0
 b[c[a[j]]]=a[j]
 c[a[j]]-- 
 
+//radix sort
+start sorting from ones digit ie. take the ones digit of all numbers and pass them in a containerand apply counting sort on them
+arrange accordingly and then do same with tens digit and so on.
 
+//bucket sort
+actually the numbers are in the range [0,1) make buckets accordingly means container[0] place zeros and container[1] .1's and container[2] 
+.2's do this for all the numbers and sort all the buckets and then concatinate all the buckets to get the final output.
 
 
 
