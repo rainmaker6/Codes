@@ -25,6 +25,7 @@ a[i]<key left subarray
 do it again and again till u find it
 
 //quick sort
+(partition algo)
 
 a[p]<-pivot
 i<-p
@@ -61,6 +62,32 @@ arrange accordingly and then do same with tens digit and so on.
 //bucket sort
 actually the numbers are in the range [0,1) make buckets accordingly means container[0] place zeros and container[1] .1's and container[2] 
 .2's do this for all the numbers and sort all the buckets and then concatinate all the buckets to get the final output.
+
+//Order stastatics
+given elements find the ith smallest element from a given container 0<=i<=n
+
+i=1 1st smallest
+i=n max element
+i=n/2 median
+
+for i=1 and i=n use linear search over the container taking a[0] as the max element
+for order of nlogn sort the container and output the same
+to find better than nlogn we can use partition subroutine from quick sort on container p->q
+algorithm
+if p==q return a[p]
+else
+partition algorithm on p->q 
+r is the index where x(pivot element) has been put
+k<-r-p+1 is the rank of x 
+if(i==k)
+return x
+if(i<k)
+do partition subroutine on left sub container (a[p....r-1],i)
+else if(i>k)
+do partition sunbroutine on right sub container (a[r+1....q],i-k)
+to make this algorithm to make it lucky every time every time the run time depends on the partition of the container
+so we choose the pivot randomly this way there is more possibility of choosing a good pivot for good partition
+rand-select(a[p....q],i) so expected run time comes out to be order of n.
 
 
 
