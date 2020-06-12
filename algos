@@ -116,6 +116,27 @@ to avoid this problem we use hash functions h:u->{0,1....m-1}
 u is the set of keys m is the table size
 hash fxn is a mapping from u to slots(m in number)
 
+PROBLEM here is if a hash function maps >1 key to the same slot then "collision" will ocur to handle this collision we use what is called
+chaining we make a single linked linked list where the keys collide and increase the size of it as the keys keep colliding 
+
+Analysis of chaining 
+
+m slots n keys
+
+suppose ith slot has collsiion 
+than all the keys colliding will be mapped to the same alot with the help of linked list there
+how searching works 
+     --------
+we apply hash fxn to the element to be searched than it will map to ith slot
+there we have to scan the chain formed by collided keys
+Worst case all the key colliding to the same slot
+search time is big theta of n
+(its just an unordered linked list)
+what is a good hash function which disributes the keys uniformly over the slots
+each slot should get n/m(load factor) keys
+
+
+
 
 
 
