@@ -90,6 +90,35 @@ so we choose the pivot randomly this way there is more possibility of choosing a
 rand-select(a[p....q],i) so expected run time comes out to be order of n.
 
 
+//hashing
+
+symbol table problem (store the records)
+
+there is a key for veery record in the table which is unique
+
+we need ds to perfor operations on the table 
+like insert key at particular position//makes table dynamic
+delete element at particular position//mkes table dynamic
+search a particular element
+
+use of array (direct acess table)
+we asssume the key sare coming from a set of values K 0,1....m-1
+array T 0,1.....m-1
+we use a random variable T(k) which is 1 when x belongs to  k key(x)=k and 0 otherwise
+we maintain a record set of array and allocate values 1 to the records which are present in our set
+we need to maintain a field so that we can perform the operations easily that means we require a pointer to the exact address of the element
+so we can perform the insertion deletion and searching easily
+PROBLEM in this way
+if suppose keys set is as 2,3,999
+the indexes b/w 3 to 999 will get wasted
+this is wasted of memory 
+to avoid this problem we use hash functions h:u->{0,1....m-1}
+u is the set of keys m is the table size
+hash fxn is a mapping from u to slots(m in number
+
+
+
+
 
 
 
