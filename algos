@@ -114,7 +114,7 @@ the indexes b/w 3 to 999 will get wasted
 this is wasted of memory 
 to avoid this problem we use hash functions h:u->{0,1....m-1}
 u is the set of keys m is the table size
-hash fxn is a mapping from u to slots(m in number
+hash fxn is a mapping from u to slots(m in number)
 
 
 
