@@ -134,7 +134,7 @@ search time is big theta of n
 (its just an unordered linked list)
 what is a good hash function which disributes the keys uniformly over the slots
 each slot should get n/m(load factor) keys
-
+searching is order of 1+alpha(load factor)
 
 
 
