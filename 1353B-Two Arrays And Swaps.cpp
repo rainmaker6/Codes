@@ -1,4 +1,6 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<algorithm>
+#include<vector>
 
 #define ll          long long
 #define pb          push_back
@@ -17,35 +19,37 @@ using namespace std;
 
 void test_case()
 {
-	int n,k;
-	vi a;vi b;
-	sf(n);sf(k);
-	rs(a,n);rs(b,n);
-	rep(i,0,n)
-	{sf(a[i]);}
-	rep(i,0,n)
-	{sf(b[i]);}
-	sort(all(a));
-	sort(all(b), greater<int>());
-	rep(j,0,k)
-	{   if(b[j]>a[j])
-		{
-			swap(a[j],b[j]);
-		   }
-		   else continue;
-	    }
-	pf(accumulate(all(a),0));
-	cls(a);cls(b);
-	}
+int n,k;
+cin>>n>>k;	
+vector<int> a(n),vector<int> b(n);
+
+for(int i=0;i<n;++i)
+cin>>a[i];
+
+for(int j=0;j<n;++j)
+cin>>b[j];
+
+sort(a.begin(),a.end());
+sort(b.begin(),b.end(),greater<int>());
+
+for(int i=0;i<k;++i)
+if(b[i]>a[i])
+swap(a[i],b[i]);
+
+cout<<accumulate(a.begin(),a.end(),0);
+
+a.clear();
+b.clear();
+}
 int main()
 {
 	
-	time;
-	int tc;
-	sf(tc);
-	while(tc--)
-	{
-		test_case();
-		}
-	return 0;
-	}
+time;
+int tc=1;
+ciNn>>tc;
+while(tc--)
+{
+test_case();
+}
+return 0;
+}
