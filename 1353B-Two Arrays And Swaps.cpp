@@ -1,19 +1,7 @@
 #include<iostream>
 #include<algorithm>
 #include<vector>
-
-#define ll          long long
-#define pb          push_back
-#define endl        '\n'
-#define all(a)      (a).begin(),(a).end()
-#define rep(i,a,b)  for(int i=a;i<b;++i)
-#define cls(a) a.clear()
-#define fast ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
-#define rs(a,n) a.resize(n)  
-#define time        cerr << "Time elapsed: " << 1000 * clock() / CLOCKS_PER_SEC << "ms\n";
-#define sf(a) scanf("%i",&a)
-#define vi vector<int>
-#define pf(b) printf("%i\n",b);
+#include<numeric>
 
 using namespace std;
 
@@ -36,7 +24,7 @@ for(int i=0;i<k;++i)
 if(b[i]>a[i])
 swap(a[i],b[i]);
 
-cout<<accumulate(a.begin(),a.end(),0);
+cout<<accumulate(a.begin(),a.end(),0);//summing up
 
 a.clear();
 b.clear();
@@ -44,9 +32,9 @@ b.clear();
 int main()
 {
 	
-time;
+//time;
 int tc=1;
-ciNn>>tc;
+cin>>tc;
 while(tc--)
 {
 test_case();
