@@ -1,5 +1,5 @@
 /*
-
+Used fixed 32 bit floating point
  */
 
 #ifndef _LINEARCLASSIFIER_H__
@@ -139,7 +139,7 @@ class CLinearMachine : public CMachine
 		virtual CRegressionLabels* apply_regression(CFeatures* data=NULL);
 
 		/** applies to one vector */
-		virtual float64_t apply_one(int32_t vec_idx);
+		virtual float32_t apply_one(int32_t vec_idx);
 
 		/** get features
 		 *
