@@ -13,6 +13,16 @@ int main(int argc, char *argv[])//this is the main function entry point
     QPushButton hello("Hello World!",0);//push button is created 0 is for the parent window constructor
     //inside which the button should be located
     QPushButton quit("Quit",0);//this time the button called quit and what it does is the same
+    QPushButton button("True",0);
+    QPushButton button1("False",0);
+    button.resize(75,40);
+    button1.resize(80,35);
+    QObject::connect(&button,SIGNAL(clicked()),&a,SLOT(quit()));
+    QObject::connect(&button1,SIGNAL(clicked()),&a,SLOT(quit()));
+    a.setActiveWindow(&button);
+    a.setActiveWindow(&button1);
+    button.show();
+    button1.show();
     quit.resize(75,30);
     quit.setFont(QFont("Times",18,QFont::Bold));//18 point bold form times family
     QObject::connect(&quit,SIGNAL(clicked()),&a,SLOT(quit()));//connect() is a static function in QObject
