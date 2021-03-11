@@ -1,0 +1,36 @@
+train <- read.csv("train.csv",header = TRUE) #Read from csv files
+test <- read.csv("test.csv",header = TRUE) # We can use entire file path but we already set up the current directory to where we downloaded the data
+# csv files have headers so we made header to be true
+# loaded variables/sets are in left environment pane which we have loaded from above command
+# click on them to get a visual representation of them 
+# variables are data.frame it's a data type in R and designed to handle tabular data and R works best with tabular data
+# to remove variables we use rm() 
+# we will build a classification model we are trying to tell the computer to build an assert from this data that enables it to wither say
+# with certain amount of certainty do they perish or survive the sinking of Titanic 
+# train data allows the computer to use a ML algorithm to use this data and learn from the data the patterns between the data
+# who survived and who didn't in the data set we use data science to understand is either too complicated or it take too long to examine the data with hand
+# we examine the data understand the pattern create algorithms/logic to implements the pattern and do the classification that's what ML is about
+# for further data analysis we have to combine these two data sets into a big super set of data 
+test.survived <- data.frame(survived = rep("None" , nrow(test)) , test[,])
+# we basically added a Survived variable to the test set to allow us combining the data sets as the test set has 11 variables and train set has 12 variables
+# as we are going to train our ML model with the label which is the 12'th variable so we have to add a variable to our test set 
+# we used the data.frame function allows us to create new data frames to know more about the data.frame we can type ?data/?data.frame in console
+# it will open documentation in the help pane it's very rich to learn R 
+# we will add a variable to this data frame called survived to make it 12 variables and make it par with the train set 
+# rep is used to replicate the elements of vectors and lists it's a way to repeat the values hey R repeat the value of none and number of times to do it is equal to the number of rows 
+# in the test data set nrow function returns the number of rows which is 418 and repeat the value of none 418 times and assign that to the survived variable
+# and then combine that variable with the test variable data frame can be indexed with [] if syntax test[,] means i want to subset the test data frame via rows and columns 
+# 1st row and 4th column we write test[1,4] if we need to run some particular code we can select/highlight it & we can run it. value get spit back 
+# if we leave anyone blank we need to use all the rows and all the columns the code tells us take the entire data frame of (test) and combine it with a list  of 418 strings of None and return that
+# back as a big data frame and then assign it back to the new variable called test.survived <- is the equivalent of = assign the result to this variable 
+# now we can combine train and test.survived data frame using the rbind function 
+data.combined <- rbind(train,test.survived)
+#data.combined <- unname(data.combined)
+# rbind means row bind there is also a function called cbind which is used to bind the columns what it dows is to take the train dataframe as a table and append to it row by row the test.survived variable it will give
+# us a combined data frame called data.combined 
+str(data.combined.combined)
+# str function essentially allows to ascertain the structure of of an arbitary R object 
+# factor it is used to encode vector as a factor categorial or enumwrated type variable same as enums in c++ where we can define a variable or a data type 
+# that only takes on a limited set of discrete variables it is like drop down in web ui it's like selecting country on a web site
+# it has a finite number of values so factors are a way of encoding numeric data or charachter data into a discrete data type that then can be used in our machine learning activities
+# 27:25
