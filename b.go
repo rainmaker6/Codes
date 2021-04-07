@@ -69,9 +69,10 @@ func main(){
     o:=[]int{1, 2, 3, 4, 5, 6}
     fmt.Println(o)
     k:=make([]int, 3)
-    fmt.Scanln(&k[0])
-    fmt.Scanln(&k[1])
-    fmt.Scanln(&k[2])
+    for i:=0; i<2; i++{
+        fmt.Scan(&k[i])
+    }
+    //fmt.Scan(&k[0], &k[1], &k[2])
     fmt.Println(k)
     b:=make([][]int, 3)//size of inner slice may vary 
     for i:=0; i<2; i++{
@@ -91,4 +92,12 @@ func main(){
     }
     fmt.Println(h)
     //https://gobyexample.com/slices
+    m_:=make(map[string]int)
+    m_["a"]=1
+    m_["b"]=2
+    fmt.Println(m_)
+    fmt.Println(len(m_))
+    //delete(m_, "a")//write key
+    _, value:=m_["b"]
+    fmt.Println(value)
 }

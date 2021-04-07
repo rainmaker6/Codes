@@ -83,4 +83,5 @@ func main(){
     function(true)
     function(6)
     function("hello")
+    //https://hermanschaaf.com/open-source-go-projects-to-learn-from/
 }

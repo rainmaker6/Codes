@@ -1,8 +1,3 @@
-#ifndef ALGORITHM
-#define ALGORITHM
-
-#include<algorithm>
-
 template<typename S>
 S max2(S a,S b)
 {
