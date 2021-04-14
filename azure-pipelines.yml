@@ -1,0 +1,24 @@
+pool:
+  vmImage: 'Ubuntu 16.04' 
+
+steps:
+- script: 'mkdir build'
+  displayName: Make build dir
+
+- script: 'cmake ..'
+  displayName: CMake
+  workingDirectory: build
+
+- script: make VERBOSE=1
+  displayName: Make
+  workingDirectory: build
+
+- script: 'ctest -VV'
+  displayName: Quick test
+  workingDirectory: build
+
+- script: |
+    ./t1
+    ./t2
+  displayName: Samples
+  workingDirectory: build
