@@ -1,40 +1,31 @@
-name: CI
-# Workflow file for windows
-on:
-  push:
-    branches:
-      - master
-  pull_request: {}
+name: C/C++ CI
 
 jobs:
-  Windows:
-    name: build-windows
-    runs-on: [self-hosted, windows]
+  build-ubuntu:
 
+    runs-on: ubuntu-latest
+    
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-          submodules: recursive
+    - uses: actions/checkout@v1
+    - name: configure
+      run: mkdir build && cd build && cmake -DCMAKE_CXX_FLAGS="-Werror" ..
+    - name: build
+      run: cmake --build build
+    - name: test
+      run: cd build && ctest
 
-    - name: Installing vcpkg (windows)
-      run: |
-        cd ..
-        git clone https://github.com/Microsoft/vcpkg.git
-        cd vcpkg
-        git checkout --force 2020.01
-        .\bootstrap-vcpkg.bat
-        .\vcpkg.exe install cppzmq:x64-windows
+  build-windows:
 
-    - name: Running cmake (windows)
-      run: |
-        cd ${{ github.workspace }}
-        mkdir build
-        cd build
-        cmake .. -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}
-                  /../vcpkg/scripts/buildsystems/vcpkg.cmake
-
-    - name: Build Solution (windows)
-      run: |
-        cd build
-        MSBuild.exe CMakea.sln
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, windows-2016]
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: configure
+      run: mkdir build && cd build && cmake ..
+    - name: build
+      run: cmake --build build --config Debug
+    - name: test
+      run: cd build && ctest
