@@ -9,7 +9,7 @@ void test_case()
 {
 int n,k;
 cin>>n>>k;	
-vector<int> a(n)b(n);
+vector<int> a(n),b(n);
 
 for(int i=0;i<n;++i)
 cin>>a[i];
