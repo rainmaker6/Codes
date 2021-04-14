@@ -9,65 +9,83 @@ int main() {
   int tt;
   cin >> tt;
   while (tt--) {
-    int n, m;
-    cin >> n >> m;
-    vector<vector<int>> p(n * n, vector<int>(3));
+    int n;
+    cin >> n;
+    vector<int> color(n);
     for (int i = 0; i < n; i++) {
-      for (int j = 0; j < n; j++) {
-        int v;
-        cin >> v;
-        --v;
-        p[i * n + j][0] = i;
-        p[i * n + j][1] = j;
-        p[i * n + j][2] = v;
-      }
+      cin >> color[i];
+      --color[i];
     }
-    string s;
-    cin >> s;
-    vector<int> order(3);
-    iota(order.begin(), order.end(), 0);
-    vector<int> shift(3, 0);
-    for (char c : s) {
-      if (c == 'R') {
-        shift[1] = (shift[1] + 1) % n;
-      }
-      if (c == 'L') {
-        shift[1] = (shift[1] + n - 1) % n;
-      }
-      if (c == 'D') {
-        shift[0] = (shift[0] + 1) % n;
-      }
-      if (c == 'U') {
-        shift[0] = (shift[0] + n - 1) % n;
-      }
-      if (c == 'I') {
-        swap(order[1], order[2]);
-        swap(shift[1], shift[2]);
-      }
-      if (c == 'C') {
-        swap(order[0], order[2]);
-        swap(shift[0], shift[2]);
-      }
+    vector<vector<int>> g(n);
+    for (int i = 0; i < n - 1; i++) {
+      int x, y;
+      cin >> x >> y;
+      --x; --y;
+      g[x].push_back(y);
+      g[y].push_back(x);
     }
-    vector<vector<int>> a(n, vector<int>(n, -1));
-    vector<int> z(3);
-    for (int i = 0; i < n * n; i++) {
-      for (int j = 0; j < 3; j++) {
-        z[j] = (p[i][order[j]] + shift[j]) % n;
-      }
-      a[z[0]][z[1]] = z[2];
-    }
-    for (int i = 0; i < n; i++) {
-      for (int j = 0; j < n; j++) {
-        if (j > 0) {
-          cout << " ";
+    vector<int> order;
+    vector<int> pv(n, -1);
+    function<void(int, int)> Dfs = [&](int v, int pr) {
+      pv[v] = pr;
+      order.push_back(v);
+      for (int u : g[v]) {
+        if (u == pr) {
+          continue;
         }
-        assert(a[i][j] != -1);
-        cout << a[i][j] + 1;
+        Dfs(u, v);
       }
-      cout << '\n';
+    };
+    Dfs(0, -1);
+    const int inf = (int) 1e9;
+    vector<vector<int>> dp(n, vector<int>(2));
+    int low = 0, high = n;
+    while (low < high) {
+      int mid = (low + high) >> 1;
+      for (int it = n - 1; it >= 0; it--) {
+        int v = order[it];
+        for (int j = 0; j < 2; j++) {
+          dp[v][j] = -1;
+          if (color[v] == 1 - j) {
+            continue;
+          }
+          int mx1 = 0;
+          int mx2 = 0;
+          bool ok = true;
+          for (int u : g[v]) {
+            if (pv[u] == v) {
+              int mn = inf;
+              for (int jj = 0; jj < 2; jj++) {
+                if (dp[u][jj] != -1) {
+                  mn = min(mn, dp[u][jj] + (j != jj));
+                }
+              }
+              if (mn == inf) {
+                ok = false;
+                break;
+              }
+              if (mn > mx1) {
+                mx2 = mx1;
+                mx1 = mn;
+              } else {
+                if (mn > mx2) {
+                  mx2 = mn;
+                }
+              }
+            }
+          }
+          if (ok && mx1 + mx2 <= mid) {
+            dp[v][j] = mx1;
+          }
+        }
+      }
+      if (dp[0][0] != -1 || dp[0][1] != -1) {
+        high = mid;
+      } else {
+        low = mid + 1;
+      }
     }
-    cout << '\n';
+    cout << (low + 3) / 2 << '\n';
   }
   return 0;
 }
