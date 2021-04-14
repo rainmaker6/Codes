@@ -3,6 +3,7 @@ project (codes)
 add_executable(a a.cpp)
 add_executable(b b.cpp)
 add_executable(c c.cpp)
+
 enable_testing()
 include(CTest)
 add_test(test1 a)

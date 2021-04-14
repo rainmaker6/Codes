@@ -1,7 +1,4 @@
-/**
- *    author:  tourist
- *    created: 25.12.2020 15:03:58       
-**/
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -12,39 +9,65 @@ int main() {
   int tt;
   cin >> tt;
   while (tt--) {
+    int n, m;
+    cin >> n >> m;
+    vector<vector<int>> p(n * n, vector<int>(3));
+    for (int i = 0; i < n; i++) {
+      for (int j = 0; j < n; j++) {
+        int v;
+        cin >> v;
+        --v;
+        p[i * n + j][0] = i;
+        p[i * n + j][1] = j;
+        p[i * n + j][2] = v;
+      }
+    }
     string s;
     cin >> s;
-    int n = (int) s.size();
-    vector<int> x(n + 1);
-    vector<int> y(n + 1);
+    vector<int> order(3);
+    iota(order.begin(), order.end(), 0);
+    vector<int> shift(3, 0);
+    for (char c : s) {
+      if (c == 'R') {
+        shift[1] = (shift[1] + 1) % n;
+      }
+      if (c == 'L') {
+        shift[1] = (shift[1] + n - 1) % n;
+      }
+      if (c == 'D') {
+        shift[0] = (shift[0] + 1) % n;
+      }
+      if (c == 'U') {
+        shift[0] = (shift[0] + n - 1) % n;
+      }
+      if (c == 'I') {
+        swap(order[1], order[2]);
+        swap(shift[1], shift[2]);
+      }
+      if (c == 'C') {
+        swap(order[0], order[2]);
+        swap(shift[0], shift[2]);
+      }
+    }
+    vector<vector<int>> a(n, vector<int>(n, -1));
+    vector<int> z(3);
+    for (int i = 0; i < n * n; i++) {
+      for (int j = 0; j < 3; j++) {
+        z[j] = (p[i][order[j]] + shift[j]) % n;
+      }
+      a[z[0]][z[1]] = z[2];
+    }
     for (int i = 0; i < n; i++) {
-      x[i + 1] = x[i] + (s[i] == 'L' ? -1 : (s[i] == 'R' ? 1 : 0));
-      y[i + 1] = y[i] + (s[i] == 'D' ? -1 : (s[i] == 'U' ? 1 : 0));
-    }
-    int bx = 0;
-    int by = 0;
-    for (int cell = 1; cell <= n; cell++) {
-      int mx = 0;
-      int my = 0;
-      for (char c : s) {
-        if (c == 'U') my += 1;
-        if (c == 'D') my -= 1;
-        if (c == 'L') mx -= 1;
-        if (c == 'R') mx += 1;
-        if (mx == x[cell] && my == y[cell]) {
-          if (c == 'U') my -= 1;
-          if (c == 'D') my += 1;
-          if (c == 'L') mx += 1;
-          if (c == 'R') mx -= 1;
+      for (int j = 0; j < n; j++) {
+        if (j > 0) {
+          cout << " ";
         }
+        assert(a[i][j] != -1);
+        cout << a[i][j] + 1;
       }
-      if (mx == 0 && my == 0) {
-        bx = x[cell];
-        by = y[cell];
-        break;
-      }
+      cout << '\n';
     }
-    cout << bx << " " << by << '\n';
+    cout << '\n';
   }
   return 0;
 }
