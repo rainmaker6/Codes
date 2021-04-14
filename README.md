@@ -1,3 +1,2 @@
 Build 
-![ci-cd-master](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)
-hub ci-status %S --color master
+![gcc](https://github.com/rainmaker6/codes/workflows/GCC%20/badge.svg?branch=master)
