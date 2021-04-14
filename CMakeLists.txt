@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.20.0)
 project (codes)
 add_executable(a a.cpp )
+add_executable(1353B-Two Arrays And Swaps 1353B-Two Arrays And Swaps.cpp)
 enable_testing()
 add_test(test1 a)
+add_test(test2 1353B-Two Arrays And Swaps.cpp)
