@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.20.0)
 project (codes)
 add_executable(a a.cpp )
-add_test(NAME test1 COMMAND a)
+enable_testing()
+add_test(test1 a)
