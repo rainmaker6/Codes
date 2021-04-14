@@ -15,6 +15,8 @@ steps:
     - uses: actions/checkout@v2
     - name: configure
       run: g++ hello.cpp -o hello
+steps:
+    - uses: actions/checkout@v2
     - name: run
       run: ./hello
     
