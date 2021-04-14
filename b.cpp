@@ -1,136 +1,220 @@
-// A C++ program for Bellman-Ford's single source
-// shortest path algorithm.
+/**
+ *    author:  tourist
+ *    created: 13.03.2021 14:01:42       
+**/
 #include <bits/stdc++.h>
 
-// a structure to represent a weighted edge in graph
-struct Edge {
-	int src, dest, weight;
-};
+using namespace std;
 
-// a structure to represent a connected, directed and
-// weighted graph
-struct Graph {
-	// V-> Number of vertices, E-> Number of edges
-	int V, E;
+template <typename A, typename B>
+string to_string(pair<A, B> p);
 
-	// graph is represented as an array of edges.
-	struct Edge* edge;
-};
+template <typename A, typename B, typename C>
+string to_string(tuple<A, B, C> p);
 
-// Creates a graph with V vertices and E edges
-struct Graph* createGraph(int V, int E)
-{
-	struct Graph* graph = new Graph;
-	graph->V = V;
-	graph->E = E;
-	graph->edge = new Edge[E];
-	return graph;
+template <typename A, typename B, typename C, typename D>
+string to_string(tuple<A, B, C, D> p);
+
+string to_string(const string& s) {
+  return '"' + s + '"';
 }
 
-// A utility function used to print the solution
-void printArr(int dist[], int n)
-{
-	printf("Vertex Distance from Source\n");
-	for (int i = 0; i < n; ++i)
-		printf("%d \t\t %d\n", i, dist[i]);
+string to_string(const char* s) {
+  return to_string((string) s);
 }
 
-// The main function that finds shortest distances from src to
-// all other vertices using Bellman-Ford algorithm. The function
-// also detects negative weight cycle
-void BellmanFord(struct Graph* graph, int src)
-{
-	int V = graph->V;
-	int E = graph->E;
-	int dist[V];
-
-	// Step 1: Initialize distances from src to all other vertices
-	// as INFINITE
-	for (int i = 0; i < V; i++)
-		dist[i] = INT_MAX;
-	dist[src] = 0;
-
-	// Step 2: Relax all edges |V| - 1 times. A simple shortest
-	// path from src to any other vertex can have at-most |V| - 1
-	// edges
-	for (int i = 1; i <= V - 1; i++) {
-		for (int j = 0; j < E; j++) {
-			int u = graph->edge[j].src;
-			int v = graph->edge[j].dest;
-			int weight = graph->edge[j].weight;
-			if (dist[u] != INT_MAX && dist[u] + weight < dist[v])
-				dist[v] = dist[u] + weight;
-		}
-	}
-
-	// Step 3: check for negative-weight cycles. The above step
-	// guarantees shortest distances if graph doesn't contain
-	// negative weight cycle. If we get a shorter path, then there
-	// is a cycle.
-	for (int i = 0; i < E; i++) {
-		int u = graph->edge[i].src;
-		int v = graph->edge[i].dest;
-		int weight = graph->edge[i].weight;
-		if (dist[u] != INT_MAX && dist[u] + weight < dist[v]) {
-			printf("Graph contains negative weight cycle");
-			return; // If negative cycle is detected, simply return
-		}
-	}
-
-	printArr(dist, V);
-
-	return;
+string to_string(bool b) {
+  return (b ? "true" : "false");
 }
 
-// Driver program to test above functions
-int main()
-{
-	/* Let us create the graph given in above example */
-	int V = 5; // Number of vertices in graph
-	int E = 8; // Number of edges in graph
-	struct Graph* graph = createGraph(V, E);
+string to_string(vector<bool> v) {
+  bool first = true;
+  string res = "{";
+  for (int i = 0; i < static_cast<int>(v.size()); i++) {
+    if (!first) {
+      res += ", ";
+    }
+    first = false;
+    res += to_string(v[i]);
+  }
+  res += "}";
+  return res;
+}
 
-	// add edge 0-1 (or A-B in above figure)
-	graph->edge[0].src = 0;
-	graph->edge[0].dest = 1;
-	graph->edge[0].weight = -1;
+template <size_t N>
+string to_string(bitset<N> v) {
+  string res = "";
+  for (size_t i = 0; i < N; i++) {
+    res += static_cast<char>('0' + v[i]);
+  }
+  return res;
+}
 
-	// add edge 0-2 (or A-C in above figure)
-	graph->edge[1].src = 0;
-	graph->edge[1].dest = 2;
-	graph->edge[1].weight = 4;
+template <typename A>
+string to_string(A v) {
+  bool first = true;
+  string res = "{";
+  for (const auto &x : v) {
+    if (!first) {
+      res += ", ";
+    }
+    first = false;
+    res += to_string(x);
+  }
+  res += "}";
+  return res;
+}
 
-	// add edge 1-2 (or B-C in above figure)
-	graph->edge[2].src = 1;
-	graph->edge[2].dest = 2;
-	graph->edge[2].weight = 3;
+template <typename A, typename B>
+string to_string(pair<A, B> p) {
+  return "(" + to_string(p.first) + ", " + to_string(p.second) + ")";
+}
 
-	// add edge 1-3 (or B-D in above figure)
-	graph->edge[3].src = 1;
-	graph->edge[3].dest = 3;
-	graph->edge[3].weight = 2;
+template <typename A, typename B, typename C>
+string to_string(tuple<A, B, C> p) {
+  return "(" + to_string(get<0>(p)) + ", " + to_string(get<1>(p)) + ", " + to_string(get<2>(p)) + ")";
+}
 
-	// add edge 1-4 (or A-E in above figure)
-	graph->edge[4].src = 1;
-	graph->edge[4].dest = 4;
-	graph->edge[4].weight = 2;
+template <typename A, typename B, typename C, typename D>
+string to_string(tuple<A, B, C, D> p) {
+  return "(" + to_string(get<0>(p)) + ", " + to_string(get<1>(p)) + ", " + to_string(get<2>(p)) + ", " + to_string(get<3>(p)) + ")";
+}
 
-	// add edge 3-2 (or D-C in above figure)
-	graph->edge[5].src = 3;
-	graph->edge[5].dest = 2;
-	graph->edge[5].weight = 5;
+void debug_out() { cerr << endl; }
 
-	// add edge 3-1 (or D-B in above figure)
-	graph->edge[6].src = 3;
-	graph->edge[6].dest = 1;
-	graph->edge[6].weight = 1;
+template <typename Head, typename... Tail>
+void debug_out(Head H, Tail... T) {
+  cerr << " " << to_string(H);
+  debug_out(T...);
+}
 
-	// add edge 4-3 (or E-D in above figure)
-	graph->edge[7].src = 4;
-	graph->edge[7].dest = 3;
-	graph->edge[7].weight = -3;
+#ifdef LOCAL
+#define debug(...) cerr << "[" << #__VA_ARGS__ << "]:", debug_out(__VA_ARGS__)
+#else
+#define debug(...) 42
+#endif
 
-	BellmanFord(graph, 0);
-
-	return 0;
+int main() {
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  int n;
+  long long C;
+  cin >> n >> C;
+  vector<long long> w(n - 2);
+  for (int i = 0; i < n - 2; i++) {
+    cin >> w[i];
+  }
+  long long L = 0;
+  long long R = w[0];
+  set<long long> s;
+  long long k = 1;
+  long long b = 0;
+  vector<long long> Ls(n - 2);
+  vector<long long> Rs(n - 2);
+  vector<bool> flag(n - 2);
+  vector<long long> any(n - 2);
+  Ls[0] = L;
+  Rs[0] = R;
+  any[0] = L;
+  for (int i = 1; i < n - 2; i++) {
+    bool inside = false;
+    inside |= (L <= w[i] && w[i] <= R);
+    if (!inside) {
+      auto it = s.find((w[i] - b) / k);
+      inside |= (it != s.end());
+    }
+    flag[i] = inside;
+    if (inside) {
+      L = 0;
+      R = w[i];
+      s.clear();
+      k = 1;
+      b = 0;
+    } else {
+      if (L <= R && L > w[i]) {
+        L = -1;
+        R = -2;
+      }
+      while (!s.empty()) {
+        auto it = (k == 1 ? prev(s.end()) : s.begin());
+        if (k * (*it) + b <= w[i]) {
+          break;
+        }
+        s.erase(it);
+      }
+      if (L > R && s.empty()) {
+        cout << "NO" << '\n';
+        return 0;
+      }
+      if (L <= R) {
+        any[i - 1] = L;
+      } else {
+        any[i - 1] = k * (*s.begin()) + b;
+      }
+      if (L <= R) {
+        L = w[i] - L;
+        R = w[i] - R;
+        swap(L, R);
+      }
+      // x -> k * x + b
+      // I want: x -> w - (k * x + b)
+      // x -> -k * x + (w - b)
+      k = -k;
+      b = w[i] - b;
+      s.insert((w[i] - b) / k);
+    }
+    debug(L, R, s, k, b);
+    Ls[i] = L;
+    Rs[i] = R;
+  }
+  cout << "YES" << '\n';
+  vector<long long> d(n - 2);
+  if (L <= R) {
+    d.back() = L;
+  } else {
+    d.back() = k * (*s.begin()) + b;
+  }
+  debug(any);
+  for (int i = n - 3; i > 0; i--) {
+    if (flag[i]) {
+      d[i - 1] = w[i];
+    } else {
+      if (d[i] == w[i]) {
+        d[i - 1] = any[i - 1];
+      } else {
+        d[i - 1] = w[i] - d[i];
+      }
+    }
+    assert(0 <= d[i - 1] && d[i - 1] <= w[i - 1]);
+  }
+  debug(d);
+  vector<long long> a(n);
+  a[0] = 0;
+  a[1] = w[0] - d[0];
+  a[2] = w[0];
+  for (int i = 3; i < n; i++) {
+    bool found = false;
+    for (int sign = -1; sign <= 1; sign += 2) {
+      a[i] = a[i - 1] + sign * d[i - 2];
+      long long mx = max(a[i], max(a[i - 1], a[i - 2]));
+      long long mn = min(a[i], min(a[i - 1], a[i - 2]));
+      if (mx - mn == w[i - 2]) {
+        found = true;
+        break;
+      }
+    }
+    assert(found);
+  }
+  long long mn = *min_element(a.begin(), a.end());
+  for (int i = 0; i < n; i++) {
+    a[i] -= mn;
+  }
+  for (int i = 0; i < n; i++) {
+    if (i > 0) {
+      cout << " ";
+    }
+    cout << a[i];
+  }
+  cout << '\n';
+  return 0;
 }
