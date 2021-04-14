@@ -11,8 +11,10 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    steps:
+steps:
     - uses: actions/checkout@v2
     - name: configure
       run: g++ hello.cpp -o hello
+    - name: run
       run: ./hello
+    
