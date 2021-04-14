@@ -1,2 +1,2 @@
 Build 
-![Build Status](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)
+![ci-cd-master](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)
