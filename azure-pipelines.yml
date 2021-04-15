@@ -1,23 +1,16 @@
-variables:
-  #system.debug: true
-  configuration: release
-
 trigger:
   - master
-
 jobs:
-  - job: 'ubuntu_run'
+  - job: run
     pool:
-      vmImage: 'ubuntu-latest'
+      vmImage: ubuntu-latest
     steps:
-      - template: .ci/install-gcc.yml
-        parameters:
-          major_version: '6'
-      - script: which g++ && g++ --version
-        displayName: 'Check GCC'
-      - template: .ci/check-cmake.yml
       - script: |
-          sudo -E apt-get update
-      - template: .ci/build-gcc.yml
-        parameters:
-          cxxver: '17'
+          mkdir build
+          cd build
+          cmake -DCMAKE_CXX_FLAGS="-Werror" ..
+          displayName: 'Build'
+      - script: |
+          cmake --build build
+          cd build ctest
+          displayNmae: 'Test'
