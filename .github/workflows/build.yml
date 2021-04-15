@@ -2,7 +2,7 @@ name: C/C++ CI
 on: 
  push
 jobs:
-  gcc-9:
+  gcc-9.3.0:
 
     runs-on: ubuntu-latest
     
