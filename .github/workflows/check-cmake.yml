@@ -1,9 +1,7 @@
-on: 
- push
- jobs:
-  build-ubuntu:
-
-    runs-on: ubuntu-latest
+on: push
+jobs: 
+    build-ubuntu:
+runs-on: ubuntu-latest
 steps:
   - script: cmake --version
     displayName: 'Check CMake'
