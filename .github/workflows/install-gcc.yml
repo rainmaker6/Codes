@@ -1,5 +1,9 @@
 on: 
  push
+ jobs:
+  build-ubuntu:
+
+    runs-on: ubuntu-latest
 parameters:
   # defaults, if not specified
   major_version: 8
