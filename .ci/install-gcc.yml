@@ -1,7 +1,10 @@
 parameters:
   # defaults, if not specified
   major_version: 8
-
+jobs:
+- job: Linux
+  pool:
+    vmImage: 'ubuntu-latest'
 steps:
   - bash: |
       sudo apt install build-essential

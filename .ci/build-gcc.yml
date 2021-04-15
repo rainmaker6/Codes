@@ -1,6 +1,10 @@
 parameters:
   configuration: Release
   cxxver: '17'
+jobs:
+- job: Linux
+  pool:
+    vmImage: 'ubuntu-latest'
 steps:
   - bash: |
       mkdir build
