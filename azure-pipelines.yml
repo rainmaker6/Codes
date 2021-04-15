@@ -10,14 +10,14 @@ jobs:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-      - template: .github/workflows/install-gcc.yml
+      - template: .ci/install-gcc.yml
         parameters:
           major_version: '6'
       - script: which g++ && g++ --version
         displayName: 'Check GCC'
-      - template: .github/workflows/check-cmake.yml
+      - template: .ci/check-cmake.yml
       - script: |
           sudo -E apt-get update
-      - template: .github/workflows/build-gcc.yml
+      - template: .ci/build-gcc.yml
         parameters:
           cxxver: '17'
