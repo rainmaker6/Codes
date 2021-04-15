@@ -1,18 +1,13 @@
 parameters:
-  # defaults, if not specified
-  configuration: 'Release'
+  configuration: Release
   cxxver: '17'
-
 steps:
-  - script: |
-    mkdir build
-    cd build
-    cmake -DCMAKE_CXX_FLAGS="-Werror" ..
-    displayName: 'Run CMake to configure build'
-    
-  - script: cmake --build build
-    displayName: 'Run CMake to build'
-    
-    - script: cd build && ctest -V --output-on-failure --build-config
-    displayName: 'Run CTest to test'
-
+  - bash: |
+      mkdir build
+      cd build
+      cmake -DCMAKE_CXX_FLAGS="-Werror" ..
+    displayName: Run CMake to configure build
+  - bash: cmake --build build
+    displayName: Run CMake to build
+  - bash: cd build ctest
+    displayName: Run CTest to test
