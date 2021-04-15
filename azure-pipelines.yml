@@ -6,7 +6,7 @@ trigger:
   - master
 
 jobs:
-  - job: 'GCC-10'
+  - job: 'ubuntu_run'
     pool:
       vmImage: 'ubuntu-latest'
     steps:
