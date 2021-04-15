@@ -21,17 +21,17 @@ jobs:
           sudo apt-get install clang-tools-11
         shell: bash
       - name: cmake
-        run: cmake -DCMAKE_CXX_FLAGS="-Werror" ..
+        run: cd build && cmake -DCMAKE_CXX_FLAGS="-Werror" ..
       - name: build
-        run: cmake --build build --target ci_test_clang
+        run: cmake --build build --target test_clang
   ci_test_gcc:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: cmake
-        run: cmake -DCMAKE_CXX_FLAGS="-Werror" ..
+        run: cd build && cmake -DCMAKE_CXX_FLAGS="-Werror" ..
       - name: build
-        run: cmake --build build --target ci_test_gcc
+        run: cmake --build build --target test_gcc
   ci_test_compilers:
     runs-on: ubuntu-latest
     strategy:
@@ -59,7 +59,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: cmake
-        run: cmake -DCMAKE_CXX_FLAGS="-Werror" ..
+        run: cd build && cmake -DCMAKE_CXX_FLAGS="-Werror" ..
       - name: build
         run: 'cmake --build build --target ci_test_compiler_${{ matrix.compiler }}'
   ci_test_standards:
@@ -77,7 +77,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: cmake
-        run: cmake -DCMAKE_CXX_FLAGS="-Werror" ..
+        run: cd build && cmake -DCMAKE_CXX_FLAGS="-Werror" ..
       - name: build
         run: >-
           cmake --build build --target ci_test_${{ matrix.compiler }}_cxx${{
