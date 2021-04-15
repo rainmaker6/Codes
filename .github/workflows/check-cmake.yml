@@ -1,3 +1,5 @@
+on: 
+ push
 steps:
   - script: cmake --version
     displayName: 'Check CMake'

@@ -1,3 +1,5 @@
+on: 
+ push
 parameters:
   configuration: Release
   cxxver: '17'

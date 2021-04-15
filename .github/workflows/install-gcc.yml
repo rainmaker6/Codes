@@ -1,3 +1,5 @@
+on: 
+ push
 parameters:
   # defaults, if not specified
   major_version: 8
