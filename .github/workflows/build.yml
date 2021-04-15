@@ -1,10 +1,6 @@
 name: C/C++ CI
 on: 
  push
- paths:
-    - '!.github/wordflows/build-gcc.yml'
-    - '!.github/wordflows/check-cmake.yml'
-    - '!.github/wordflows/install-gcc.yml'
 jobs:
   build-ubuntu:
 
