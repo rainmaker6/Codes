@@ -1,19 +1,23 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+variables:
+  #system.debug: true
+  configuration: release
 
 trigger:
-- master
+  - master
 
-pool:
-  vmImage: ubuntu-latest
-
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+jobs:
+  - job: 'GCC-10'
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - template: .github/workflows/install-gcc.yml
+        parameters:
+          major_version: '6'
+      - script: which g++ && g++ --version
+        displayName: 'Check GCC'
+      - template: .github/workflows/check-cmake.yml
+      - script: |
+          sudo -E apt-get update
+      - template: .github/workflows/build-gcc.yml
+        parameters:
+          cxxver: '17'
