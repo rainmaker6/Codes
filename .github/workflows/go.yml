@@ -23,7 +23,7 @@ jobs:
           go-version: ${{ matrix.go }}
 
       - name: verify go
-        run: testGo/verify-go.sh ${{ matrix.go }}
+        run: go/verify-go.sh ${{ matrix.go }}
         shell: bash
 
   setup-versions-from-manifest:
@@ -44,7 +44,7 @@ jobs:
           go-version: ${{ matrix.go }}
       
       - name: verify go
-        run: testGo/verify-go.sh ${{ matrix.go }}
+        run: go/verify-go.sh ${{ matrix.go }}
         shell: bash
 
   setup-versions-from-dist:
@@ -63,5 +63,5 @@ jobs:
       with:
         go-version: ${{ matrix.go }}
     - name: verify go
-      run: testGo/verify-go.sh ${{ matrix.go }}
+      run: go/verify-go.sh ${{ matrix.go }}
       shell: bash
