@@ -25,11 +25,11 @@ jobs:
         run: go get -u golang.org/x/lint/golint
       - name: build
         working-directory: go/
-        run: go build .
+        run: go build a.go
       - name: Run vet & lint
         run: |
-          go vet .
-          golint .
+          go vet a.go
+          golint a.go
       - name: Run testing
         working-directory: go/
-        run: go test -v
+        run: go test -v a.go
