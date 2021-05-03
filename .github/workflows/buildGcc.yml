@@ -1,10 +1,8 @@
 name: BuildGcc
 on:
-  push
- branches:
-   - master
-  paths:
-    - '**.cpp'
+  push:
+    paths:
+        - '**.cpp'
 jobs:
   gcc-9:
     runs-on: ubuntu-latest
