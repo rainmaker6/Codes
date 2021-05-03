@@ -1,7 +1,8 @@
 name: GoBuild
 on:
   push:
-    paths:
+    branches:
+      - master
         - '**.go'
 jobs:
   build:

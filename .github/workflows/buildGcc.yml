@@ -1,11 +1,26 @@
-name: BuildGcc
+name: buildGcc
 on:
   push:
-    paths:
+    branches:
+      - master
         - '**.cpp'
 jobs:
   gcc-9:
+  name: "${{matrix.config.cxx}} -std=c++${{matrix.config.cxxstd}}"
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - {cc: gcc-7, cxx: g++-7, cxxstd: 11}
+          - {cc: gcc-8, cxx: g++-8, cxxstd: 11}
+          - {cc: gcc-9, cxx: g++-9, cxxstd: 11}
+          - {cc: gcc-10, cxx: g++-10, cxxstd: 11}
+          - {cc: gcc-7, cxx: g++-7, cxxstd: 17}
+          - {cc: gcc-8, cxx: g++-8, cxxstd: 17}
+          - {cc: gcc-9, cxx: g++-9, cxxstd: 17}
+          - {cc: gcc-10, cxx: g++-10, cxxstd: 17}
+          - {cc: gcc-10, cxx: g++-10, cxxstd: 2a} 
     steps:
       - uses: actions/checkout@v2
       - name: configure
