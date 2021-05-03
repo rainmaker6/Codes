@@ -7,7 +7,7 @@ jobs:
   gcc-9:
     runs-on: '${{ matrix.os }}'
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         os:
           - windows-latest
@@ -16,8 +16,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: configure
+        working-directory: ../cpp
         run: mkdir build && cd build && cmake -DCMAKE_CXX_FLAGS="-Werror" ..
       - name: build
+        working-directory: ../cpp
         run: cmake --build build
       - name: test
+        working-directory: ../cpp
         run: cd build && ctest
