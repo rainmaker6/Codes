@@ -1,8 +1,8 @@
 name: BuildGcc
 on:
-  push:
-    branches:
-      - master
+  push
+ branches:
+   - master
   paths:
     - '**.cpp'
 jobs:
