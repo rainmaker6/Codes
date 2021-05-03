@@ -1,70 +1,45 @@
+on: [push, pull_request]
 name: go
-on:
-  push:
-    branches:
-      - master
-
 jobs:
-  local-cache:
-    name: Setup local-cache version
-    runs-on: ${{ matrix.os }}
+  test:
     strategy:
-      fail-fast: false
       matrix:
-        os: [macos-latest, windows-latest, ubuntu-latest]
-        go: [1.14.x, 1.15.x, 1.16.x]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: setup-go ${{ matrix.go }}
-        uses: ./
-        with:
-          go-version: ${{ matrix.go }}
-
-      - name: verify go
-        working-directory: go/
-        run: verify-go.sh ${{ matrix.go }}
-        shell: bash
-
-  setup-versions-from-manifest:
-    name: Setup ${{ matrix.go }} ${{ matrix.os }}
+        go-version: [1.14.x, 1.15.x, 1.16.x]
+        os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [macos-latest, windows-latest, ubuntu-latest]
-        go: [1.12.16, 1.13.11, 1.14.3]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      
-      - name: setup-go ${{ matrix.go }}
-        uses: ./
-        with:
-          go-version: ${{ matrix.go }}
-      
-      - name: verify go
-        working-directory: go/
-        run: verify-go.sh ${{ matrix.go }}
-        shell: bash
-
-  setup-versions-from-dist:
-    name: Setup ${{ matrix.go }} ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [macos-latest, windows-latest, ubuntu-latest]
-        go: [1.7, 1.8.6]
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: setup-go ${{ matrix.go }}
-      uses: ./
+    - name: Install Go
+      uses: actions/setup-go@v2
       with:
-        go-version: ${{ matrix.go }}
-    - name: verify go
-      working-directory: go/
-      run: verify-go.sh ${{ matrix.go }}
-      shell: bash
+        go-version: ${{ matrix.go-version }}
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Test
+      run: go test ./...
+
+  test-cache:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.16.x
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - uses: actions/cache@v2
+      with:
+        # In order:
+        # * Module download cache
+        # * Build cache (Linux)
+        # * Build cache (Mac)
+        # * Build cache (Windows)
+        path: |
+          ~/go/pkg/mod
+          ~/.cache/go-build
+          ~/Library/Caches/go-build
+          %LocalAppData%\go-build
+        key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+        restore-keys: |
+          ${{ runner.os }}-go-
+    - name: Test
+      run: go test ./...
