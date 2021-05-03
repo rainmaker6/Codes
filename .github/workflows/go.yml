@@ -6,6 +6,7 @@ name: go
 jobs:
   go:
     runs-on: '${{ matrix.os }}'
+    - uses: actions/checkout@v2
     strategy:
       fail-fast: true
       matrix:
@@ -18,7 +19,6 @@ jobs:
           - 1.14.x
           - 1.15.x
   steps:
-    - uses: actions/checkout@v2
     - name: configure
       uses: actions/setup-go@v2
       with:
