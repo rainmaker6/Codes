@@ -5,7 +5,7 @@ func main(){
     fmt.Println(math.Pow(2,3))
     fmt.Println(time.Now())
     t:="Hello World!"
-    fmt.Println(t)
+    fmt.Println(t) 
     var s int = 6
     fmt.Println(s)
     if s%2 == 0{
