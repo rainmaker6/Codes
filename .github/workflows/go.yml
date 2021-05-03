@@ -17,21 +17,12 @@ jobs:
           - windows-latest
     runs-on: '${{ matrix.platform }}'
     steps:
-      - name: configure
+      - name: Install Go
         uses: actions/setup-go@v2
         with:
           go-version: '${{ matrix.go-version }}'
-      - name: Install dependencies
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Test
         working-directory: go/
-        run: go get -u golang.org/x/lint/golint
-      - name: build
-        working-directory: go/
-        run: go build a.go
-      - name: Run vet & lint
-        working-directory: go/
-        run: |
-          go vet a.go
-          golint a.go
-      - name: Run Test
-        working-directory: go/
-        run: go test a
+        run: go test ./...
