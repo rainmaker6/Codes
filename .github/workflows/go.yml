@@ -30,6 +30,8 @@ jobs:
         run: mkdir test && cd test
       - name: build
         working-directory: go/
+        env:
+          GOPROXY: 'https://proxy.golang.org'
         run: go build .
       - name: Run vet & lint
         working-directory: go/test
@@ -40,4 +42,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Test
         working-directory: go/
+        env:
+          GOPROXY: 'https://proxy.golang.org'
         run: cd test && go test -v
