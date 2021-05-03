@@ -21,17 +21,14 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: '${{ matrix.go-version }}'
-      - name: Install dependencies        
+      - name: Install dependencies
+        run: go get -u golang.org/x/lint/golint
+      - name: build
+        run: cd go && go build .
+      - name: Run vet & lint
         run: |
-            go version
-            go get -u golang.org/x/lint/golint
-       - name: build
-         working-directory: go/
-         run: go build .
-         - name: Run vet & lint
-           run: |
-            go vet .
-            golint .
+          go vet .
+          golint .
       - name: Run testing
         working-directory: go/
         run: go test -v
