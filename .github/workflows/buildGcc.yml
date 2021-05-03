@@ -9,22 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      matrix:
-        config:
-          - {cc: gcc-7, cxx: g++-7, cxxstd: 11}
-          - {cc: gcc-8, cxx: g++-8, cxxstd: 11}
-          - {cc: gcc-9, cxx: g++-9, cxxstd: 11}
-          - {cc: gcc-10, cxx: g++-10, cxxstd: 11}
-          - {cc: gcc-7, cxx: g++-7, cxxstd: 17}
-          - {cc: gcc-8, cxx: g++-8, cxxstd: 17}
-          - {cc: gcc-9, cxx: g++-9, cxxstd: 17}
-          - {cc: gcc-10, cxx: g++-10, cxxstd: 17}
-          - {cc: gcc-10, cxx: g++-10, cxxstd: 2a} 
+    runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v2
-      - name: configure
-        run: mkdir build && cd build && cmake -DCMAKE_CXX_FLAGS="-Werror" ..
-      - name: build
-        run: cmake --build build
-      - name: test
-        run: cd build && ctest
+    - uses: actions/checkout@v2
+    - name: configure
+      run: mkdir build && cd build && cmake -DCMAKE_CXX_FLAGS="-Werror" ..
+    - name: build
+      run: cmake --build build
+    - name: test
+      run: cd build && ctest
