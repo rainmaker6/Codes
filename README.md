@@ -1,2 +1,3 @@
-Build 
-[![C/C++ CI](https://github.com/rainmaker6/codes/actions/workflows/build.yml/badge.svg?branch=master&event=push)](https://github.com/rainmaker6/codes/actions/workflows/build.yml)
+[![gcc](https://github.com/rainmaker6/codes/actions/workflows/gcc.yml/badge.svg?branch=master)](https://github.com/rainmaker6/codes/actions/workflows/gcc.yml)
+
+[![go](https://github.com/rainmaker6/codes/actions/workflows/go.yml/badge.svg?branch=master)](https://github.com/rainmaker6/codes/actions/workflows/go.yml)
