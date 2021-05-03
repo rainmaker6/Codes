@@ -1,0 +1,39 @@
+name: GoBuild
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  paths:
+      - '**.go'
+
+jobs:
+  build:
+    name: Build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - windows-latest
+          - ubuntu-latest
+          - macOS-latest
+    
+    steps:
+      - name: Set up Go 1.x
+        uses: actions/setup-go@v2
+        with:
+          go-version: ^1.16
+        id: go
+
+      - uses: actions/checkout@v2
+
+      - name: Cache Dependencies
+        uses: actions/cache@v1.2.0
+        with:
+          path: ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+      - name: Build
+        run: go build -v .
