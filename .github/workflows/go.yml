@@ -1,3 +1,4 @@
+
 'on':
   push:
     branches:
@@ -21,27 +22,8 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: '${{ matrix.go-version }}'
-      - name: Install dependencies
-        run: |
-          go version
-          go get -u golang.org/x/lint/golint
-      - name: configure
-        working-directory: go/
-        run: mkdir test && cd test
-      - name: build
-        working-directory: go/
-        env:
-          GOPROXY: 'https://proxy.golang.org'
-        run: go build .
-      - name: Run vet & lint
-        working-directory: go/test
-        run: |
-          go vet .
-          golint .
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Test
         working-directory: go/
-        env:
-          GOPROXY: 'https://proxy.golang.org'
-        run: cd test && go test -v
+        run: go test ./...
