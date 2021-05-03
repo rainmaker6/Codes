@@ -22,14 +22,16 @@ jobs:
         with:
           go-version: '${{ matrix.go-version }}'
       - name: Install dependencies
+        working-directory: go/
         run: go get -u golang.org/x/lint/golint
       - name: build
         working-directory: go/
         run: go build a.go
       - name: Run vet & lint
+        working-directory: go/
         run: |
           go vet a.go
           golint a.go
-      - name: Run testing
+      - name: Run Test
         working-directory: go/
-        run: go test -v a.go
+        run: go test a
