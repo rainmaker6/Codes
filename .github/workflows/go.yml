@@ -27,7 +27,7 @@ jobs:
           go get -u golang.org/x/lint/golint
       - name: configure
         working-directory: go/
-        run: mkdir test && cd test && go build .
+        run: mkdir test && cd test
       - name: build
         working-directory: go/
         run: go build .
