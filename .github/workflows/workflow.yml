@@ -2,12 +2,8 @@ name: build-test
 on:
   push:
     branches:
-      - main
-    paths-ignore:
-      - '**.md'
-  pull_request:
-    paths-ignore:
-      - '**.md'
+      - master
+
 jobs:
   run:
     name: Run
