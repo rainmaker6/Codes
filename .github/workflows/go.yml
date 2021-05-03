@@ -19,7 +19,6 @@ jobs:
     steps:
       - name: configure
         uses: actions/setup-go@v2
-        working-directory: go/
         with:
           go-version: '${{ matrix.go-version }}'
       - name: Install dependencies
