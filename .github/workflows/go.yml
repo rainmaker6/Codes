@@ -8,15 +8,15 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        os:
-          - windows-latest
-          - ubuntu-latest
-          - macOS-latest
         go-version:
           - 1.13.x
           - 1.14.x
           - 1.15.x
-  runs-on: '${{ matrix.os }}'
+        platform:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+  runs-on: '${{ matrix.platform }}'
   steps:
     - name: configure
       uses: actions/setup-go@v2
