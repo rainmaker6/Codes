@@ -1,3 +1,4 @@
+
 'on':
   push:
     branches:
@@ -25,16 +26,16 @@ jobs:
         run: |
             go version
             go get -u golang.org/x/lint/golint
-      - name: Run build
+      - name: build
         working-directory: go/
-        run: go build
-      - name: Run vet & lint
-        working-directory: go/
+        run: mkdir test && cd test && go build .
+    - name: Run vet & lint
+      working-directory: go/test
         run: |
-            go vet
-            golint
+            go vet .
+            golint .
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Test
         working-directory: go/
-        run: go test ./...
+        run: cd test && go test -v
