@@ -1,6 +1,11 @@
-name: C/C++ CI
-on: 
- push
+name: BuildGcc
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  paths:
+      - '**.cpp'
 jobs:
   gcc-9:
 
