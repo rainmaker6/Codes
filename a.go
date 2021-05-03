@@ -5,7 +5,7 @@ func main(){
     fmt.Print("Hello, World\n")
     fmt.Println("1+1 = ", 1+1)
     fmt.Println("7.0/3.0 = ", 7.000000/3.000000)
-    fmt.Println(true && false)
+    fmt.Println(true && false) 
     fmt.Println(false || true)
     fmt.Println(!true)
     var s string//go automatically takes the datatype of the variable
