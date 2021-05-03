@@ -27,12 +27,12 @@ jobs:
             go get -u golang.org/x/lint/golint
       - name: Run build
         working-directory: go/
-        run: go build .
+        run: go build
       - name: Run vet & lint
         working-directory: go/
         run: |
-            go vet .
-            golint 
+            go vet
+            golint
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Test
