@@ -10,7 +10,7 @@ void bestFit(vector<int> bS, int m, vector<int> pS, int n) {
             if (bS[j] >= pS[i]) {
                 if (id == -1)
                     id = j;
-                else if (bS[id] > bS[j])
+                else if (bS[id] > bS[j]) 
                     id = j;
             }
         }
