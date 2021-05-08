@@ -9,9 +9,8 @@ matrix:
     - compiler: clang
 script:
 - cd cpp
-- mkdir build
-- cd build
+- mkdir test
+- cd test
 - cmake ..
-- cmake --build build
-- cd build
+- cmake --build test
 - ctest --output-on-failure
