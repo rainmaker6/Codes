@@ -12,4 +12,4 @@ enable_testing()
 add_test(test1 a) 
 add_test(test2 b) 
 add_test(test3 c) 
-add_test(test3 d( 
+add_test(test3 d)
