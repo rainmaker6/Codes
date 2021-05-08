@@ -89,8 +89,8 @@ int main() {
         printf("Enter the size of Process %d:", i+1);
         scanf("%d", & pS[i]);
     }*/
-    vector<int> bS[] = {100, 500, 200, 300, 600};
-    vector<int> pS[] = {212, 417, 112, 426};
+    vector<int> bS = {100, 500, 200, 300, 600};
+    vector<int> pS = {212, 417, 112, 426};
     int m = bS.size();
     int n = pS.size();
     printf("\nWORST FIT");
