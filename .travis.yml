@@ -12,5 +12,6 @@ script:
 - mkdir test
 - cd test
 - cmake ..
+- cd ..
 - cmake --build test
 - ctest --verbose
