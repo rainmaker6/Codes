@@ -1,8 +1,4 @@
-
-# Build matrix / environment variable are explained on:
-# http://about.travis-ci.org/docs/user/build-configuration/
-# This file can be validated on: http://lint.travis-ci.org/
-dist: xenial
+dist: focal
 language: cpp
 compiler:
   - gcc
@@ -43,7 +39,7 @@ before_install:
 
 - if [ "$TRAVIS_OS_NAME" == "osx" ]; then rm -f /usr/local/include/c++ ; fi
 install:
-- if [ "$CXX" = "g++" ]; then export CXX="g++-9" CC="gcc-9"; fi
+- if [ "$CXX" = "g++" ]; then export CXX="g++-8" CC="gcc-8"; fi
 - echo ${CC}
 - echo ${CXX}
 - ${CXX} --version
