@@ -8,6 +8,7 @@ matrix:
   allow_failures:
     - compiler: clang
 script:
+- cd cpp
 - mkdir build
 - cd build
 - cmake ..
