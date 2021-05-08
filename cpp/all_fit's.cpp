@@ -74,7 +74,7 @@ void firstFit(vector<int> bS, int m, vector<int> pS, int n) {
     }
 }
 int main() {
-    int n, m, i;
+    /*int n, m, i;
     printf("Enter no of Memory Blocks:");
     scanf("%d", & n);
     vector<int> bS(n);
@@ -88,7 +88,11 @@ int main() {
     for (i = 0; i < m; i++) {
         printf("Enter the size of Process %d:", i+1);
         scanf("%d", & pS[i]);
-    }
+    }*/
+    vector<int> bS[] = {100, 500, 200, 300, 600};
+    vector<int> pS[] = {212, 417, 112, 426};
+    int m = sizeof(bS)/sizeof(bS[0]);
+    int n = sizeof(pS)/sizeof(pS[0]);
     printf("\nWORST FIT");
     worstFit(bS, m, pS, n);
     printf("\nBEST FIT");
