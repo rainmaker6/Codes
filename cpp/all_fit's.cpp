@@ -91,8 +91,8 @@ int main() {
     }*/
     vector<int> bS[] = {100, 500, 200, 300, 600};
     vector<int> pS[] = {212, 417, 112, 426};
-    int m = sizeof(bS)/sizeof(bS[0]);
-    int n = sizeof(pS)/sizeof(pS[0]);
+    int m = bS.size();
+    int n = pS.size();
     printf("\nWORST FIT");
     worstFit(bS, m, pS, n);
     printf("\nBEST FIT");
