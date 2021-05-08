@@ -23,4 +23,4 @@ jobs:
         run: cmake --build build
       - name: test
         working-directory: cpp/
-        run: cd build && ctest
+        run: cd build && ctest --verbose

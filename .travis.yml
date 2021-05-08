@@ -10,7 +10,6 @@ matrix:
 script:
 - cd cpp
 - mkdir test
-- cd test
 - cmake ..
 - cmake --build test
-- ctest --output-on-failure
+- ctest --verbose
