@@ -1,7 +1,12 @@
 'on':
+on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - master
+      - feature
 name: go
 jobs:
   build:

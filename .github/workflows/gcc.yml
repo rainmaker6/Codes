@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - master
+      - feature    
 jobs:
   gcc-9:
     runs-on: '${{ matrix.os }}'
