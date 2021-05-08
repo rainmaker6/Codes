@@ -48,7 +48,7 @@ void BellmanFord(struct Graph* graph, int src)
 	// Step 1: Initialize distances from src to all other vertices
 	// as INFINITE
 	for (int i = 0; i < V; i++)
-		dist[i] = INT_MAX;
+		dist[i] = 1e6;
 	dist[src] = 0;
 
 	// Step 2: Relax all edges |V| - 1 times. A simple shortest
@@ -59,7 +59,7 @@ void BellmanFord(struct Graph* graph, int src)
 			int u = graph->edge[j].src;
 			int v = graph->edge[j].dest;
 			int weight = graph->edge[j].weight;
-			if (dist[u] != INT_MAX && dist[u] + weight < dist[v])
+			if (dist[u] != 1e6 && dist[u] + weight < dist[v])
 				dist[v] = dist[u] + weight;
 		}
 	}
@@ -72,7 +72,7 @@ void BellmanFord(struct Graph* graph, int src)
 		int u = graph->edge[i].src;
 		int v = graph->edge[i].dest;
 		int weight = graph->edge[i].weight;
-		if (dist[u] != INT_MAX && dist[u] + weight < dist[v]) {
+		if (dist[u] != 1e6 && dist[u] + weight < dist[v]) {
 			printf("Graph contains negative weight cycle");
 			return; // If negative cycle is detected, simply return
 		}
