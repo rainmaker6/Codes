@@ -2,7 +2,7 @@
 #include<string.h>
 #include<vector>
 using namespace std;
-void bestFit(vector<int> bS, int m, vector<int> pS, int n) {
+void bestFit(int bS[], int m, int pS[], int n) {
     vector<int> a(n,-1);
     for (int i = 0; i < n; i++) {
         int id = -1;
@@ -27,7 +27,7 @@ void bestFit(vector<int> bS, int m, vector<int> pS, int n) {
         else printf("Not Allocated\n");
     }
 }
-void worstFit(vector<int> bS, int m, vector<int> pS, int n) {
+void worstFit(int bS[], int m, int pS[], int n) {
     vector<int> a(n,-1);
     for (int i = 0; i < n; i++) {
         int id = -1;
@@ -54,7 +54,7 @@ void worstFit(vector<int> bS, int m, vector<int> pS, int n) {
         else printf("Not Allocated\n");
     }
 }
-void firstFit(vector<int> bS, int m, vector<int> pS, int n) {
+void firstFit(int bS[], int m, int pS[], int n) {
     vector<int> a(n,-1);    
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
@@ -89,10 +89,10 @@ int main() {
         printf("Enter the size of Process %d:", i+1);
         scanf("%d", & pS[i]);
     }*/
-    vector<int> bS = {100, 500, 200, 300, 600};
-    vector<int> pS = {212, 417, 112, 426};
-    int m = bS.size();
-    int n = pS.size();
+    int bS[] = {100, 500, 200, 300, 600};
+    int pS[] = {212, 417, 112, 426};
+    int m = 5;
+    int n = 4;
     printf("\nWORST FIT");
     worstFit(bS, m, pS, n);
     printf("\nBEST FIT");
