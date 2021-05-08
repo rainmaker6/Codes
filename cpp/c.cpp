@@ -1,6 +1,6 @@
 // A school method based C++ program to check if a
 // number is prime
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 bool isPrime(int n)
