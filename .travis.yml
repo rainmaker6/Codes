@@ -1,17 +1,61 @@
+
+# Build matrix / environment variable are explained on:
+# http://about.travis-ci.org/docs/user/build-configuration/
+# This file can be validated on: http://lint.travis-ci.org/
+dist: xenial
 language: cpp
-dist: focal
 compiler:
-- clang
-- gcc
+  - gcc
+  - clang
+os:
+  - linux
+  - osx
+env:
+  - GLOG=1 SHARED_LIB=0 BUILD_TYPE=Debug
+  - GLOG=1 SHARED_LIB=0 BUILD_TYPE=RelWithDebInfo
+  - GLOG=0 SHARED_LIB=0 BUILD_TYPE=Debug
+  - GLOG=0 SHARED_LIB=0 BUILD_TYPE=RelWithDebInfo
+  - GLOG=0 SHARED_LIB=1 BUILD_TYPE=Debug
+  - GLOG=0 SHARED_LIB=1 BUILD_TYPE=RelWithDebInfo
 matrix:
-  fast_finish: true
-  allow_failures:
-    - compiler: clang
-script:
+  exclude:
+    # GCC fails on recent Travis OSX images.
+    # https://github.com/travis-ci/travis-ci/issues/9640
+    - compiler: gcc
+      os: osx
+addons:
+  apt:
+    sources:
+    - llvm-toolchain-xenial-7
+    - ubuntu-toolchain-r-test
+    packages:
+    - clang-7
+    - cmake
+    - gcc-8
+    - g++-8
+    - ninja-build
+  homebrew:
+    packages:
+    - cmake
+    - gcc@8
+    - ninja
+before_install:
+
+- if [ "$TRAVIS_OS_NAME" == "osx" ]; then rm -f /usr/local/include/c++ ; fi
+install:
+- if [ "$CXX" = "g++" ]; then export CXX="g++-9" CC="gcc-9"; fi
+- echo ${CC}
+- echo ${CXX}
+- ${CXX} --version
+- cmake --version
+before_script:
 - cd cpp
-- mkdir test
-- cd test
-- cmake ..
+- mkdir -p build && cd build
+- cmake .. -G Ninja -DCRC32C_USE_GLOG=$GLOG -DCMAKE_BUILD_TYPE=$BUILD_TYPE
+           -DBUILD_SHARED_LIBS=$SHARED_LIB
+- cmake --build .
 - cd ..
-- cmake --build test
-- ctest --verbose
+script:
+- build/crc32c_tests
+- build/crc32c_capi_tests
+- build/crc32c_bench
