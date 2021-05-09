@@ -1,12 +1,12 @@
 name: gcc
-on:
+'on':
   push:
     branches:
       - master
   pull_request:
     branches:
       - master
-      - feature    
+      - feature
 jobs:
   gcc-latest:
     runs-on: '${{ matrix.os }}'
