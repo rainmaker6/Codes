@@ -1,12 +1,12 @@
 name: clang
-on:
+'on':
   push:
     branches:
       - master
   pull_request:
     branches:
       - master
-      - feature    
+      - feature
 jobs:
   clang-latest:
     runs-on: '${{ matrix.os }}'
@@ -22,7 +22,9 @@ jobs:
       - name: Install Clang
         shell: bash
         if: matrix.os == 'windows-latest'
-        run: echo "PATH=$PATH:C:\msys64\mingw64\bin" >> $GITHUB_ENV
+        run: |
+          echo "PATH=$PATH:C:\msys64\mingw64\bin" >> $GITHUB_ENV
+          echo "PATH=$PATH:C:\msys64\mingw64\lib\cmake" >> $GITHUB_ENV
       - name: configure
         working-directory: cpp/
         run: mkdir build
@@ -36,6 +38,6 @@ jobs:
       - name: Cmake Build
         working-directory: cpp/
         run: cmake --build build
-      - name: test
+      - name: Test
         working-directory: cpp/
         run: cd build && ctest --verbose
