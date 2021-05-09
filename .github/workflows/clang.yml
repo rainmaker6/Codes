@@ -8,7 +8,7 @@ on:
       - master
       - feature    
 jobs:
-  clang-11:
+  clang-latest:
     runs-on: '${{ matrix.os }}'
     strategy:
       fail-fast: true
@@ -28,7 +28,9 @@ jobs:
         run: mkdir build
       - name: clang
         working-directory: cpp/
-        run: cd build && CXX=cl CC=cl cmake ..
+        if: matrix.os == 'windows-latest'
+        run: cd build && cmake .. -G "Visual Studio 16 2019" -T ClangCL -A x64
+        else: run: cd build && CXX=clang++ CC=clang cmake ..
       - name: build
         working-directory: cpp/
         run: cmake --build build
