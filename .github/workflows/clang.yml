@@ -24,7 +24,7 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: |
           echo "PATH=$PATH:C:\msys64\mingw64\bin" >> $GITHUB_ENV
-          echo "PATH=$PATH:C:\msys64\mingw64\lib\cmake" >> $GITHUB_ENV
+          echo "PATH=$PATH:C:\msys64\mingw64\lib" >> $GITHUB_ENV
       - name: configure
         working-directory: cpp/
         run: mkdir build
