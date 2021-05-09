@@ -8,7 +8,7 @@ on:
       - master
       - feature    
 jobs:
-  gcc-9:
+  clang-11:
     runs-on: '${{ matrix.os }}'
     strategy:
       fail-fast: true
@@ -23,6 +23,7 @@ jobs:
         working-directory: cpp/
         run: mkdir build && cd build
       - name: clang
+        working-directory: cpp/
         run: CXX=clang++ CC=clang cmake ..
       - name: build
         working-directory: cpp/
