@@ -24,8 +24,8 @@ struct Graph
 
 	// Utility function to add an edge
 	void addEdge(int u, int v, int w)
-	{
-		edges.push_back({w, {u, v}});
+	{	    
+		edges.push_back(make_pair(w, make_pair(u,v)));
 	}
 
 	// Function to find MST using Kruskal's
