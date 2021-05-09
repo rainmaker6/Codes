@@ -5,7 +5,7 @@
   pull_request:
     branches:
       - feature
-name: go-latest
+name: go
 jobs:
   build:
     strategy:

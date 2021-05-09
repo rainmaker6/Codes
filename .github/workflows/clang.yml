@@ -14,25 +14,14 @@ jobs:
       fail-fast: true
       matrix:
         os:
-          - windows-latest
           - ubuntu-latest
           - macOS-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install Clang
-        shell: bash
-        if: matrix.os == 'windows-latest'
-        run: |
-          echo "PATH=$PATH:C:\msys64\mingw64\bin" >> $GITHUB_ENV
-          echo "PATH=$PATH:C:\msys64\mingw64\lib" >> $GITHUB_ENV
-      - name: configure
+      - name: Configure
         working-directory: cpp/
         run: mkdir build
-      - name: Clang Build
-        working-directory: cpp/
-        if: matrix.os == 'windows-latest'
-        run: cd build && cmake .. -G "Visual Studio 16 2019" -T ClangCL -A x64
-      - name: Clang Build
+      - name: Build
         working-directory: cpp/
         run: cd build && CXX=clang++ CC=clang cmake ..
       - name: Cmake Build
