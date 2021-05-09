@@ -19,6 +19,8 @@ jobs:
           - macOS-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Install clang
+        run: sudo apt install clang
       - name: configure
         working-directory: cpp/
         run: mkdir build
