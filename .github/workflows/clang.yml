@@ -20,7 +20,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install clang
-        run: sudo apt install clang
+        if: matrix.os == 'windows-latest'
+        run: echo "PATH=$PATH:C:\msys64\mingw64\bin" >> $GITHUB_ENV
       - name: configure
         working-directory: cpp/
         run: mkdir build
