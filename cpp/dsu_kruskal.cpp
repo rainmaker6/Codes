@@ -3,6 +3,7 @@
 // weighted graph
 #include<iostream>
 #include<vector>
+#include<algorithm>
 using namespace std;
 
 // Creating shortcut for an integer pair
