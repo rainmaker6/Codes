@@ -5,3 +5,5 @@
 [![go](https://github.com/rainmaker6/codes/actions/workflows/go.yml/badge.svg?branch=master)](https://github.com/rainmaker6/codes/actions/workflows/go.yml)
 
 [![boost](https://github.com/rainmaker6/codes/actions/workflows/boost.yml/badge.svg?branch=master)](https://github.com/rainmaker6/codes/actions/workflows/boost.yml)
+
+[![java](https://github.com/rainmaker6/codes/actions/workflows/java.yml/badge.svg?branch=master)](https://github.com/rainmaker6/codes/actions/workflows/java.yml)
