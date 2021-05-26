@@ -30,5 +30,6 @@ jobs:
         with:
           distribution: <distribution>
           java-version: '${{ matrix.java }}'
-        working-directory: cpp/
-      - run: java -cp java a
+      - run: |
+          cd java
+          java -cp java a
