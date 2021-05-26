@@ -15,21 +15,17 @@ jobs:
         java:
           - '8'
           - '11'
-          - '13'
           - '15'
-          - '16'
         os:
           - windows-latest
           - ubuntu-latest
           - macOS-latest
-    name: 'Java ${{ matrix.Java }}'
+    name: 'Java ${{ matrix.os }} ${{ matrix.Java }}'
     steps:
       - uses: actions/checkout@v2
-      - name: Setup java
+      - name: Test
         uses: actions/setup-java@v2
         with:
-          distribution: 'adopt'
+          distribution: adopt
           java-version: '${{ matrix.java }}'
-      - run: |
-          cd java
-          java -cp java Simple
+      - run: cd java && java -cp java Simple
