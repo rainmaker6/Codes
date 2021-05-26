@@ -10,4 +10,4 @@ project codes-cpp-boostcpp
        [ requires cxx17_if_constexpr ]
     ;
 
-exe a                      : a.cpp ;
+exe one                      : a.cpp ;
