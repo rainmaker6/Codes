@@ -1,6 +1,7 @@
 import ../../../../config/checks/config : requires ;
-
-project codes-cpp-boostcpp
+ 
+# Project settings
+project boost-ublas-tensor-example
     : requirements
        <define>BOOST_UBLAS_NO_EXCEPTIONS
        <toolset>vacpp:<define>"BOOST_UBLAS_NO_ELEMENT_PROXIES"
@@ -10,4 +11,8 @@ project codes-cpp-boostcpp
        [ requires cxx17_if_constexpr ]
     ;
 
-exe one                      : a.cpp ;
+exe access_tensor                      : access_tensor.cpp ;
+exe simple_expressions                 : simple_expressions.cpp ;
+exe multiply_tensors_product_function  : multiply_tensors_product_function.cpp ;
+exe multiply_tensors_einstein_notation : multiply_tensors_einstein_notation.cpp ;
+exe instantiate_tensor                 : instantiate_tensor.cpp ;
