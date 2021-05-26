@@ -20,12 +20,13 @@ jobs:
           - windows-latest
           - ubuntu-latest
           - macOS-latest
-    name: 'Java ${{ matrix.os }} ${{ matrix.Java }}'
+    name: 'Java  ${{ matrix.Java }} ${{ matrix.os }}'
     steps:
       - uses: actions/checkout@v2
-      - name: Test
+      - name: Build
         uses: actions/setup-java@v2
         with:
           distribution: adopt
           java-version: '${{ matrix.java }}'
-      - run: cd java && java -cp java Simple
+      - name: Test
+      - run: cd java && javac Simple.java
