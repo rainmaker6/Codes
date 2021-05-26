@@ -2,13 +2,10 @@
   push:
     branches:
       - master
-    paths-ignore:
-      - boostcpp/**
   pull_request:
     branches:
+      - master
       - feature
-    paths-ignore:
-      - boostcpp/**
 name: go
 jobs:
   build:
