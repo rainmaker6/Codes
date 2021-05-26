@@ -1,0 +1,32 @@
+name: clang
+'on':
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+      - feature
+jobs:
+  clang-latest:
+    runs-on: '${{ matrix.os }}'
+    strategy:
+      fail-fast: true
+      matrix:
+        os:
+          - ubuntu-latest
+          - macOS-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Configure
+        working-directory: cpp/
+        run: mkdir build
+      - name: Build
+        working-directory: cpp/
+        run: cd build && CXX=clang++ CC=clang cmake ..
+      - name: Cmake Build
+        working-directory: cpp/
+        run: cmake --build build
+      - name: Test
+        working-directory: cpp/
+        run: cd build && ctest --verbose
