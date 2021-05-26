@@ -116,7 +116,7 @@ jobs:
           cd $BOOST_ROOT/libs/numeric/ublas
           if [ -z "$cxxflags" ]
           then
-            $BOOST_ROOT/b2 -j8 examples/tensor toolset=${{matrix.config.name}} cxxstd=${{matrix.config.cxxstd}} variant=${{matrix.config.variant}} optimization=${{matrix.config.opt}}
+            $BOOST_ROOT/b2 -j8 examples/test toolset=${{matrix.config.name}} cxxstd=${{matrix.config.cxxstd}} variant=${{matrix.config.variant}} optimization=${{matrix.config.opt}}
           else
-            $BOOST_ROOT/b2 -j8 examples/tensor toolset=${{matrix.config.name}} cxxstd=${{matrix.config.cxxstd}} variant=${{matrix.config.variant}} optimization=${{matrix.config.opt}} cxxflags="${{matrix.config.cxxflags}}" linkflags="${{matrix.config.ldflags}}"
+            $BOOST_ROOT/b2 -j8 examples/test toolset=${{matrix.config.name}} cxxstd=${{matrix.config.cxxstd}} variant=${{matrix.config.variant}} optimization=${{matrix.config.opt}} cxxflags="${{matrix.config.cxxflags}}" linkflags="${{matrix.config.ldflags}}"
           fi

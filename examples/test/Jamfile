@@ -11,4 +11,5 @@ project boost-ublas-tensor-example
        [ requires cxx17_if_constexpr ]
     ;
 
-exe simple_expressions                 : simple_expressions.cpp ;
+exe a                 : a.cpp ;
+exe b                 : b.cpp ;
