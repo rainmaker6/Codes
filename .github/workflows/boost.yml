@@ -63,6 +63,7 @@ jobs:
         echo "using ${{ matrix.config.name }} : : ${{ matrix.config.cxx }} ;" >> ~/user-config.jam;
               
     - name: Test
+      cd $BOOST_ROOT/libs/numeric/ublas
       run: |
         if [ -z "$cxxflags" ]
         then
