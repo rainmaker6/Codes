@@ -9,7 +9,7 @@ int fib(int n)
 	return n+m;
 }
 
-int main ()
+int main () 
 {
 	int n = 9;
 	cout << fib(n);
