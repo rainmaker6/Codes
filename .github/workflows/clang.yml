@@ -3,14 +3,10 @@ name: clang
   push:
     branches:
       - master
-    paths-ignore:
-      - boostcpp/**
   pull_request:
     branches:
       - master
       - feature
-    paths-ignore:
-      - boostcpp/**
 jobs:
   clang-latest:
     runs-on: '${{ matrix.os }}'
