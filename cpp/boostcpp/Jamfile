@@ -1,0 +1,13 @@
+import ../../../../config/checks/config : requires ;
+
+project codes-cpp-boostcpp
+    : requirements
+       <define>BOOST_UBLAS_NO_EXCEPTIONS
+       <toolset>vacpp:<define>"BOOST_UBLAS_NO_ELEMENT_PROXIES"
+       <toolset>gcc:<cxxflags>"-Wall -pedantic -Wextra -Wno-unknown-pragmas"
+       <toolset>clang:<cxxflags>"-Wall -pedantic -Wextra -Wno-unknown-pragmas"
+       <toolset>msvc:<cxxflags>"/W4" # == all
+       [ requires cxx17_if_constexpr ]
+    ;
+
+exe a                      : a.cpp ;
