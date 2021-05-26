@@ -28,5 +28,4 @@ jobs:
         with:
           distribution: adopt
           java-version: '${{ matrix.java }}'
-      - name: Test
       - run: cd java && javac Simple.java
