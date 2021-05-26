@@ -4,7 +4,7 @@ import "testing"
 
 func TestMultiply(t *testing.T){
 
-    got := Add(4, 6)
+    got := Multiply(4, 6)
     want := 24
 
     if got != want {
