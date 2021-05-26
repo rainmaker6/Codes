@@ -25,6 +25,9 @@ int main()
     std::cout << "% --------------------------- " << std::endl << std::endl;
     std::cout << "A=" << A << ";" << std::endl << std::endl;
 
+    auto n = extents<>{3,4};
+    auto D = matrixf(n[0],n[1],1);
+    auto e = vectorf(n[1],1);
     auto f = vectorf(n[0],2);
 
     // Calling constructor with
@@ -35,6 +38,15 @@ int main()
     std::cout << "% --------------------------- " << std::endl << std::endl;
     std::cout << "C=" << C << ";" << std::endl << std::endl;
 
+
+    // Calling overloaded operators
+    // and mixing simple tensor and matrix expression templates
+    tensorf F = 3*C + 4*prod(2*D,e);
+
+    // formatted output
+    std::cout << "% --------------------------- " << std::endl;
+    std::cout << "% --------------------------- " << std::endl << std::endl;
+    std::cout << "F=" << F << ";" << std::endl << std::endl;
 
 
 }
