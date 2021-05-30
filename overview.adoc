@@ -88,19 +88,19 @@ We decided to use operator overloading for the following primitives:
 |Description |Operator
 
 |Indexing of vectors and matrices
-|`vector::operator(size_t i); matrix::operator(size_t i, size_t j);`
+|'vector::operator(size_t i); matrix::operator(size_t i, size_t j);'
 
 |Assignment of vectors and matrices
-|`vector::operator = (const vector_expression &); vector::operator += (const vector_expression &); vector::operator -= (const vector_expression &); vector::operator *= (const scalar_expression &); matrix::operator = (const matrix_expression &); matrix::operator += (const matrix_expression &); matrix::operator -= (const matrix_expression &); matrix::operator *= (const scalar_expression &);`
+|'vector::operator = (const vector_expression &); vector::operator += (const vector_expression &); vector::operator -= (const vector_expression &); vector::operator *= (const scalar_expression &); matrix::operator = (const matrix_expression &); matrix::operator += (const matrix_expression &); matrix::operator -= (const matrix_expression &); matrix::operator *= (const scalar_expression &);'
 
 |Unary operations on vectors and matrices
-|`vector_expression operator - (const vector_expression &); matrix_expression operator - (const matrix_expression &);`
+|'vector_expression operator - (const vector_expression &); matrix_expression operator - (const matrix_expression &);'
 
 |Binary operations on vectors and matrices
-|`vector_expression operator + (const vector_expression &, const vector_expression &); vector_expression operator - (const vector_expression &, const vector_expression &); matrix_expression operator + (const matrix_expression &, const matrix_expression &); matrix_expression operator - (const matrix_expression &, const matrix_expression &);`
+|'vector_expression operator + (const vector_expression &, const vector_expression &); vector_expression operator - (const vector_expression &, const vector_expression &); matrix_expression operator + (const matrix_expression &, const matrix_expression &); matrix_expression operator - (const matrix_expression &, const matrix_expression &);'
 
 |Multiplication of vectors and matrices with a scalar
-|`vector_expression operator * (const scalar_expression &, const vector_expression &); vector_expression operator * (const vector_expression &, const scalar_expression &); matrix_expression operator * (const scalar_expression &, const matrix_expression &); matrix_expression operator * (const matrix_expression &, const scalar_expression &);`
+|'vector_expression operator * (const scalar_expression &, const vector_expression &); vector_expression operator * (const vector_expression &, const scalar_expression &); matrix_expression operator * (const scalar_expression &, const matrix_expression &); matrix_expression operator * (const matrix_expression &, const scalar_expression &);'
 |===
 
 We decided to use no operator overloading for the following other
@@ -111,24 +111,24 @@ primitives:
 |Description |Function
 
 |Left multiplication of vectors with a matrix
-|`vector_expression prod<``vector_type`
-`> (const matrix_expression &, const vector_expression &); vector_expression prod (const matrix_expression &, const vector_expression &);`
+|'vector_expression prod<''vector_type'
+'> (const matrix_expression &, const vector_expression &); vector_expression prod (const matrix_expression &, const vector_expression &);'
 
 |Right multiplication of vectors with a matrix
-|`vector_expression prod<``vector_type`
-`> (const vector_expression &, const matrix_expression &); vector_expression prod (const vector_expression &, const matrix_expression &);`
+|'vector_expression prod<''vector_type'
+'> (const vector_expression &, const matrix_expression &); vector_expression prod (const vector_expression &, const matrix_expression &);'
 
-|Multiplication of matrices |`matrix_expression prod<``matrix_type`
-`> (const matrix_expression &, const matrix_expression &); matrix_expression prod (const matrix_expression &, const matrix_expression &);`
+|Multiplication of matrices |'matrix_expression prod<''matrix_type'
+'> (const matrix_expression &, const matrix_expression &); matrix_expression prod (const matrix_expression &, const matrix_expression &);'
 
 |Inner product of vectors
-|`scalar_expression inner_prod (const vector_expression &, const vector_expression &);`
+|'scalar_expression inner_prod (const vector_expression &, const vector_expression &);'
 
 |Outer product of vectors
-|`matrix_expression outer_prod (const vector_expression &, const vector_expression &);`
+|'matrix_expression outer_prod (const vector_expression &, const vector_expression &);'
 
 |Transpose of a matrix
-|`matrix_expression trans (const matrix_expression &);`
+|'matrix_expression trans (const matrix_expression &);'
 |===
 
 ==== Efficiency
@@ -166,7 +166,7 @@ Our solution for this problem is to evaluate the right hand side of an
 assignment into a temporary and then to assign this temporary to the
 left hand side. To allow further optimizations, we provide a
 corresponding member function for every assignment operator and also a
-link:operations_overview.html#noalias[`noalias` syntax.] By using this
+link:operations_overview.html#noalias['noalias' syntax.] By using this
 syntax a programmer can confirm, that the left and right hand sides of
 an assignment are independent, so that element wise evaluation and
 direct assignment to the target is safe.
@@ -206,8 +206,8 @@ consequently.
 We also decided to support a dual conventional implementation (i.e. not
 using expression templates) with extensive bounds and type checking of
 vector and matrix operations to support the development cycle. Switching
-from debug mode to release mode is controlled by the `NDEBUG`
-preprocessor symbol of `<cassert>`.
+from debug mode to release mode is controlled by the 'NDEBUG'
+preprocessor symbol of '<cassert>'.
 
 Functionality
 
@@ -225,46 +225,46 @@ and matrices.
 |===
 |BLAS Call |Mapped Library Expression |Mathematical Description |Comment
 
-|`sasum` OR `dasum` |`norm_1 (x)` |_sum |x~i~|_ |Computes the _l~1~_
+|'sasum' OR 'dasum' |'norm_1 (x)' |_sum |x~i~|_ |Computes the _l~1~_
 (sum) norm of a real vector.
 
-|`scasum` OR `dzasum` |_`real (sum (v)) + imag (sum (v))`_ |_sum
+|'scasum' OR 'dzasum' |_'real (sum (v)) + imag (sum (v))'_ |_sum
 re(x~i~) + sum im(x~i~)_ |Computes the sum of elements of a complex
 vector.
 
-|`_nrm2` |`norm_2 (x)` |__sqrt (sum |x__~_i_~|^_2_^ _)_ |Computes the
+|'_nrm2' |'norm_2 (x)' |__sqrt (sum |x__~_i_~|^_2_^ _)_ |Computes the
 _l~2~_ (euclidean) norm of a vector.
 
-|`i_amax` |`norm_inf (x) index_norm_inf (x)` |__max |x__~_i_~_|_
+|'i_amax' |'norm_inf (x) index_norm_inf (x)' |__max |x__~_i_~_|_
 |Computes the _l~inf~_ (maximum) norm of a vector. +
 BLAS computes the index of the first element having this value.
 
-|`_dot _dotu _dotc` |`inner_prod (x, y)`or` inner_prod (conj (x), y)`
+|'_dot _dotu _dotc' |'inner_prod (x, y)'or' inner_prod (conj (x), y)'
 |__x__^_T_^ _y_ or +
 __x__^_H_^ _y_ |Computes the inner product of two vectors. +
 BLAS implements certain loop unrollment.
 
-|`dsdot sdsdot` |`a + prec_inner_prod (x, y)` |__a + x__^_T_^ _y_
+|'dsdot sdsdot' |'a + prec_inner_prod (x, y)' |__a + x__^_T_^ _y_
 |Computes the inner product in double precision.
 
-|`_copy` |`x = y y.assign (x)` |_x <- y_ |Copies one vector to
+|'_copy' |'x = y y.assign (x)' |_x <- y_ |Copies one vector to
 another. +
 BLAS implements certain loop unrollment.
 
-|`_swap` |`swap (x, y)` |_x <-> y_ |Swaps two vectors. +
+|'_swap' |'swap (x, y)' |_x <-> y_ |Swaps two vectors. +
 BLAS implements certain loop unrollment.
 
-|`_scal csscal zdscal` |`x *= a` |_x <- a x_ |Scales a vector. +
+|'_scal csscal zdscal' |'x *= a' |_x <- a x_ |Scales a vector. +
 BLAS implements certain loop unrollment.
 
-|`_axpy` |`y += a * x` |_y <- a x + y_ |Adds a scaled vector. +
+|'_axpy' |'y += a * x' |_y <- a x + y_ |Adds a scaled vector. +
 BLAS implements certain loop unrollment.
 
-|`_rot _rotm csrot zdrot`
-|`t.assign (a * x + b * y), y.assign (- b * x + a * y), x.assign (t)`
+|'_rot _rotm csrot zdrot'
+|'t.assign (a * x + b * y), y.assign (- b * x + a * y), x.assign (t)'
 |_(x, y) <- (a x + b y, -b x + a y)_ |Applies a plane rotation.
 
-|`_rotg _rotmg` |  |__(a, b) <- +
+|'_rotg _rotmg' |  |__(a, b) <- +
   (? a / sqrt (a__^_2_^ + __b__^_2_^__), +
     ? b / sqrt (a__^_2_^ + __b__^_2_^_))_ or__ +
 (1, 0) <- (0, 0)__ |Constructs a plane rotation.
@@ -280,10 +280,10 @@ Mathematical Description
 
 Comment
 
-`_t_mv`
+'_t_mv'
 
-`x = prod (A, x)` or` x = prod (trans (A), x)`
-or` x = prod (herm (A), x)`
+'x = prod (A, x)' or' x = prod (trans (A), x)'
+or' x = prod (herm (A), x)'
 
 _x <- A x_ or__ +
 x <- A__^_T_^ _x_ or__ +
@@ -291,14 +291,14 @@ x <- A__^_H_^ _x_
 
 Computes the product of a matrix with a vector.
 
-`_t_sv`
+'_t_sv'
 
-`y = solve (A, x, tag)` or +
-`inplace_solve (A, x, tag)` or +
-`y = solve (trans (A), x, tag)` or +
-`inplace_solve (trans (A), x, tag)` or +
-`y = solve (herm (A), x, tag)`or +
-`inplace_solve (herm (A), x, tag)`
+'y = solve (A, x, tag)' or +
+'inplace_solve (A, x, tag)' or +
+'y = solve (trans (A), x, tag)' or +
+'inplace_solve (trans (A), x, tag)' or +
+'y = solve (herm (A), x, tag)'or +
+'inplace_solve (herm (A), x, tag)'
 
 __y <- A__^_-1_^ _x_ or__ +
 x <- A__^_-1_^ _x_ or__ +
@@ -310,10 +310,10 @@ x <- A__^__H__^_-1_^^ _x_
 Solves a system of linear equations with triangular form, i.e. _A_ is
 triangular.
 
-`_g_mv _s_mv _h_mv`
+'_g_mv _s_mv _h_mv'
 
-`y = a * prod (A, x) + b * y` or` y = a * prod (trans (A), x) + b * y`
-or` y = a * prod (herm (A), x) + b * y`
+'y = a * prod (A, x) + b * y' or' y = a * prod (trans (A), x) + b * y'
+or' y = a * prod (herm (A), x) + b * y'
 
 _y <- a A x + b y_ or__ +
 y <- a A__^_T_^ __x + b y +
@@ -321,28 +321,28 @@ y <- a A__^_H_^ _x + b y_
 
 Adds the scaled product of a matrix with a vector.
 
-`_g_r _g_ru _g_rc`
+'_g_r _g_ru _g_rc'
 
-`A += a * outer_prod (x, y)` or` A += a * outer_prod (x, conj (y))`
+'A += a * outer_prod (x, y)' or' A += a * outer_prod (x, conj (y))'
 
 __A <- a x y__^_T_^ _+ A_ or__ +
 A <- a x y__^_H_^ _+ A_
 
 Performs a rank _1_ update.
 
-`_s_r _h_r`
+'_s_r _h_r'
 
-`A += a * outer_prod (x, x)` or` A += a * outer_prod (x, conj (x))`
+'A += a * outer_prod (x, x)' or' A += a * outer_prod (x, conj (x))'
 
 __A <- a x x__^_T_^ _+ A_ or__ +
 A <- a x x__^_H_^ _+ A_
 
 Performs a symmetric or hermitian rank _1_ update.
 
-`_s_r2 _h_r2`
+'_s_r2 _h_r2'
 
-`A += a * outer_prod (x, y) +  a * outer_prod (y, x))`
-or` A += a * outer_prod (x, conj (y)) +  conj (a) * outer_prod (y, conj (x)))`
+'A += a * outer_prod (x, y) +  a * outer_prod (y, x))'
+or' A += a * outer_prod (x, conj (y)) +  conj (a) * outer_prod (y, conj (x)))'
 
 __A <- a x y__^_T_^ __+ a y x__^_T_^ _+ A_ or__ +
 A <- a x y__^_H_^ __+ a__^_-_^ __y x__^_H_^ _+ A_
@@ -355,23 +355,23 @@ Performs a symmetric or hermitian rank _2_ update.
 |===
 |BLAS Call |Mapped Library Expression |Mathematical Description |Comment
 
-|`_t_mm` |`B = a * prod (A, B)` or +
-`B = a * prod (trans (A), B)` or +
-`B = a * prod (A, trans (B))` or +
-`B = a * prod (trans (A), trans (B))` or +
-`B = a * prod (herm (A), B)` or +
-`B = a * prod (A, herm (B))` or +
-`B = a * prod (herm (A), trans (B))` or +
-`B = a * prod (trans (A), herm (B))` or +
-`B = a * prod (herm (A), herm (B))` |_B <- a op (A) op (B)_ with +
+|'_t_mm' |'B = a * prod (A, B)' or +
+'B = a * prod (trans (A), B)' or +
+'B = a * prod (A, trans (B))' or +
+'B = a * prod (trans (A), trans (B))' or +
+'B = a * prod (herm (A), B)' or +
+'B = a * prod (A, herm (B))' or +
+'B = a * prod (herm (A), trans (B))' or +
+'B = a * prod (trans (A), herm (B))' or +
+'B = a * prod (herm (A), herm (B))' |_B <- a op (A) op (B)_ with +
   _op (X) = X_ or +
   __op (X) = X__^_T_^ or +
   __op (X) = X__^_H_^ |Computes the scaled product of two matrices.
 
-|`_t_sm` |`C = solve (A, B, tag)` or +
-`inplace_solve (A, B, tag)` or +
-`C = solve (trans (A), B, tag)` or` inplace_solve (trans (A), B, tag)`
-or` C = solve (herm (A), B, tag)` or` inplace_solve (herm (A), B, tag)`
+|'_t_sm' |'C = solve (A, B, tag)' or +
+'inplace_solve (A, B, tag)' or +
+'C = solve (trans (A), B, tag)' or' inplace_solve (trans (A), B, tag)'
+or' C = solve (herm (A), B, tag)' or' inplace_solve (herm (A), B, tag)'
 |__C <- A__^_-1_^ _B_ or__ +
 B <- A__^_-1_^ _B_ or__ +
 C <- A__^__T__^_-1_^^ _B_ or__ +
@@ -380,35 +380,35 @@ C <- A__^__H__^_-1_^^ _B_ or__ +
 B <- A__^__H__^_-1_^^ _B_ |Solves a system of linear equations with
 triangular form, i.e. _A_ is triangular.
 
-|`_g_mm _s_mm _h_mm` |`C = a * prod (A, B) + b * C` or +
-`C = a * prod (trans (A), B) + b * C` or +
-`C = a * prod (A, trans (B)) + b * C` or +
-`C = a * prod (trans (A), trans (B)) + b * C` or +
-`C = a * prod (herm (A), B) + b * C` or +
-`C = a * prod (A, herm (B)) + b * C` or +
-`C = a * prod (herm (A), trans (B)) + b * C` or +
-`C = a * prod (trans (A), herm (B)) + b * C` or +
-`C = a * prod (herm (A), herm (B)) + b * C` |_C <- a op (A) op (B) + b
+|'_g_mm _s_mm _h_mm' |'C = a * prod (A, B) + b * C' or +
+'C = a * prod (trans (A), B) + b * C' or +
+'C = a * prod (A, trans (B)) + b * C' or +
+'C = a * prod (trans (A), trans (B)) + b * C' or +
+'C = a * prod (herm (A), B) + b * C' or +
+'C = a * prod (A, herm (B)) + b * C' or +
+'C = a * prod (herm (A), trans (B)) + b * C' or +
+'C = a * prod (trans (A), herm (B)) + b * C' or +
+'C = a * prod (herm (A), herm (B)) + b * C' |_C <- a op (A) op (B) + b
 C_ with +
   _op (X) = X_ or +
   __op (X) = X__^_T_^ or +
   __op (X) = X__^_H_^ |Adds the scaled product of two matrices.
 
-|`_s_rk _h_rk` |`B = a * prod (A, trans (A)) + b * B` or +
-`B = a * prod (trans (A), A) + b * B` or +
-`B = a * prod (A, herm (A)) + b * B` or +
-`B = a * prod (herm (A), A) + b * B` |__B <- a A A__^_T_^ _+ b B_ or__ +
+|'_s_rk _h_rk' |'B = a * prod (A, trans (A)) + b * B' or +
+'B = a * prod (trans (A), A) + b * B' or +
+'B = a * prod (A, herm (A)) + b * B' or +
+'B = a * prod (herm (A), A) + b * B' |__B <- a A A__^_T_^ _+ b B_ or__ +
 B <- a A__^_T_^ _A + b B_ or +
 __B <- a A A__^_H_^ _+ b B_ or__ +
 B <- a A__^_H_^ _A + b B_ |Performs a symmetric or hermitian rank _k_
 update.
 
-|`_s_r2k _h_r2k`
-|`C = a * prod (A, trans (B)) +  a * prod (B, trans (A)) + b * C` or +
-`C = a * prod (trans (A), B) +  a * prod (trans (B), A) + b * C` or +
-`C = a * prod (A, herm (B)) +  conj (a) * prod (B, herm (A)) + b * C`
+|'_s_r2k _h_r2k'
+|'C = a * prod (A, trans (B)) +  a * prod (B, trans (A)) + b * C' or +
+'C = a * prod (trans (A), B) +  a * prod (trans (B), A) + b * C' or +
+'C = a * prod (A, herm (B)) +  conj (a) * prod (B, herm (A)) + b * C'
 or +
-`C = a * prod (herm (A), B) +  conj (a) * prod (herm (B), A) + b * C`
+'C = a * prod (herm (A), B) +  conj (a) * prod (herm (B), A) + b * C'
 |__C <- a A B__^_T_^ __+ a B A__^_T_^ _+ b C_ or__ +
 C <- a A__^_T_^ __B + a B__^_T_^ _A + b C_ or__ +
 C <- a A B__^_H_^ __+ a__^_-_^ __B A__^_H_^ _+ b C_ or__ +
@@ -420,7 +420,7 @@ symmetric or hermitian rank _2 k_ update.
 
 uBLAS supports many different storage layouts. The full details can be
 found at the link:types_overview.html[Overview of Types]. Most types
-like `vector<double>` and `matrix<double>` are by default compatible to
+like 'vector<double>' and 'matrix<double>' are by default compatible to
 C arrays, but can also be configured to contain FORTAN compatible data.
 
 === Compatibility
@@ -440,7 +440,7 @@ library based implementations. The safe variants based on the library
 assume aliasing, the fast variants do not use temporaries and are
 functionally equivalent to the native C implementation. Besides the
 generic vector and matrix classes the benchmark utilizes special classes
-`c_vector` and `c_matrix`, which are intended to avoid every overhead
+'c_vector' and 'c_matrix', which are intended to avoid every overhead
 through genericity.
 
 The benchmark program *bench1* was compiled with GCC 4.0 and run on an
