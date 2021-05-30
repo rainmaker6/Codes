@@ -1,8 +1,8 @@
-= uBLAS Overview
-
 == image:../../../../boost.png[logo]uBLAS Overview
 
-[[toc]]=== Rationale
+[[toc]]
+
+Rationale
 
 It would be nice if every kind of numeric software could be written in
 C++ without loss of efficiency, but unless something can be found that
@@ -83,9 +83,10 @@ matrix and vector classes.
 
 We decided to use operator overloading for the following primitives:
 
-[cols=",",options="header",]
+[cols="<,<",]
 |===
 |Description |Operator
+
 |Indexing of vectors and matrices
 |`vector::operator(size_t i); matrix::operator(size_t i, size_t j);`
 
@@ -105,9 +106,10 @@ We decided to use operator overloading for the following primitives:
 We decided to use no operator overloading for the following other
 primitives:
 
-[cols=",",options="header",]
+[cols="<,<",]
 |===
 |Description |Function
+
 |Left multiplication of vectors with a matrix
 |`vector_expression prod<``vector_type`
 `> (const matrix_expression &, const vector_expression &); vector_expression prod (const matrix_expression &, const vector_expression &);`
@@ -207,7 +209,7 @@ vector and matrix operations to support the development cycle. Switching
 from debug mode to release mode is controlled by the `NDEBUG`
 preprocessor symbol of `<cassert>`.
 
-=== Functionality
+Functionality
 
 Every C++ library supporting linear algebra will be measured against the
 long-standing Fortran package BLAS. We now describe how BLAS calls may
@@ -217,11 +219,12 @@ The page link:operations_overview.html[Overview of Matrix and Vector
 Operations] gives a short summary of the most used operations on vectors
 and matrices.
 
-==== Blas Level 1
+===== Blas Level 1
 
-[width="100%",cols="25%,25%,25%,25%",options="header",]
+[width="100%",cols="<25%,<25%,<25%,<25%",]
 |===
 |BLAS Call |Mapped Library Expression |Mathematical Description |Comment
+
 |`sasum` OR `dasum` |`norm_1 (x)` |_sum |x~i~|_ |Computes the _l~1~_
 (sum) norm of a real vector.
 
@@ -267,7 +270,7 @@ BLAS implements certain loop unrollment.
 (1, 0) <- (0, 0)__ |Constructs a plane rotation.
 |===
 
-==== Blas Level 2
+===== Blas Level 2
 
 BLAS Call
 
@@ -346,11 +349,12 @@ A <- a x y__^_H_^ __+ a__^_-_^ __y x__^_H_^ _+ A_
 
 Performs a symmetric or hermitian rank _2_ update.
 
-==== Blas Level 3
+===== Blas Level 3
 
-[width="100%",cols="25%,25%,25%,25%",options="header",]
+[width="100%",cols="<25%,<25%,<25%,<25%",]
 |===
 |BLAS Call |Mapped Library Expression |Mathematical Description |Comment
+
 |`_t_mm` |`B = a * prod (A, B)` or +
 `B = a * prod (trans (A), B)` or +
 `B = a * prod (A, trans (B))` or +
@@ -446,199 +450,68 @@ Athlon 64 3000+. Times are scales for reasonable precision by running
 First we comment the results for double vectors and matrices of
 dimension 3 and 3 x 3, respectively.
 
-Comment
+[cols="<,,,,",]
+|===
+|Comment | | | |
 
-inner_prod
+|inner_prod |C array |0.61 |782 |Some abstraction penalty
 
-C array
+| |c_vector | |0.86 |554
 
-0.61
+| |vector<unbounded_array> | |1.02 |467
 
-782
+|vector + vector |C array |0.51 |1122 |Abstraction penalty: factor 2
 
-Some abstraction penalty
+| |c_vector fast | |1.17 |489
 
-c_vector
+| |vector<unbounded_array> fast | |1.32 |433
 
-0.86
+| |c_vector safe | |2.02 |283
 
-554
+| |vector<unbounded_array> safe | |6.95 |82
 
-vector<unbounded_array>
+|outer_prod |C array |0.59 |872 |Some abstraction penalty
 
-1.02
+| |c_matrix, c_vector fast | |0.88 |585
 
-467
+| |matrix<unbounded_array>, vector<unbounded_array> fast | |0.90 |572
 
-vector + vector
+| |c_matrix, c_vector safe | |1.66 |310
 
-C array
+| |matrix<unbounded_array>, vector<unbounded_array> safe | |2.95 |175
 
-0.51
+|prod (matrix, vector) |C array |0.64 |671 |No significant abstraction
+penalty
 
-1122
+| |c_matrix, c_vector fast | |0.70 |613
 
-Abstraction penalty: factor 2
+| |matrix<unbounded_array>, vector<unbounded_array> fast | |0.79 |543
 
-c_vector fast
+| |c_matrix, c_vector safe | |0.95 |452
 
-1.17
+| |matrix<unbounded_array>, vector<unbounded_array> safe | |2.61 |164
 
-489
+|matrix + matrix |C array |0.75 |686 |No significant abstraction penalty
 
-vector<unbounded_array> fast
+| |c_matrix fast | |0.99 |520
 
-1.32
+| |matrix<unbounded_array> fast | |1.29 |399
 
-433
+| |c_matrix safe | |1.7 |303
 
-c_vector safe
+| |matrix<unbounded_array> safe | |3.14 |164
 
-2.02
+|prod (matrix, matrix) |C array |0.94 |457 |No significant abstraction
+penalty
 
-283
+| |c_matrix fast | |1.17 |367
 
-vector<unbounded_array> safe
+| |matrix<unbounded_array> fast | |1.34 |320
 
-6.95
+| |c_matrix safe | |1.56 |275
 
-82
-
-outer_prod
-
-C array
-
-0.59
-
-872
-
-Some abstraction penalty
-
-c_matrix, c_vector fast
-
-0.88
-
-585
-
-matrix<unbounded_array>, vector<unbounded_array> fast
-
-0.90
-
-572
-
-c_matrix, c_vector safe
-
-1.66
-
-310
-
-matrix<unbounded_array>, vector<unbounded_array> safe
-
-2.95
-
-175
-
-prod (matrix, vector)
-
-C array
-
-0.64
-
-671
-
-No significant abstraction penalty
-
-c_matrix, c_vector fast
-
-0.70
-
-613
-
-matrix<unbounded_array>, vector<unbounded_array> fast
-
-0.79
-
-543
-
-c_matrix, c_vector safe
-
-0.95
-
-452
-
-matrix<unbounded_array>, vector<unbounded_array> safe
-
-2.61
-
-164
-
-matrix + matrix
-
-C array
-
-0.75
-
-686
-
-No significant abstraction penalty
-
-c_matrix fast
-
-0.99
-
-520
-
-matrix<unbounded_array> fast
-
-1.29
-
-399
-
-c_matrix safe
-
-1.7
-
-303
-
-matrix<unbounded_array> safe
-
-3.14
-
-164
-
-prod (matrix, matrix)
-
-C array
-
-0.94
-
-457
-
-No significant abstraction penalty
-
-c_matrix fast
-
-1.17
-
-367
-
-matrix<unbounded_array> fast
-
-1.34
-
-320
-
-c_matrix safe
-
-1.56
-
-275
-
-matrix<unbounded_array> safe
-
-2.06
-
-208
+| |matrix<unbounded_array> safe | |2.06 |208
+|===
 
 We notice a two fold performance loss for small vectors and matrices:
 first the general abstraction penalty for using classes, and then a
@@ -648,207 +521,68 @@ difference w.r.t. alias assumptions is also significant.
 Next we comment the results for double vectors and matrices of dimension
 100 and 100 x 100, respectively.
 
-Operation
+[cols="<,<,<,<,<",]
+|===
+|Operation |Implementation |Elapsed [s] |MFLOP/s |Comment
 
-Implementation
+|inner_prod |C array |0.64 |889 |No significant abstraction penalty
 
-Elapsed [s]
+| |c_vector | |0.66 |862
 
-MFLOP/s
+| |vector<unbounded_array> | |0.66 |862
 
-Comment
+|vector + vector |C array |0.64 |894 |No significant abstraction penalty
 
-inner_prod
+| |c_vector fast | |0.66 |867
 
-C array
+| |vector<unbounded_array> fast | |0.66 |867
 
-0.64
+| |c_vector safe | |1.14 |501
 
-889
+| |vector<unbounded_array> safe | |1.23 |465
 
-No significant abstraction penalty
+|outer_prod |C array |0.50 |1144 |No significant abstraction penalty
 
-c_vector
+| |c_matrix, c_vector fast | |0.71 |806
 
-0.66
+| |matrix<unbounded_array>, vector<unbounded_array> fast | |0.57 |1004
 
-862
+| |c_matrix, c_vector safe | |1.91 |300
 
-vector<unbounded_array>
+| |matrix<unbounded_array>, vector<unbounded_array> safe | |0.89 |643
 
-0.66
+|prod (matrix, vector) |C array |0.65 |876 |No significant abstraction
+penalty
 
-862
+| |c_matrix, c_vector fast | |0.65 |876
 
-vector + vector
+| |matrix<unbounded_array>, vector<unbounded_array> fast | |0.66 |863
 
-C array
+| |c_matrix, c_vector safe | |0.66 |863
 
-0.64
+| |matrix<unbounded_array>, vector<unbounded_array> safe | |0.66 |863
 
-894
+|matrix + matrix |C array |0.96 |596 |No significant abstraction penalty
 
-No significant abstraction penalty
+| |c_matrix fast | |1.21 |473
 
-c_vector fast
+| |matrix<unbounded_array> fast | |1.00 |572
 
-0.66
+| |c_matrix safe | |2.44 |235
 
-867
+| |matrix<unbounded_array> safe | |1.30 |440
 
-vector<unbounded_array> fast
+|prod (matrix, matrix) |C array |0.70 |813 |No significant abstraction
+penalty
 
-0.66
+| |c_matrix fast | |0.73 |780
 
-867
+| |matrix<unbounded_array> fast | |0.76 |749
 
-c_vector safe
+| |c_matrix safe | |0.75 |759
 
-1.14
-
-501
-
-vector<unbounded_array> safe
-
-1.23
-
-465
-
-outer_prod
-
-C array
-
-0.50
-
-1144
-
-No significant abstraction penalty
-
-c_matrix, c_vector fast
-
-0.71
-
-806
-
-matrix<unbounded_array>, vector<unbounded_array> fast
-
-0.57
-
-1004
-
-c_matrix, c_vector safe
-
-1.91
-
-300
-
-matrix<unbounded_array>, vector<unbounded_array> safe
-
-0.89
-
-643
-
-prod (matrix, vector)
-
-C array
-
-0.65
-
-876
-
-No significant abstraction penalty
-
-c_matrix, c_vector fast
-
-0.65
-
-876
-
-matrix<unbounded_array>, vector<unbounded_array> fast
-
-0.66
-
-863
-
-c_matrix, c_vector safe
-
-0.66
-
-863
-
-matrix<unbounded_array>, vector<unbounded_array> safe
-
-0.66
-
-863
-
-matrix + matrix
-
-C array
-
-0.96
-
-596
-
-No significant abstraction penalty
-
-c_matrix fast
-
-1.21
-
-473
-
-matrix<unbounded_array> fast
-
-1.00
-
-572
-
-c_matrix safe
-
-2.44
-
-235
-
-matrix<unbounded_array> safe
-
-1.30
-
-440
-
-prod (matrix, matrix)
-
-C array
-
-0.70
-
-813
-
-No significant abstraction penalty
-
-c_matrix fast
-
-0.73
-
-780
-
-matrix<unbounded_array> fast
-
-0.76
-
-749
-
-c_matrix safe
-
-0.75
-
-759
-
-matrix<unbounded_array> safe
-
-0.76
-
-749
+| |matrix<unbounded_array> safe | |0.76 |749
+|===
 
 For larger vectors and matrices the general abstraction penalty for
 using classes seems to decrease, the small loss when using generic
