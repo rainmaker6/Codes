@@ -542,7 +542,7 @@ the end of the `scalar_vector`.
 `scalar_vector`.
 |===
 
-`````
+````
 
 Copyright (©) 2000-2002 Joerg Walter, Mathias Koch +
 Use, modification and distribution are subject to the Boost Software
