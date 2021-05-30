@@ -1,0 +1,48 @@
+== image:../../../../boost.png[logo]uBLAS Overview
+
+[[toc]]
+
+Rationale
+
+It would be nice if every kind of numeric software could be written in
+C++ without loss of efficiency, but unless something can be found that
+achieves this without compromising the C++ type system it may be
+preferable to rely on Fortran, assembler or architecture-specific
+extensions (Bjarne Stroustrup).
+
+This C++ library is directed towards scientific computing on the level
+of basic linear algebra constructions with matrices and vectors and
+their corresponding abstract operations. The primary design goals were:
+
+* mathematical notation
+* efficiency
+* functionality
+* compatibility
+
+Another intention was to evaluate, if the abstraction penalty resulting
+from the use of such matrix and vector classes is acceptable.
+
+=== Resources
+
+The development of this library was guided by a couple of similar
+efforts:
+
+* http://www.netlib.org/blas/index.html[BLAS] by Jack Dongarra et al.
+* http://www.oonumerics.org/blitz/[Blitz++] by Todd Veldhuizen
+* http://acts.nersc.gov/pooma/[POOMA] by Scott Haney et al.
+* http://www.lsc.nd.edu/research/mtl/[MTL] by Jeremy Siek et al.
+
+BLAS seems to be the most widely used library for basic linear algebra
+constructions, so it could be called a de-facto standard. Its interface
+is procedural, the individual functions are somewhat abstracted from
+simple linear algebra operations. Due to the fact that is has been
+implemented using Fortran and its optimizations, it also seems to be one
+of the fastest libraries available. As we decided to design and
+implement our library in an object-oriented way, the technical
+approaches are distinct. However anyone should be able to express BLAS
+abstractions in terms of our library operators and to compare the
+efficiency of the implementations.
+
+Blitz++ is an impressive library implemented in C++. Its main design
+seems to be oriented towards multidimensional arrays and their
+associated operators including tensors. The author of Blitz++
