@@ -6,7 +6,6 @@ name: boost
   pull_request:
     branches:
       - master
-      - feature
 jobs:
   build:
     name: >-

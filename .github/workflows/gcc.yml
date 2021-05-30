@@ -6,7 +6,6 @@ name: gcc
   pull_request:
     branches:
       - master
-      - feature
 jobs:
   gcc-latest:
     runs-on: '${{ matrix.os }}'

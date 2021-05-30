@@ -6,7 +6,6 @@ name: java
   pull_request:
     branches:
       - master
-      - feature
 jobs:
   build:
     runs-on: '${{ matrix.os }}'

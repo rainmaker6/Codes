@@ -6,7 +6,6 @@ name: clang
   pull_request:
     branches:
       - master
-      - feature
 jobs:
   clang-latest:
     runs-on: '${{ matrix.os }}'
