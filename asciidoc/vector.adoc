@@ -6,7 +6,7 @@
 
 ==== Description
 
-The templated class 'vector<T, A>` is the base container adaptor for
+The templated class 'vector<T, A>' is the base container adaptor for
 dense vectors. For a _n_-dimensional vector and _0 <= i < n_ every
 element __v__~_i_~ is mapped to the __i-__th element of the container.
 
@@ -37,8 +37,8 @@ Defined in the header vector.hpp.
 
 |`T' |The type of object stored in the vector. |
 
-|`A' |The type of the link:storage_concept.html[Storage] array.
-link:#vector_1[[1]] |`unbounded_array<T>`
+|'A' |The type of the link:storage_concept.html[Storage] array.
+link:#vector_1[[1]] |'unbounded_array<T>'
 |===
 
 ==== Model of
@@ -54,7 +54,7 @@ http://www.sgi.com/tech/stl/RandomAccessContainer.html[RandomAccessContainer].
 
 ==== Public base classes
 
-'vector_container<vector<T, A> >`
+'vector_container<vector<T, A> >'
 
 ==== Members
 
@@ -62,107 +62,107 @@ http://www.sgi.com/tech/stl/RandomAccessContainer.html[RandomAccessContainer].
 |===
 |Member |Where defined |Description
 
-|`value_type'
+|'value_type'
 |link:expression_concept.html#vector_expression[VectorExpression] |
 
-|`reference'
+|'reference'
 |link:expression_concept.html#vector_expression[VectorExpression] |
 
-|`const_reference'
+|'const_reference'
 |link:expression_concept.html#vector_expression[VectorExpression] |
 
-|`size_type'
+|'size_type'
 |link:expression_concept.html#vector_expression[VectorExpression] |
 
-|`difference_type'
+|'difference_type'
 |link:expression_concept.html#vector_expression[VectorExpression] |
 
-|`const_iterator'
+|'const_iterator'
 |link:expression_concept.html#vector_expression[VectorExpression] |
 
-|`iterator'
+|'iterator'
 |link:expression_concept.html#vector_expression[VectorExpression] |
 
-|`const_reverse_iterator'
+|'const_reverse_iterator'
 |link:expression_concept.html#vector_expression[VectorExpression] |
 
-|`reverse_iterator'
+|'reverse_iterator'
 |link:expression_concept.html#vector_expression[VectorExpression] |
 
-|`array_type' |link:container_concept.html#vector[Vector] |
+|'array_type' |link:container_concept.html#vector[Vector] |
 
-|`vector ()`
+|'vector ()'
 |link:expression_concept.html#vector_expression[VectorExpression]
 |Allocates an uninitialized 'vector' that holds zero elements.
 
-|`vector (size_type size)` |link:container_concept.html#vector[Vector]
+|'vector (size_type size)' |link:container_concept.html#vector[Vector]
 |Allocates an uninitialized 'vector' that holds 'size' elements.
 
-|`vector (const vector &v)` | |The copy constructor.
+|'vector (const vector &v)' | |The copy constructor.
 
-|`template<class AE> vector (const vector_expression<AE> &ae)` | |The
+|'template<class AE> vector (const vector_expression<AE> &ae)' | |The
 extended copy constructor.
 
-|`void resize (size_type size, bool preserve = true)`
+|'void resize (size_type size, bool preserve = true)'
 |link:container_concept.html#vector[Vector] |Reallocates a 'vector' to
 hold 'size' elements. The existing elements of the 'vector' are preseved
 when specified.
 
-|`size_type size () const'
+|'size_type size () const'
 |link:expression_concept.html#vector_expression[VectorExpression]
-|Returns the size of the 'vector`.
+|Returns the size of the 'vector'.
 
-|`size_type max_size () const'
+|'size_type max_size () const'
 |http://www.sgi.com/tech/stl/RandomAccessContainer.html[RandomAccessContainer]
-|Returns the upper bound on the size of the 'vector`.
+|Returns the upper bound on the size of the 'vector'.
 
-|`bool empty () const'
+|'bool empty () const'
 |http://www.sgi.com/tech/stl/RandomAccessContainer.html[RandomAccessContainer]
-|Equivilent to 'size () == 0`.
+|Equivilent to 'size () == 0'.
 
-|`const array_type& data () const'
+|'const array_type& data () const'
 |link:container_concept.html#vector[Vector] |
 
-|`array_type& data ()` |link:container_concept.html#vector[Vector] |
+|'array_type& data ()' |link:container_concept.html#vector[Vector] |
 
-|`const_reference operator () (size_type i) const'
+|'const_reference operator () (size_type i) const'
 |link:expression_concept.html#vector_expression[VectorExpression]
 |Returns a 'const' reference of the 'i' -th element.
 
-|`reference operator () (size_type i)`
+|'reference operator () (size_type i)'
 |link:expression_concept.html#vector_expression[VectorExpression]
-|Returns a reference of the 'i`-th element.
+|Returns a reference of the 'i'-th element.
 
-|`const_reference operator [] (size_type i) const'
+|'const_reference operator [] (size_type i) const'
 |link:container_concept.html#vector[Vector] |Returns a 'const' reference
 of the 'i' -th element.
 
-|`reference operator [] (size_type i)`
+|'reference operator [] (size_type i)'
 |link:container_concept.html#vector[Vector] |Returns a reference of the
-'i`-th element.
+'i'-th element.
 
-|`vector &operator = (const vector &v)`
+|'vector &operator = (const vector &v)'
 |link:expression_concept.html#vector_expression[VectorExpression] |The
 assignment operator.
 
-|`vector &assign_temporary (vector &v)`
+|'vector &assign_temporary (vector &v)'
 |link:expression_concept.html#vector_expression[VectorExpression]
-|Assigns a temporary. May change the vector 'v`.
+|Assigns a temporary. May change the vector 'v'.
 
-|`template<class AE> vector &operator = (const vector_expression<AE> &ae)`
+|'template<class AE> vector &operator = (const vector_expression<AE> &ae)'
 |link:expression_concept.html#vector_expression[VectorExpression] |The
 extended assignment operator.
 
-|`template<class AE> vector &assign (const vector_expression<AE> &ae)`
+|'template<class AE> vector &assign (const vector_expression<AE> &ae)`
 |link:expression_concept.html#vector_expression[VectorExpression]
 |Assigns a vector expression to the vector. Left and right hand side of
 the assignment should be independent.
 
-|`template<class AE> vector &operator += (const vector_expression<AE> &ae)`
+|'template<class AE> vector &operator += (const vector_expression<AE> &ae)'
 |link:expression_concept.html#vector_expression[VectorExpression] |A
 computed assignment operator. Adds the vector expression to the vector.
 
-|`template<class AE> vector &plus_assign (const vector_expression<AE> &ae)`
+|'template<class AE> vector &plus_assign (const vector_expression<AE> &ae)'
 |link:expression_concept.html#vector_expression[VectorExpression] |Adds
 a vector expression to the vector. Left and right hand side of the
 assignment should be independent.
