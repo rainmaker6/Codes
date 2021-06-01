@@ -8,13 +8,13 @@
 
 The templated class `tensor<value_t,format_t,storage_t>` is the base
 container adaptor for dense tensors. Every element
-$t_\{i_1,i_2,\dots,i_p}$ of a $p$-order $(n_1 \times n_2 \times \cdots
-\times n_p)$-dimensional tensor $T$ is mapped to $j$-th element of a
-one-dimensional container where $j = \sum_\{r=1}^p i_r \cdot w_r$ with
-$1 \leq i_r \leq n_r $ for $1 \leq r \leq p$. For the first-order
-orientation $w_1 = 1$ and $w_k = n_\{k-1} \cdot w_\{k-1}$ for $k > 1$.
-For last-order orientation $w_p = 1$ and $ w_k = n_\{k+1} \cdot
-w_\{k+1}$ for $k < p$.
+t_\{i_1,i_2,\dots,i_p} of a p-order (n_1 \times n_2 \times \cdots
+\times n_p)-dimensional tensor T is mapped to j-th element of a
+one-dimensional container where j = \sum_\{r=1}^p i_r \cdot w_r with
+1 \leq i_r \leq n_r  for 1 \leq r \leq p. For the first-order
+orientation w_1 = 1 and w_k = n_\{k-1} \cdot w_\{k-1} for k > 1.
+For last-order orientation w_p = 1 and  w_k = n_\{k+1} \cdot
+w_\{k+1} for k < p.
 
 ==== Example
 
@@ -156,15 +156,15 @@ link:vector_expression.html#vector_expression[vector_expression].
 |`tensor ()` |Constructs an uninitialized `tensor` that holds zero
 elements.
 
-|` tensor (std::initializer_list<size_type> list) ` |Constructs an
+|`tensor (std::initializer_list<size_type> list)` |Constructs an
 uninitialized `tensor` where `list` specifies the dimension
 link:tensor/extents.html[extents].
 
-|` tensor (extents_type const& s) ` |Constructs an uninitialized
+|`tensor (extents_type const& s)` |Constructs an uninitialized
 `tensor` where `s` specifies the dimension
 link:tensor/extents.html[extents].
 
-|` tensor (extents_type const& e, array_type const& a) ` |Constructs an
+|`tensor (extents_type const& e, array_type const& a)` |Constructs an
 uninitialized `tensor` where `e` specifies the dimension
 link:tensor/extents.html[extents] and `a` the data elements of the
 tensor.
