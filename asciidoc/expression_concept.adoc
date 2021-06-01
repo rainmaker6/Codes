@@ -1,4 +1,4 @@
-== image:../../../../boost.png[image]Expression Concepts
+== image:Boost.png[image]Expression Concepts
 
 [[toc]]
 
