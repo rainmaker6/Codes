@@ -1,20 +1,20 @@
+= Tensor
+
 == image:Boost.png[image]Tensor
 
-[[toc]]
-
-=== [#tensor]####Tensor
+[[toc]]=== [#tensor]####Tensor
 
 ==== Description
 
 The templated class `tensor<value_t,format_t,storage_t>` is the base
-container adaptor for dense tensors. Every element asciimath:[`t_\{i_1,i_2,\dots,i_p}`]
-of a p-order t_\{i_1,i_2,\dots,i[(n_1 \times n_2 \times \cdots
-\times n_p_p} -dimensional tensor T is mapped to j-th element of a
-one-dimensional container where j = \sum_\{r=1}^p i_r \cdot w_r with
-1 \leq i_r \leq n_r for 1 \leq r \leq p . For the first-order
-orientation w_1 = 1 and w_k = n_\{k-1} \cdot w_\{k-1} for k > 1.
-For last-order orientation w_p = 1 and  w_k = n_\{k+1} \cdot
-w_\{k+1} for k < p. 
+container adaptor for dense tensors. Every element
+$t_\{i_1,i_2,\dots,i_p}$ of a $p$-order $(n_1 \times n_2 \times \cdots
+\times n_p)$-dimensional tensor $T$ is mapped to $j$-th element of a
+one-dimensional container where $j = \sum_\{r=1}^p i_r \cdot w_r$ with
+$1 \leq i_r \leq n_r $ for $1 \leq r \leq p$. For the first-order
+orientation $w_1 = 1$ and $w_k = n_\{k-1} \cdot w_\{k-1}$ for $k > 1$.
+For last-order orientation $w_p = 1$ and $ w_k = n_\{k+1} \cdot
+w_\{k+1}$ for $k < p$.
 
 ==== Example
 
@@ -52,10 +52,9 @@ link:container_concept.html#tensor[Tensor] .
 
 ==== Template parameters
 
-[cols=",,",]
+[cols=",,",options="header",]
 |===
 |Parameter |Description |Default
-
 |`value_t` |The type of object stored in the tensor. |
 
 |`format_t` |Storage organization. link:#tensor_1[[1]] |`first_order`
@@ -66,10 +65,9 @@ link:container_concept.html#tensor[Tensor] .
 
 ==== Member types
 
-[cols=",",]
+[cols=",",options="header",]
 |===
 |Member type |Description
-
 |`value_type` |Type `value_t` of the tensor elements.
 
 |`layout_type` |Format of the tensor which is either `first_order` or
@@ -125,46 +123,42 @@ interacts.
 
 ==== Alias templates
 
-Alias template
-
-Description
-
-`template<class derived_type>  using tensor_expression_type = detail::tensor_expression<self_type,derived_type>`
-
-Type of
+[cols=",",options="header",]
+|===
+|Alias template |Description
+|`template<class derived_type>  using tensor_expression_type = detail::tensor_expression<self_type,derived_type>`
+|Type of
 link:tensor/tensor_expression.html#tensor_expression[tensor_expression]
 where `self_type` is the `tensor` type.
 
-`template<class derived_type>  using matrix_expression_type = matrix_expression<derived_type>`
-
-Type of
+|`template<class derived_type>  using matrix_expression_type = matrix_expression<derived_type>`
+|Type of
 link:matrix_expression.html#matrix_expression[matrix_expression].
 
-`template<class derived_type>  using vector_expression_type = vector_expression<derived_type>`
-
-Type of
+|`template<class derived_type>  using vector_expression_type = vector_expression<derived_type>`
+|Type of
 link:vector_expression.html#vector_expression[vector_expression].
+|===
 
 ==== Member Functions
 
 ===== Construction
 
-[cols=",",]
+[cols=",",options="header",]
 |===
 |Member function |Description
-
 |`tensor ()` |Constructs an uninitialized `tensor` that holds zero
 elements.
 
-|`tensor (std::initializer_list<size_type> list)` |Constructs an
+|` tensor (std::initializer_list<size_type> list) ` |Constructs an
 uninitialized `tensor` where `list` specifies the dimension
 link:tensor/extents.html[extents].
 
-|`tensor (extents_type const& s)` |Constructs an uninitialized
+|` tensor (extents_type const& s) ` |Constructs an uninitialized
 `tensor` where `s` specifies the dimension
 link:tensor/extents.html[extents].
 
-|`tensor (extents_type const& e, array_type const& a)` |Constructs an
+|` tensor (extents_type const& e, array_type const& a) ` |Constructs an
 uninitialized `tensor` where `e` specifies the dimension
 link:tensor/extents.html[extents] and `a` the data elements of the
 tensor.
@@ -208,10 +202,9 @@ tensor by evaluating the link:vector_expression.html[vector expression]
 
 ===== Assignment
 
-[cols=",",]
+[cols=",",options="header",]
 |===
 |Member function |Description
-
 |`tensor& operator=(tensor_expression_type<derived_type> const& expr)`
 |Evaluates the link:tensor/tensor_expression.html[tensor expression]
 `expr` and copyies all elements of the result.
@@ -224,10 +217,9 @@ tensor with `v`.
 
 ===== Capacity
 
-[cols=",",]
+[cols=",",options="header",]
 |===
 |Member function |Description
-
 |`bool empty() const` |Returns true if a tensor has zero elements.
 
 |`size_type size() const` |Returns the number of elements of the tensor.
@@ -247,10 +239,9 @@ the link:tensor/extents.html[extents] of the tensor.
 
 ===== Element access
 
-[cols=",",]
+[cols=",",options="header",]
 |===
 |Member function |Description
-
 |`pointer data()` |Returns a `pointer` the first element of the tensor.
 
 |`const_pointer data() const` |Returns a `const_pointer` the first
@@ -277,10 +268,9 @@ elements. If `sizeof...(is)==0`, `tensor::operator[i]` is called.
 
 ===== Proxy Generation
 
-[cols=",",]
+[cols=",",options="header",]
 |===
 |Member function |Description
-
 |`template<std::size_t I, class ... index_types>  tensor_index operator()(indices::Index<I> p, index_types ... ps)`
 |Returns a link:tensor/tensor_index.html[tensor index] instance with
 index objects `(p,ps...)` for a tensor contraction where
@@ -289,10 +279,9 @@ index objects `(p,ps...)` for a tensor contraction where
 
 ===== Iterators
 
-[cols=",",]
+[cols=",",options="header",]
 |===
 |Member function |Description
-
 |`const_iterator begin() const` |Returns a const_iterator pointing to
 the first element of the tensor.
 
@@ -314,10 +303,9 @@ the last element of the tensor.
 
 ===== Modifiers
 
-[cols=",",]
+[cols=",",options="header",]
 |===
 |Member function |Description
-
 |`void reshape(extents_type const& e, value_type v = value_type{})`
 |Reshapes the tensor according to the extents `e`. If `e.product()` is
 greater than `tensor::size()`, the tensor is resized with `v`.
@@ -334,7 +322,6 @@ greater than `tensor::size()`, the tensor is resized with `v`.
 '''''
 
 Copyright (©) 2018 Cem Bassoy +
-Copyright (©) 2021 Shikhar Vashistha +
 Use, modification and distribution are subject to the Boost Software
 License, Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
 http://www.boost.org/LICENSE_1_0.txt ).
