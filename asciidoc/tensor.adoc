@@ -8,13 +8,13 @@
 
 The templated class `tensor<value_t,format_t,storage_t>` is the base
 container adaptor for dense tensors. Every element
-t_\{i_1,i_2,\dots,i_p} of a p-order (n_1 \times n_2 \times \cdots
-\times n_p)-dimensional tensor T is mapped to j-th element of a
-one-dimensional container where j = \sum_\{r=1}^p i_r \cdot w_r with
-1 \leq i_r \leq n_r  for 1 \leq r \leq p. For the first-order
-orientation w_1 = 1 and w_k = n_\{k-1} \cdot w_\{k-1} for k > 1.
-For last-order orientation w_p = 1 and  w_k = n_\{k+1} \cdot
-w_\{k+1} for k < p.
+asciimath:[t_\{i_1,i_2,\dots,i_p} ] of a p-order asciimath:[(n_1 \times n_2 \times \cdots
+\times n_p)]-dimensional tensor T is mapped to j-th element of a
+one-dimensional container where j = asciimath:[\sum_\{r=1}^p i_r \cdot w_r] with
+asciimath:[1 \leq i_r \leq n_r]  for asciimath:[1 \leq r \leq p]. For the first-order
+orientation asciimath:[w_1 = 1 and w_k = n_\{k-1} \cdot w_\{k-1}] for k > 1.
+For last-order orientation asciimath:[w_p = 1 and  w_k = n_\{k+1} \cdot
+w_\{k+1}] for k < p.
 
 ==== Example
 
