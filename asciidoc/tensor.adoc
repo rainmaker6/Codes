@@ -7,7 +7,7 @@
 ==== Description
 
 The templated class `tensor<value_t,format_t,storage_t>` is the base
-container adaptor for dense tensors. Every element t_\{i_1,i_2,\dots,i_p} 
+container adaptor for dense tensors. Every element asciimath:[`t_\{i_1,i_2,\dots,i_p}`]
 of a p-order t_\{i_1,i_2,\dots,i[(n_1 \times n_2 \times \cdots
 \times n_p_p} -dimensional tensor T is mapped to j-th element of a
 one-dimensional container where j = \sum_\{r=1}^p i_r \cdot w_r with
