@@ -1,4 +1,4 @@
-== image:../../../../boost.png[image]Tensor
+== image:Boost.png[image]Tensor
 
 [[toc]]
 
@@ -156,15 +156,15 @@ link:vector_expression.html#vector_expression[vector_expression].
 |`tensor ()` |Constructs an uninitialized `tensor` that holds zero
 elements.
 
-|` tensor (std::initializer_list<size_type> list) ` |Constructs an
+|`tensor (std::initializer_list<size_type> list)` |Constructs an
 uninitialized `tensor` where `list` specifies the dimension
 link:tensor/extents.html[extents].
 
-|` tensor (extents_type const& s) ` |Constructs an uninitialized
+|`tensor (extents_type const& s)` |Constructs an uninitialized
 `tensor` where `s` specifies the dimension
 link:tensor/extents.html[extents].
 
-|` tensor (extents_type const& e, array_type const& a) ` |Constructs an
+|`tensor (extents_type const& e, array_type const& a)` |Constructs an
 uninitialized `tensor` where `e` specifies the dimension
 link:tensor/extents.html[extents] and `a` the data elements of the
 tensor.
