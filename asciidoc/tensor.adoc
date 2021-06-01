@@ -15,7 +15,7 @@ one-dimensional container where j = \sum_\{r=1}^p i_r \cdot w_r with
 1 \leq i_r \leq n_r for 1 \leq r \leq p . For the first-order
 orientation w_1 = 1 and w_k = n_\{k-1} \cdot w_\{k-1} for k > 1.
 For last-order orientation w_p = 1 and  w_k = n_\{k+1} \cdot
-w_\{k+1} for k < p.
+w_\{k+1} for k < p. 
 
 ==== Example
 
