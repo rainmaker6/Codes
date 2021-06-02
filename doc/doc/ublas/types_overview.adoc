@@ -1,4 +1,4 @@
-== image:../../../../boost.png[image]Overview of Tensor, Matrix- and Vector Types
+== image:Boost.png[image]Overview of Tensor, Matrix- and Vector Types
 
 [[toc]]
 
@@ -345,6 +345,7 @@ The storage layout usually is BLAS compliant.
 
 Copyright (©) 2000-2004 Joerg Walter, Mathias Koch, Gunter Winkler,
 Michael Stevens +
+Copyright (©) 2021 Shikhar Vashistha +
 Use, modification and distribution are subject to the Boost Software
 License, Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
 http://www.boost.org/LICENSE_1_0.txt ).
