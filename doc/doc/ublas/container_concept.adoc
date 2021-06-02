@@ -359,6 +359,8 @@ Expression] .
 
 |Storage |`m.data()` | |Returns a reference to the underlying dense storage.| |
 
+|===
+
 ==== Complexity guarantees
 
 The run-time complexity of contructor is linear in the tensor's size
