@@ -222,7 +222,7 @@ Expression] .
 
 |Erase |`m.erase_element (i, j)` |`0 <= i < m.size1 ()`and ` 0 <= j < m.size2` |Destroys the element as `m (i, j)` and replaces it with the default `value_type ()`. The storage requirement of the Matrix may be decreased. |`m (i, j)` is equal to `value_type ()`.
 
-|Clear |`m.clear ()` |Equivalent to +
+|Clear |`m.clear ()` | |Equivalent to +
 `for (i = 0; i < m.size1 (); ++ i)` +
   `for (j = 0; j < m.size2 (); ++ j)` +
     `m.erase_element (i, j);` |
