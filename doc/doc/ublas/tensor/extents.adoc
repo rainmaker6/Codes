@@ -1,4 +1,4 @@
-== image:../../../../boost.png[image]Extents
+== image:../Boost.png[image]Extents
 
 [[toc]]
 
@@ -188,6 +188,7 @@ holding all elements.
 '''''
 
 Copyright (©) 2018 Cem Bassoy +
+Copyright (©) 2021 Shikhar Vashistha +
 Use, modification and distribution are subject to the Boost Software
 License, Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
 http://www.boost.org/LICENSE_1_0.txt ).

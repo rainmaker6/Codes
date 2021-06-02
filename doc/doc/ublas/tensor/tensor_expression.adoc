@@ -1,4 +1,4 @@
-== image:../../../../boost.png[image]Tensor Expressions
+== image:../Boost.png[image]Tensor Expressions
 
 [[toc]]
 
@@ -111,7 +111,7 @@ None.
 |===
 |Member |Description
 
-|`decltype(auto) operator()(std::size_t i) const ` |Returns a `const`
+|`decltype(auto) operator()(std::size_t i) const` |Returns a `const`
 reference to the i-th element of the expression.
 |===
 
@@ -139,7 +139,7 @@ None.
 
 ===== Public base classes
 
-`tensor_expression<T,unary_tensor_expression<T,E,OP>> `
+`tensor_expression<T,unary_tensor_expression<T,E,OP>>`
 
 ===== Template parameters
 
@@ -167,13 +167,14 @@ None.
 |===
 |Member |Description
 
-|`decltype(auto) operator()(std::size_t i) const ` |Returns a `const`
+|`decltype(auto) operator()(std::size_t i) const` |Returns a `const`
 reference to the i-th element of the expression.
 |===
 
 '''''
 
 Copyright (©) 2018 Cem Bassoy +
+Copyright (©) 2021 Shikhar Vashistha +
 Use, modification and distribution are subject to the Boost Software
 License, Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
 http://www.boost.org/LICENSE_1_0.txt ).
