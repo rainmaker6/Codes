@@ -66,65 +66,26 @@ value type is convertible to T |X
 |===
 
 ==== Expression semantics
-[cols=",",",",",]
+[cols=",,,,",options="header",]
 |===
 |Name |Expression |Precondition |Semantics |Postcondition
 
 |Default-constructor |X() |Creates 0 elements. |size()==0
 
-|Size-constructor |X(n) |n>=0
-
-|Creates n elements. Elements are constructed without an initializer.
+|Size-constructor |X(n) |n>=0 |Creates n elements. Elements are constructed without an initializer.
 That is if T is a (possibly cv-qualified) non-POD class type (or array
 thereof), the object is default initialized. Otherwise, the object
 created has indeterminate value. See the sentance "If new initializer is
 omitted" in section 5.3.4 paragraph 15 of the ISO C++ standard. |size()==n
 
-|Fill-constructor
+|Fill-constructor |X(n,t) |n>=0 |Creates n initialised element with copies of `t` |size()==n
 
-|X(n,t)
+|Range constructor |X(i, j) |[i,j) is a valid range. |copies the range [i,j) to the storage |size() is equal to the distance from i to j. Each element is a copy of the corresponding element in the range [i,j).
 
-|n>=0
+|Resize |a.resize(n, t) |n <= a.max_size() |Modified the container so that it has exactly n elements. + The container may be reallocated if its size changes. Existing element values are preserved, additional elements are copies of `t`. |a.size() == n
 
-|Creates n initialised element with copies of `t`
+|Resize |a.resize(n) |n <= a.max_size() |Modified the container so that it has exactly n elements. + The container may be reallocated if its size changes. Element values are uninitialised. That is, each element value may be a previously assigned value or default construced value for `T`. |a.size() == n
 
-|size()==n
-
-|Range constructor
-
-|X(i, j)
-
-|[i,j) is a valid range.
-
-|copies the range [i,j) to the storage
-
-|size() is equal to the distance from i to j. Each element is a copy of
-the corresponding element in the range [i,j).
-
-|Resize
-
-|a.resize(n, t)
-
-|n <= a.max_size()
-
-|Modified the container so that it has exactly n elements. +
-The container may be reallocated if its size changes. Existing element
-values are preserved, additional elements are copies of `t`.
-
-|a.size() == n
-
-|Resize
-
-|a.resize(n)
-
-|n <= a.max_size()
-
-|Modified the container so that it has exactly n elements. +
-The container may be reallocated if its size changes. Element values are
-uninitialised. That is, each element value may be a previously assigned
-value or default construced value for `T`.
-
-|a.size() == n
 |===
 
 ===== Complexity guarantees
