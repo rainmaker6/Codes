@@ -66,11 +66,12 @@ value type is convertible to T |X
 |===
 
 ==== Expression semantics
+
 [cols=",,,,",options="header",]
 |===
 |Name |Expression |Precondition |Semantics |Postcondition
 
-|Default-constructor |X() |Creates 0 elements. |size()==0
+|Default-constructor |X() |  |Creates 0 elements |size()==0
 
 |Size-constructor |X(n) |n>=0 |Creates n elements. Elements are constructed without an initializer.
 That is if T is a (possibly cv-qualified) non-POD class type (or array
