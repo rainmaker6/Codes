@@ -212,7 +212,7 @@ Semantics of an expression is defined only where it differs from, or is
 not defined in link:expression_concept.adoc#matrix_expression[Matrix
 Expression] .
 
-[width="100%",cols=",,,,",options="header",]
+[width="100%",cols=",,,,,",options="header",]
 |===
 |Name |Expression |Precondition |Semantics |Postcondition 
 
