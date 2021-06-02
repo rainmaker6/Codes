@@ -1,4 +1,4 @@
-== image:../../../../boost.png[logo]Boost Basic Linear Algebra - Configuration Options
+== image:Boost.png[logo]Boost Basic Linear Algebra - Configuration Options
 
 [[toc]]
 
@@ -179,6 +179,7 @@ solve() functions_
 
 [[copyright]]
 Copyright (©) 2000-2009 Joerg Walter, Mathias Koch, Gunter Winkler +
+Copyright (©) 2021 Shikhar Vashistha +
 Use, modification and distribution are subject to the Boost Software
 License, Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
 http://www.boost.org/LICENSE_1_0.txt ).

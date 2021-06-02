@@ -1,4 +1,4 @@
-== image:../../../../boost.png[logo]uBLAS Overview
+== image:Boost.png[logo]uBLAS Overview
 
 [[toc]]
 
@@ -592,6 +592,7 @@ assumptions remains visible, too.
 '''''
 
 Copyright (©) 2000-2002 Joerg Walter, Mathias Koch +
+Copyright (©) 2021 Shikhar Vashistha +
 Use, modification and distribution are subject to the Boost Software
 License, Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
 http://www.boost.org/LICENSE_1_0.txt ).

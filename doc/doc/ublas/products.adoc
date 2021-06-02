@@ -1,6 +1,6 @@
 ?xml version="1.0" encoding="UTF-8"?>
 
-== image:../../../../boost.png[image]Special Products
+== image:Boost.png[image]Special Products
 
 [[toc]]
 
@@ -10,33 +10,25 @@
 |===
 |template<class V, class E1, class E2> BOOST_UBLAS_INLINE V & 
 |link:#ga8[axpy_prod] (const matrix_expression< E1 > &e1, const
-vector_expression< E2 > &e2, V &v, bool init=true)
-
-|  |computes `v += A x` or `v = A x` in an optimized fashion.
+vector_expression< E2 > &e2, V &v, bool init=true) |computes `v += A x` or `v = A x` in an optimized fashion.
 link:#ga8[] +
  +
 
 |template<class V, class E1, class E2> BOOST_UBLAS_INLINE V & 
 |link:#ga9[axpy_prod] (const vector_expression< E1 > &e1, const
-matrix_expression< E2 > &e2, V &v, bool init=true)
-
-|  |computes `v += AT x` or `v = AT x` in an optimized fashion.
+matrix_expression< E2 > &e2, V &v, bool init=true) |computes `v += AT x` or `v = AT x` in an optimized fashion.
 link:#ga9[] +
  +
 
 |template<class M, class E1, class E2> BOOST_UBLAS_INLINE M & 
 |link:#ga7[axpy_prod] (const matrix_expression< E1 > &e1, const
-matrix_expression< E2 > &e2, M &m, bool init=true)
-
-|  |computes `M += A X` or `M = A X` in an optimized fashion.
+matrix_expression< E2 > &e2, M &m, bool init=true) |computes `M += A X` or `M = A X` in an optimized fashion.
 link:#ga7[] +
  +
 
 |template<class M, class E1, class E2> BOOST_UBLAS_INLINE M & 
 |link:#ga6[opb_prod] (const matrix_expression< E1 > &e1, const
-matrix_expression< E2 > &e2, M &m, bool init=true)
-
-|  |computes `M += A X` or `M = A X` in an optimized fashion.
+matrix_expression< E2 > &e2, M &m, bool init=true) |computes `M += A X` or `M = A X` in an optimized fashion.
 link:#ga6[] +
  +
 |===
