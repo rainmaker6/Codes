@@ -125,6 +125,7 @@ None.
 
 |`std::vector<size_type> base() const` |Returns a const reference to the private member sequence container holding all elements.
 
+|===
 '''''
 
 Copyright (©) 2018 Cem Bassoy +
