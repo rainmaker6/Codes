@@ -1,4 +1,4 @@
-== image:../../../../boost.png[image]Container Concepts
+== image:Boost.png[image]Container Concepts
 
 [[toc]]
 
@@ -77,7 +77,7 @@ Expression] .
 [width="100%",cols="20%,20%,20%,20%,20%",options="header",]
 |===
 |Name |Expression |Precondition |Semantics |Postcondition
-|Sizing constructor |`V v (n)` |`n >= 0` |Allocates a vector of`n`
+|Sizing constructor |`V v (n)` |`n >= 0` |Allocates a vector of `n`
 elements. |`v.size () == n`.
 
 |Element access link:#element_access_note[[2]] |`v[n]` |`0<n>v.size()`
@@ -218,7 +218,7 @@ Expression] .
 
 |Sizing constructor |`M m (n1, n2)` |`n1 >= 0` and `n2 >= 0` |Allocates a matrix of `n1` rows and `n2` columns. |`m.size1 () == n1` and `m.size2 () == n2`.
 
-|Insert |`m.insert_element (i, j, t)` |`0 <= i < m.size1 ()`, + `0 <= j < m.size2 ()`. |Inserts an element at `m (i, j)` with value `t`. The storage requirement of the Matrix may be increased. `m (i, j)` is equal to `t`.
+|Insert |`m.insert_element (i, j, t)` |`0 <= i < m.size1 ()`, + `0 <= j < m.size2 ()`. |Inserts an element at `m (i, j)` with value `t`. The storage requirement of the Matrix may be increased. `m (i, j)` is equal to `t`. |`m(i,j)` is equal to `t`. 
 
 |Erase |`m.erase_element (i, j)` |`0 <= i < m.size1 ()`and ` 0 <= j < m.size2` |Destroys the element as `m (i, j)` and replaces it with the default `value_type ()`. The storage requirement of the Matrix may be decreased. |`m (i, j)` is equal to `value_type ()`.
 
@@ -343,78 +343,21 @@ Semantics of an expression is defined only where it differs from, or is
 not defined in link:expression_concept.html#tensor_expression[Tensor
 Expression] .
 
-Name
+[width="100%",cols="20%,20%,20%,20%,20%",]
+|===
+|Name |Expression |Precondition |Semantics |Postcondition
 
-Expression
+|Sizing constructor |`T t(n1, n2, ..., np)` |$n_r \geq 1$ for $1\leq 1 \leq p $ |Allocates a `p`-order tensor with dimension extents $n_1,n_2,\dots,n_p$. |`t.size(r)==nr` for $1\leq r \leq p$.
 
-Precondition
+|Write |`t.at(i1,i2,...,ip)=v` |$0 \leq i_r < n_r$ for $1 \leq r \leq p$. |Writes an element at multi-index position $i_1,i_2,\dots,i_p$ with value `v`. |`t(i1,i2,...,ip)` is equal to `v`.
 
-Semantics
+|Read |`v=t.at(i1,i2,...,ip)` |$0 \leq i_r < n_r$ for $1 \leq r \leq p$. |Reads the element at multi-index position $(i_1,i2_,\dots,i_p)$ and returns a value `v`. |`t(i1,i2,...,ip)` is equal to `v`.
 
-Postcondition
+|Clear |`t.clear()` | |Removes all elements from the container. |
 
-Sizing constructor
+|Resize |`t.resize(m1, m2, ..., mq)` |$m_r \geq 1$ for $1\leq 1 \leq q $ |Reallocate the matrix so that it can hold $m_1\times m_2\times \cdots \times m_q$ elements. + Erases or appends elements in order to bring the matrix to the prescribed size. Appended elements are `value_type()` copies. |`t.size(r) == mr` for $1\leq r \leq q$.
 
-`T t(n1, n2, ..., np)`
-
-$n_r \geq 1$ for $1\leq 1 \leq p $
-
-Allocates a `p`-order tensor with dimension extents $n_1,n_2,\dots,n_p$.
-
-`t.size(r)==nr` for $1\leq r \leq p$.
-
-Write
-
-`t.at(i1,i2,...,ip)=v`
-
-$0 \leq i_r < n_r$ for $1 \leq r \leq p$.
-
-Writes an element at multi-index position $i_1,i_2,\dots,i_p$ with value
-`v`.
-
-`t(i1,i2,...,ip)` is equal to `v`.
-
-Read
-
-`v=t.at(i1,i2,...,ip)`
-
-$0 \leq i_r < n_r$ for $1 \leq r \leq p$.
-
-Reads the element at multi-index position $(i_1,i2_,\dots,i_p)$ and
-returns a value `v`.
-
-`t(i1,i2,...,ip)` is equal to `v`.
-
-Clear
-
-`t.clear()`
-
- 
-
-Removes all elements from the container.
-
- 
-
-Resize
-
-`t.resize(m1, m2, ..., mq)`
-
-$m_r \geq 1$ for $1\leq 1 \leq q $
-
-Reallocate the matrix so that it can hold $m_1\times m_2\times \cdots
-\times m_q$ elements. +
-Erases or appends elements in order to bring the matrix to the
-prescribed size. Appended elements are `value_type()` copies.
-
-`t.size(r) == mr` for $1\leq r \leq q$.
-
-Storage
-
-`m.data()`
-
-Returns a reference to the underlying dense storage.
-
- 
+|Storage |`m.data()` | |Returns a reference to the underlying dense storage.| |
 
 ==== Complexity guarantees
 
