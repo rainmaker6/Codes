@@ -234,7 +234,7 @@ When `p == false` then existing elements are not preserved and elements
 will not appended as normal. Instead the matrix is in the same state as
 that after an equivalent sizing constructor. |`m.size1 () == n1` and `m.size2 () == n2`.
 
-|Storage |`m.data()` |Returns a reference to the underlying dense storage. |
+|Storage |`m.data()` | |Returns a reference to the underlying dense storage. |
 
 |===
  
