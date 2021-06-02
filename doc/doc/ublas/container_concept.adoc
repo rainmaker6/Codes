@@ -227,12 +227,12 @@ Expression] .
   `for (j = 0; j < m.size2 (); ++ j)` +
     `m.erase_element (i, j);` |
 
-|Resize |`m.resize (n1, n2)  m.resize (n1, n2, p)` |Reallocate the matrix so that it can hold `n1` rows and `n2` columns. +
+|Resize |`m.resize (n1, n2)  m.resize (n1, n2, p)` | |Reallocate the matrix so that it can hold `n1` rows and `n2` columns. +
 Erases or appends elements in order to bring the matrix to the
 prescribed size. Appended elements are `value_type()` copies. +
 When `p == false` then existing elements are not preserved and elements
 will not appended as normal. Instead the matrix is in the same state as
-that after an equivalent sizing constructor. |`m.size1 () == n1` and `m.size2 () == n2`. |
+that after an equivalent sizing constructor. |`m.size1 () == n1` and `m.size2 () == n2`.
 
 |Storage |`m.data()` | |Returns a reference to the underlying dense storage. |
 
