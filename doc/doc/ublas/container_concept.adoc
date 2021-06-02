@@ -209,86 +209,34 @@ mutable, `const array_type&` otherwise
 ==== Expression semantics
 
 Semantics of an expression is defined only where it differs from, or is
-not defined in link:expression_concept.html#matrix_expression[Matrix
+not defined in link:expression_concept.adoc#matrix_expression[Matrix
 Expression] .
 
-Name
+[width="100%",cols="20%,20%,20%,20%,20%",]
+|===
+|Name |Expression |Precondition |Semantics |Postcondition 
 
-Expression
+|Sizing constructor |`M m (n1, n2)` |`n1 >= 0` and `n2 >= 0` |Allocates a matrix of `n1` rows and `n2` columns. |`m.size1 () == n1` and `m.size2 () == n2`.
 
-Precondition
+|Insert |`m.insert_element (i, j, t)` |`0 <= i < m.size1 ()`, + `0 <= j < m.size2 ()`. |Inserts an element at `m (i, j)` with value `t`. The storage requirement of the Matrix may be increased. `m (i, j)` is equal to `t`.
 
-Semantics
+|Erase |`m.erase_element (i, j)` |`0 <= i < m.size1 ()`and ` 0 <= j < m.size2` |Destroys the element as `m (i, j)` and replaces it with the default `value_type ()`. The storage requirement of the Matrix may be decreased. |`m (i, j)` is equal to `value_type ()`.
 
-Postcondition
-
-Sizing constructor
-
-`M m (n1, n2)`
-
-`n1 >= 0` and `n2 >= 0`
-
-Allocates a matrix of `n1` rows and `n2` columns.
-
-`m.size1 () == n1` and `m.size2 () == n2`.
-
-Insert
-
-`m.insert_element (i, j, t)`
-
-`0 <= i < m.size1 ()`, +
-`0 <= j < m.size2 ()`.
-
-Inserts an element at `m (i, j)` with value `t`. The storage requirement
-of the Matrix may be increased.
-
-`m (i, j)` is equal to `t`.
-
-Erase
-
-`m.erase_element (i, j)`
-
-`0 <= i < m.size1 ()`and ` 0 <= j < m.size2`
-
-Destroys the element as `m (i, j)` and replaces it with the default
-`value_type ()`. The storage requirement of the Matrix may be decreased.
-
-`m (i, j)` is equal to `value_type ()`.
-
-Clear
-
-`m.clear ()`
-
- 
-
-Equivalent to +
+|Clear |`m.clear ()` |Equivalent to +
 `for (i = 0; i < m.size1 (); ++ i)` +
   `for (j = 0; j < m.size2 (); ++ j)` +
-    `m.erase_element (i, j);`
+    `m.erase_element (i, j);` |
 
- 
-
-Resize
-
-`m.resize (n1, n2)  m.resize (n1, n2, p)`
-
- 
-
-Reallocate the matrix so that it can hold `n1` rows and `n2` columns. +
+|Resize |`m.resize (n1, n2)  m.resize (n1, n2, p)` |Reallocate the matrix so that it can hold `n1` rows and `n2` columns. +
 Erases or appends elements in order to bring the matrix to the
 prescribed size. Appended elements are `value_type()` copies. +
 When `p == false` then existing elements are not preserved and elements
 will not appended as normal. Instead the matrix is in the same state as
-that after an equivalent sizing constructor.
+that after an equivalent sizing constructor. |`m.size1 () == n1` and `m.size2 () == n2`.
 
-`m.size1 () == n1` and `m.size2 () == n2`.
+|Storage |`m.data()` |Returns a reference to the underlying dense storage. |
 
-Storage
-
-`m.data()`
-
-Returns a reference to the underlying dense storage.
-
+|===
  
 
 ==== Complexity guarantees

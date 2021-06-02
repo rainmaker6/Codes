@@ -1,4 +1,4 @@
-== image:../../../../boost.png[image]Bounded Array Storage
+== image:Boost.png[image]Bounded Array Storage
 
 [[toc]]
 
@@ -275,6 +275,7 @@ Returns a `reverse_iterator` pointing to the end of the reversed
 
 Copyright (©) 2000-2004 Michael Stevens, Mathias Koch, Joerg Walter,
 Gunter Winkler +
+Copyright (©) 2021 Shikhar Vashistha +
 Use, modification and distribution are subject to the Boost Software
 License, Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
 http://www.boost.org/LICENSE_1_0.txt ).
