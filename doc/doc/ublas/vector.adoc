@@ -43,14 +43,14 @@ link:#vector_1[[1]] |`unbounded_array<T>`
 
 ==== Model of
 
-link:container_concept.html#vector[Vector],
-http://www.sgi.com/tech/stl/RandomAccessContainer.html[RandomAccessContainer]
+link:container_concept.adoc#vector[Vector],
+http://www.boost.org/sgi/stl/RandomAccessContainer.html[RandomAccessContainer]
 
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:container_concept.html#vector[Vector] and
-http://www.sgi.com/tech/stl/RandomAccessContainer.html[RandomAccessContainer].
+link:container_concept.adoc#vector[Vector] and
+http://www.boost.org/sgi/stl/RandomAccessContainer.html[RandomAccessContainer].
 
 ==== Public base classes
 
@@ -89,13 +89,13 @@ http://www.sgi.com/tech/stl/RandomAccessContainer.html[RandomAccessContainer].
 |`reverse_iterator`
 |link:expression_concept.adoc#vector_expression[VectorExpression] |
 
-|`array_type` |link:container_concept.html#vector[Vector] |
+|`array_type` |link:container_concept.adoc#vector[Vector] |
 
 |`vector ()`
 |link:expression_concept.adoc#vector_expression[VectorExpression]
 |Allocates an uninitialized `vector` that holds zero elements.
 
-|`vector (size_type size)` |link:container_concept.html#vector[Vector]
+|`vector (size_type size)` |link:container_concept.adoc#vector[Vector]
 |Allocates an uninitialized `vector` that holds `size` elements.
 
 |`vector (const vector &v)` | |The copy constructor.
@@ -104,7 +104,7 @@ http://www.sgi.com/tech/stl/RandomAccessContainer.html[RandomAccessContainer].
 extended copy constructor.
 
 |`void resize (size_type size, bool preserve = true)`
-|link:container_concept.html#vector[Vector] |Reallocates a `vector` to
+|link:container_concept.adoc#vector[Vector] |Reallocates a `vector` to
 hold `size` elements. The existing elements of the `vector` are preseved
 when specified.
 
@@ -113,17 +113,17 @@ when specified.
 |Returns the size of the `vector`.
 
 |`size_type max_size () const`
-|http://www.sgi.com/tech/stl/RandomAccessContainer.html[RandomAccessContainer]
+|https://www.boost.org/sgi/stl/RandomAccessContainer.html[RandomAccessContainer]
 |Returns the upper bound on the size of the `vector`.
 
 |`bool empty () const`
-|http://www.sgi.com/tech/stl/RandomAccessContainer.html[RandomAccessContainer]
+|http://www.boost.org/sgi/stl/RandomAccessContainer.html[RandomAccessContainer]
 |Equivilent to `size () == 0`.
 
 |`const array_type& data () const`
-|link:container_concept.html#vector[Vector] |
+|link:container_concept.adoc#vector[Vector] |
 
-|`array_type& data ()` |link:container_concept.html#vector[Vector] |
+|`array_type& data ()` |link:container_concept.adoc#vector[Vector] |
 
 |`const_reference operator () (size_type i) const`
 |link:expression_concept.adoc#vector_expression[VectorExpression]
@@ -134,11 +134,11 @@ when specified.
 |Returns a reference of the `i`-th element.
 
 |`const_reference operator [] (size_type i) const`
-|link:container_concept.html#vector[Vector] |Returns a `const` reference
+|link:container_concept.adoc#vector[Vector] |Returns a `const` reference
 of the `i` -th element.
 
 |`reference operator [] (size_type i)`
-|link:container_concept.html#vector[Vector] |Returns a reference of the
+|link:container_concept.adoc#vector[Vector] |Returns a reference of the
 `i`-th element.
 
 |`vector &operator = (const vector &v)`
@@ -190,14 +190,14 @@ computed assignment operator. Divides the vector through a scalar.
 the contents of the vectors.
 
 |`void insert_element (size_type i, const_reference t)`
-|link:container_concept.html#vector[Vector] |Inserts the value `t` at
+|link:container_concept.adoc#vector[Vector] |Inserts the value `t` at
 the `i`-th element.
 
 |`void erase_element (size_type i)`
-|link:container_concept.html#vector[Vector] |Erases the value at the
+|link:container_concept.adoc#vector[Vector] |Erases the value at the
 `i`-th element.
 
-|`void clear ()` |link:container_concept.html#vector[Vector] |Clears the
+|`void clear ()` |link:container_concept.adoc#vector[Vector] |Clears the
 vector.
 
 |`const_iterator begin () const`
@@ -284,12 +284,12 @@ Defined in the header vector.hpp.
 
 ==== Model of
 
-link:container_concept.html#vector[Vector] .
+link:container_concept.adoc#vector[Vector] .
 
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:container_concept.html#vector[Vector] .
+link:container_concept.adoc#vector[Vector] .
 
 ==== Public base classes
 
@@ -383,12 +383,12 @@ Defined in the header vector.hpp.
 
 ==== Model of
 
-link:container_concept.html#vector[Vector] .
+link:container_concept.adoc#vector[Vector] .
 
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:container_concept.html#vector[Vector] .
+link:container_concept.adoc#vector[Vector] .
 
 ==== Public base classes
 
@@ -481,12 +481,12 @@ Defined in the header vector.hpp.
 
 ==== Model of
 
-link:container_concept.html#vector[Vector] .
+link:container_concept.adoc#vector[Vector] .
 
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:container_concept.html#vector[Vector] .
+link:container_concept.adoc#vector[Vector] .
 
 ==== Public base classes
 
