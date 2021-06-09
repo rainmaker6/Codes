@@ -8,12 +8,13 @@
 
 The templated class `matrix<T, F, A>` is the base container adaptor for
 dense matrices. For a _(m x n_)-dimensional matrix and _0 <= i < m_, _0
-<= j < n_ every element __m__~_i, j_~ is mapped to the __(i x n +
-j)-__th element of the container for row major orientation or the __(i +
+<= j < n_ every element __m__~_i, j_~ is mapped to the __(i x n
+j)-__th element of the container for row major orientation or the __(i
 j x m)-__th element of the container for column major orientation.
 
 ==== Example
 
+[source,cpp]
 ....
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
@@ -43,18 +44,18 @@ Defined in the header matrix.hpp.
 |`F` |Functor describing the storage organization. link:#matrix_1[[1]]
 |`row_major`
 
-|`A` |The type of the link:storage_concept.html[Storage] array.
+|`A` |The type of the link:storage_concept.adoc[Storage] array.
 link:#matrix_2[[2]] |`unbounded_array<T>`
 |===
 
 ==== Model of
 
-link:container_concept.html#matrix[Matrix] .
+link:container_concept.adoc#matrix[Matrix] .
 
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:container_concept.html#matrix[Matrix] .
+link:container_concept.adoc#matrix[Matrix] .
 
 ==== Public base classes
 
@@ -209,6 +210,7 @@ i_~_= 1_.
 
 ==== Example
 
+[source,cpp]
 ....
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
@@ -238,12 +240,12 @@ Defined in the header matrix.hpp.
 
 ==== Model of
 
-link:container_concept.html#matrix[Matrix] .
+link:container_concept.adoc#matrix[Matrix] .
 
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:container_concept.html#matrix[Matrix] .
+link:container_concept.adoc#matrix[Matrix] .
 
 ==== Public base classes
 
@@ -322,6 +324,7 @@ holds __z__~_i, j_~ _= 0_.
 
 ==== Example
 
+[source,cpp]
 ....
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
@@ -351,12 +354,12 @@ Defined in the header matrix.hpp.
 
 ==== Model of
 
-link:container_concept.html#matrix[Matrix] .
+link:container_concept.adoc#matrix[Matrix] .
 
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:container_concept.html#matrix[Matrix] .
+link:container_concept.adoc#matrix[Matrix] .
 
 ==== Public base classes
 
@@ -435,6 +438,7 @@ matrices. For a _(m x n_)-dimensional scalar matrix and _0 <= i < m_, _0
 
 ==== Example
 
+[source,cpp]
 ....
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
@@ -464,12 +468,12 @@ Defined in the header matrix.hpp.
 
 ==== Model of
 
-link:container_concept.html#matrix[Matrix] .
+link:container_concept.adoc#matrix[Matrix] .
 
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:container_concept.html#matrix[Matrix] .
+link:container_concept.adoc#matrix[Matrix] .
 
 ==== Public base classes
 
