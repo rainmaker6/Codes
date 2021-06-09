@@ -12,7 +12,7 @@ element __v__~_i_~ is mapped to the __i-__th element of the container.
 
 ==== Example
 
-[source,ruby]
+[source,aqua]
 ....
 #include <boost/numeric/ublas/vector.hpp>
 #include <boost/numeric/ublas/io.hpp>
@@ -254,7 +254,7 @@ i < n_ holds __u__^_k_^~_i_~ _= 0_, if _i <> k_, and __u__^_k_^~_i_~ _=
 
 ==== Example
 
-[source,ruby]
+[source,aqua]
 ....
 #include <boost/numeric/ublas/vector.hpp>
 #include <boost/numeric/ublas/io.hpp>
@@ -356,7 +356,7 @@ a _n_-dimensional zero vector and _0 <= i < n_ holds __z__~_i_~ _= 0_.
 
 ==== Example
 
-[source,ruby]
+[source,aqua]
 ....
 #include <boost/numeric/ublas/vector.hpp>
 #include <boost/numeric/ublas/io.hpp>
@@ -455,7 +455,7 @@ s_.
 
 ==== Example
 
-[source,ruby]
+[source,aqua]
 ....
 #include <boost/numeric/ublas/vector.hpp>
 #include <boost/numeric/ublas/io.hpp>
