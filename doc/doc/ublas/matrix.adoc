@@ -8,7 +8,7 @@
 
 The templated class `matrix<T, F, A>` is the base container adaptor for
 dense matrices. For a _(m x n_)-dimensional matrix and _0 <= i < m_, _0
-<= j < n_ every element __m__~_i, j_~ is mapped to the __(i x n
+<= j < n_ every element _m_~_i, j_~ is mapped to the __(i x n
 j)-__th element of the container for row major orientation or the __(i
 j x m)-__th element of the container for column major orientation.
 
