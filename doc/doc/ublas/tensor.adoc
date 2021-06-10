@@ -2,31 +2,33 @@
 
 [[toc]]
 
-=== 1. ##Tensor +
-====== 1.1 link:#tensor_1[Description] +
-====== 1.2 link:#tensor_2[Example] +
-====== 1.3 link:#tensor_3[Definition] +
-====== 1.4 link:#tensor_4[Model of] +
-====== 1.5 link:#tensor_5[Type requirements] +
-====== 1.6 link:#tensor_6[Public base classes] +
-====== 1.7 link:#tensor_7[Template parameters] +
-====== 1.8 link:#tensor_8[Member types] +
-====== 1.9 link:#tensor_9[Alias templates] +
-====== 1.1 link:#tensor_10[Member Functions] +
-====== 1.1.1 link:#tensor_11[Construction] +
-====== 1.1.2 link:#tensor_12[Assignment] +
-====== 1.1.3 link:#tensor_13[Capacity] +
-====== 1.1.4 link:#tensor_14[Element access] +
-====== 1.1.5 link:#tensor_15[Proxy Generation] +
-====== 1.1.6 link:#tensor_16[Iterators] +
-====== 1.1.7 link:#tensor_17[Modifiers] +
-====== 1.1.8 link:#tensor_18[Notes] +
+. ##Tensor +
+.. link:#tensor_1[Description] +
+.. link:#tensor_2[Example] +
+.. link:#tensor_3[Definition] +
+.. link:#tensor_4[Model of] +
+.. link:#tensor_5[Type requirements] +
+.. link:#tensor_6[Public base classes] +
+.. link:#tensor_7[Template parameters] +
+.. link:#tensor_8[Member types] +
+.. link:#tensor_9[Alias templates] +
+
+.. link:#tensor_10[Member Functions] +
+... link:#tensor_11[Construction] +
+... link:#tensor_12[Assignment] +
+... link:#tensor_13[Capacity] +
+... link:#tensor_14[Element access] +
+... link:#tensor_15[Proxy Generation] +
+... link:#tensor_16[Iterators] +
+... link:#tensor_17[Modifiers] +
+... link:#tensor_18[Notes] +
 
 ==== [#tensor_1]#Description#
 
+
 The templated class `tensor<value_t,format_t,storage_t>` is the base
 container adaptor for dense tensors. Every element
-$t_\{i_1,i_2,\dots,i_p}$ of a $p$-order $(n_1 \times n_2 \times \cdots
++++ $t_\{i_1,i_2,\dots,i_p}$ +++ of a $p$-order $(n_1 \times n_2 \times \cdots
 \times n_p)$-dimensional tensor $T$ is mapped to $j$-th element of a
 one-dimensional container where $j = \sum_\{r=1}^p i_r \cdot w_r$ with
 $1 \leq i_r \leq n_r $ for $1 \leq r \leq p$. For the first-order
