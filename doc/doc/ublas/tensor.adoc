@@ -2,9 +2,27 @@
 
 [[toc]]
 
-=== [#tensor]####Tensor
+=== 1. ##Tensor +
+====== 1.1 link:#tensor_1[Description] +
+====== 1.2 link:#tensor_2[Example] +
+====== 1.3 link:#tensor_3[Definition] +
+====== 1.4 link:#tensor_4[Model of] +
+====== 1.5 link:#tensor_5[Type requirements] +
+====== 1.6 link:#tensor_6[Public base classes] +
+====== 1.7 link:#tensor_7[Template parameters] +
+====== 1.8 link:#tensor_8[Member types] +
+====== 1.9 link:#tensor_9[Alias templates] +
+====== 1.1 link:#tensor_10[Member Functions] +
+====== 1.1.1 link:#tensor_11[Construction] +
+====== 1.1.2 link:#tensor_12[Assignment] +
+====== 1.1.3 link:#tensor_13[Capacity] +
+====== 1.1.4 link:#tensor_14[Element access] +
+====== 1.1.5 link:#tensor_15[Proxy Generation] +
+====== 1.1.6 link:#tensor_16[Iterators] +
+====== 1.1.7 link:#tensor_17[Modifiers] +
+====== 1.1.8 link:#tensor_18[Notes] +
 
-==== Description
+==== [#tensor_1]#Description#
 
 The templated class `tensor<value_t,format_t,storage_t>` is the base
 container adaptor for dense tensors. Every element
@@ -16,7 +34,7 @@ orientation $w_1 = 1$ and $w_k = n_\{k-1} \cdot w_\{k-1}$ for $k > 1$.
 For last-order orientation $w_p = 1$ and $ w_k = n_\{k+1} \cdot
 w_\{k+1}$ for $k < p$.
 
-==== Example
+==== [#tensor_2]#Example#
 
 [source,cpp]
 ....
@@ -34,24 +52,24 @@ int main () {
 }
 ....
 
-==== Definition
+==== [#tensor_3]#Definition#
 
 Defined in the header file `tensor/tensor.hpp`.
 
-==== Model of
+==== [#tensor_4]#Model of#
 
 link:container_concept.adoc#tensor[Tensor]
 
-==== Type requirements
+==== [#tensor_5]#Type requirements#
 
 None, except for those imposed by the requirements of
 link:container_concept.adoc#tensor[Tensor] .
 
-==== Public base classes
+==== [#tensor_6]#Public base classes#
 
 `tensor_container<tensor<value_t,format_t,storage_t> >`
 
-==== Template parameters
+==== [#tensor_7]#Template parameters#
 
 [cols=",,",]
 |===
@@ -65,7 +83,7 @@ link:container_concept.adoc#tensor[Tensor] .
 |`std::vector<value_t>`
 |===
 
-==== Member types
+==== [#tensor_8]#Member types#
 
 [cols=",",]
 |===
@@ -124,7 +142,7 @@ interacts.
 interacts.
 |===
 
-==== Alias templates
+==== [#tensor_9]#Alias templates#
 
 Alias template
 
@@ -146,9 +164,9 @@ link:matrix_expression.adoc#matrix_expression[matrix_expression].
 Type of
 link:vector_expression.adoc#vector_expression[vector_expression].
 
-==== Member Functions
+==== [#tensor_10]#Member Functions#
 
-===== Construction
+===== [#tensor_11]#Construction#
 
 [cols=",",]
 |===
@@ -207,7 +225,7 @@ tensor by evaluating the link:vector_expression.adoc[vector expression]
 `expr` and copying all elements of the result.
 |===
 
-===== Assignment
+===== [#tensor_12]#Assignment#
 
 [cols=",",]
 |===
@@ -223,7 +241,7 @@ tensor by evaluating the link:vector_expression.adoc[vector expression]
 tensor with `v`.
 |===
 
-===== Capacity
+===== [#tensor_13]#Capacity#
 
 [cols=",",]
 |===
@@ -246,7 +264,7 @@ the link:tensor/strides.adoc[strides] of the tensor.
 the link:tensor/extents.adoc[extents] of the tensor.
 |===
 
-===== Element access
+===== [#tensor_14]#Element access#
 
 [cols=",",]
 |===
@@ -276,7 +294,7 @@ where ` (i,is...)` denotes a multi-index with `tensor::order()`
 elements. If `sizeof...(is)==0`, `tensor::operator[i]` is called.
 |===
 
-===== Proxy Generation
+===== [#tensor_15]#Proxy Generation#
 
 [cols=",",]
 |===
@@ -288,7 +306,7 @@ index objects `(p,ps...)` for a tensor contraction where
 `sizeof...(ps)+1` must be equal to `tensor::order()`.
 |===
 
-===== Iterators
+===== [#tensor_16]#Iterators#
 
 [cols=",",]
 |===
@@ -313,7 +331,7 @@ position after the last element of the tensor.
 the last element of the tensor.
 |===
 
-===== Modifiers
+===== [#tensor_17]#Modifiers#
 
 [cols=",",]
 |===
@@ -324,7 +342,7 @@ the last element of the tensor.
 greater than `tensor::size()`, the tensor is resized with `v`.
 |===
 
-===== Notes
+===== [#tensor_18]#Notes#
 
 [#tensor_1]#[1]# Supported parameters for the storage organization are
 `first_order` and `last_order`.
