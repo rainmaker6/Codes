@@ -9,33 +9,29 @@
 [width="100%",cols=">50%,50%",]
 |===
 |template<class V, class E1, class E2> BOOST_UBLAS_INLINE V & 
-|link:#ga8[axpy_prod] (const matrix_expression< E1 > &e1, const
+|link:#product_1#[axpy_prod] (const matrix_expression< E1 > &e1, const
 vector_expression< E2 > &e2, V &v, bool init=true) |computes `v += A x` or `v = A x` in an optimized fashion.
-link:#product_1#[1] +
  +
 
 |template<class V, class E1, class E2> BOOST_UBLAS_INLINE V & 
-|link:#ga9[axpy_prod] (const vector_expression< E1 > &e1, const
+|link:#product_2#[axpy_prod] (const vector_expression< E1 > &e1, const
 matrix_expression< E2 > &e2, V &v, bool init=true) |computes `v += AT x` or `v = AT x` in an optimized fashion.
-link:#product_2#[2] +
  +
 
 |template<class M, class E1, class E2> BOOST_UBLAS_INLINE M & 
-|link:#ga7[axpy_prod] (const matrix_expression< E1 > &e1, const
+|link:#product_3#[axpy_prod] (const matrix_expression< E1 > &e1, const
 matrix_expression< E2 > &e2, M &m, bool init=true) |computes `M += A X` or `M = A X` in an optimized fashion.
-link:#product_3#[3] +
  +
 
 |template<class M, class E1, class E2> BOOST_UBLAS_INLINE M & 
-|link:#ga6[opb_prod] (const matrix_expression< E1 > &e1, const
+|link:#product_4#[opb_prod] (const matrix_expression< E1 > &e1, const
 matrix_expression< E2 > &e2, M &m, bool init=true) |computes `M += A X` or `M = A X` in an optimized fashion.
-link:#product_4#[4] +
  +
 |===
 
 '''''
 
-[#product_1]##
+[#product_1]#1#
 
 [width="100%",cols="100%",]
 |===
@@ -80,7 +76,7 @@ give a large speed up compared to prod.
 
 |===
 
-[#product_2]##
+[#product_2]#2#
 
 [width="100%",cols="100%",]
 |===
@@ -125,7 +121,7 @@ give a large speed up compared to prod.
 
 |===
 
-[#product_3]##
+[#product_3]#3#
 
 [width="100%",cols="100%",]
 |===
@@ -169,7 +165,7 @@ Up to now there are no specialisations.
 
 |===
 
-[#product_4]##
+[#product_4]#4#
 
 [width="100%",cols="100%",]
 |===
