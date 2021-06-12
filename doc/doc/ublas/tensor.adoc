@@ -146,25 +146,16 @@ interacts.
 
 ==== [#tensor_9]#Alias templates#
 
-Alias template
+[cols=",",]
+|===
+|Alias template |Description
 
-Description
+|`template<class derived_type>  using tensor_expression_type = detail::tensor_expression<self_type,derived_type>` |Type of link:tensor/tensor_expression.adoc#tensor_expression[tensor_expression] where `self_type` is the `tensor` type.
 
-`template<class derived_type>  using tensor_expression_type = detail::tensor_expression<self_type,derived_type>`
+|`template<class derived_type>  using matrix_expression_type = matrix_expression<derived_type>` |Type of link:matrix_expression.adoc#matrix_expression[matrix_expression].
 
-Type of
-link:tensor/tensor_expression.adoc#tensor_expression[tensor_expression]
-where `self_type` is the `tensor` type.
-
-`template<class derived_type>  using matrix_expression_type = matrix_expression<derived_type>`
-
-Type of
-link:matrix_expression.adoc#matrix_expression[matrix_expression].
-
-`template<class derived_type>  using vector_expression_type = vector_expression<derived_type>`
-
-Type of
-link:vector_expression.adoc#vector_expression[vector_expression].
+|`template<class derived_type>  using vector_expression_type = vector_expression<derived_type>` |Type of link:vector_expression.adoc#vector_expression[vector_expression].
+|===
 
 ==== [#tensor_10]#Member Functions#
 
