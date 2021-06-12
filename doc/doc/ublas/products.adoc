@@ -31,7 +31,7 @@ matrix_expression< E2 > &e2, M &m, bool init=true) |computes `M += A X` or `M = 
 
 '''''
 
-[#product_1]#1#
+[#product_1]##
 
 [width="100%",cols="100%",]
 |===
@@ -76,7 +76,7 @@ give a large speed up compared to prod.
 
 |===
 
-[#product_2]#2#
+[#product_2]##
 
 [width="100%",cols="100%",]
 |===
@@ -121,7 +121,7 @@ give a large speed up compared to prod.
 
 |===
 
-[#product_3]#3#
+[#product_3]##
 
 [width="100%",cols="100%",]
 |===
@@ -165,7 +165,7 @@ Up to now there are no specialisations.
 
 |===
 
-[#product_4]#4#
+[#product_4]##
 
 [width="100%",cols="100%",]
 |===
