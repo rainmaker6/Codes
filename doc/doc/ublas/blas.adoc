@@ -4,97 +4,57 @@
 
 '''''
 
-[#_details]##
-
-[width="100%",cols="50%,50%",]
+=== Functions
+[width="100%",cols="100%",]
 |===
 | |
 
 a|
- +
-
-=== Functions
 
 |
 
-|template<class M1, class T, class M2, class M3> M1 & 
-|link:#ga0[boost::numeric::ublas::blas_3::tmm] (M1 &m1, const T &t,
-const M2 &m2, const M3 &m3)
+|template<class M1, class T, class M2, class M3> M1 & link:#blas_1[boost::numeric::ublas::blas_3::tmm] (M1 &m1, const T &t,
+const M2 &m2, const M3 &m3) triangular matrix multiplication link:#ga0[] 
 
-|  |triangular matrix multiplication link:#ga0[] +
- +
 
-|template<class M1, class T, class M2, class C> M1 & 
-|link:#ga1[boost::numeric::ublas::blas_3::tsm] (M1 &m1, const T &t,
-const M2 &m2, C)
+|template<class M1, class T, class M2, class C> M1 & link:#blas_2[boost::numeric::ublas::blas_3::tsm] (M1 &m1, const T &t,
+const M2 &m2, C) triangular solve _m2_ * _x_ = _t_ * _m1_ in place, _m2_ is a
+triangular matrix link:#ga1[] 
 
-|  |triangular solve _m2_ * _x_ = _t_ * _m1_ in place, _m2_ is a
-triangular matrix link:#ga1[] +
- +
+|template<class M1, class T1, class T2, class M2, class M3> M1 & link:#blas_3[boost::numeric::ublas::blas_3::gmm] (M1 &m1, const T1 &t1,
+const T2 &t2, const M2 &m2, const M3 &m3) general matrix multiplication link:#ga2[]
 
-|template<class M1, class T1, class T2, class M2, class M3> M1 & 
-|link:#ga2[boost::numeric::ublas::blas_3::gmm] (M1 &m1, const T1 &t1,
-const T2 &t2, const M2 &m2, const M3 &m3)
+|template<class M1, class T1, class T2, class M2> M1 & link:#blas_4[boost::numeric::ublas::blas_3::srk] (M1 &m1, const T1 &t1,
+const T2 &t2, const M2 &m2) symmetric rank k update: _m1_ = _t_ * _m1_ + _t2_ * (_m2_ * _m2^T^_)
+link:#ga3[]
 
-|  |general matrix multiplication link:#ga2[] +
- +
+|template<class M1, class T1, class T2, class M2> M1 & link:#blas_5[boost::numeric::ublas::blas_3::hrk] (M1 &m1, const T1 &t1,
+const T2 &t2, const M2 &m2) hermitian rank k update: _m1_ = _t_ * _m1_ + _t2_ * (_m2_ * _m2^H^_)
+link:#ga4[]
 
-|template<class M1, class T1, class T2, class M2> M1 & 
-|link:#ga3[boost::numeric::ublas::blas_3::srk] (M1 &m1, const T1 &t1,
-const T2 &t2, const M2 &m2)
 
-|  |symmetric rank k update: _m1_ = _t_ * _m1_ + _t2_ * (_m2_ * _m2^T^_)
-link:#ga3[] +
- +
+|template<class M1, class T1, class T2, class M2, class M3> M1 & link:#blas_6[boost::numeric::ublas::blas_3::sr2k] (M1 &m1, const T1 &t1,
+const T2 &t2, const M2 &m2, const M3 &m3) generalized symmetric rank k update: _m1_ = _t1_ * _m1_ + _t2_ *
+(_m2_ * _m3^T^_) + _t2_ * (_m3_ * _m2^T^_)
 
-|template<class M1, class T1, class T2, class M2> M1 & 
-|link:#ga4[boost::numeric::ublas::blas_3::hrk] (M1 &m1, const T1 &t1,
-const T2 &t2, const M2 &m2)
+|template<class M1, class T1, class T2, class M2, class M3> M1 & link:#blas_7[boost::numeric::ublas::blas_3::hr2k] (M1 &m1, const T1 &t1,
+const T2 &t2, const M2 &m2, const M3 &m3) generalized hermitian rank k update: _m1_ = _t1_ * _m1_ + _t2_ *
+(_m2_ * _m3^H^_) + (_m3_ * (_t2_ * _m2_)^H^)
 
-|  |hermitian rank k update: _m1_ = _t_ * _m1_ + _t2_ * (_m2_ * _m2^H^_)
-link:#ga4[] +
- +
-
-|template<class M1, class T1, class T2, class M2, class M3> M1 & 
-|link:#ga5[boost::numeric::ublas::blas_3::sr2k] (M1 &m1, const T1 &t1,
-const T2 &t2, const M2 &m2, const M3 &m3)
-
-|  |generalized symmetric rank k update: _m1_ = _t1_ * _m1_ + _t2_ *
-(_m2_ * _m3^T^_) + _t2_ * (_m3_ * _m2^T^_) link:#ga5[] +
- +
-
-|template<class M1, class T1, class T2, class M2, class M3> M1 & 
-|link:#ga6[boost::numeric::ublas::blas_3::hr2k] (M1 &m1, const T1 &t1,
-const T2 &t2, const M2 &m2, const M3 &m3)
-
-|  |generalized hermitian rank k update: _m1_ = _t1_ * _m1_ + _t2_ *
-(_m2_ * _m3^H^_) + (_m3_ * (_t2_ * _m2_)^H^) link:#ga6[] +
- +
-
-|template<class M, class E1, class E2> BOOST_UBLAS_INLINE M & 
-|link:products.html#ga7[boost::numeric::ublas::axpy_prod] (const
+|template<class M, class E1, class E2> BOOST_UBLAS_INLINE M & link:products.adoc#blas_8[boost::numeric::ublas::axpy_prod] (const
 matrix_expression< E1 > &e1, const matrix_expression< E2 > &e2, M &m,
-bool init=true)
+bool init=true) computes `M += A X` or `M = A X` in an optimized fashion.
 
-|  |computes `M += A X` or `M = A X` in an optimized fashion.
-link:products.html#ga7[] +
- +
-
-|template<class M, class E1, class E2> BOOST_UBLAS_INLINE M & 
-|link:products.html#ga8[boost::numeric::ublas::opb_prod] (const
+|template<class M, class E1, class E2> BOOST_UBLAS_INLINE M & link:products.adoc#blas_9[boost::numeric::ublas::opb_prod] (const
 matrix_expression< E1 > &e1, const matrix_expression< E2 > &e2, M &m,
-bool init=true)
-
-|  |computes `M += A X` or `M = A X` in an optimized fashion.
-link:products.html#ga8[] +
- +
+bool init=true) computes `M += A X` or `M = A X` in an optimized fashion.
 |===
 
 '''''
 
 === Function Documentation
 
-[#ga0 .anchor]##
+[#blas_1]#1.#
 
 [width="100%",cols="100%",]
 |===
@@ -115,7 +75,7 @@ a|
 |  |triangular matrix multiplication
 |===
 
-[#ga1 .anchor]##
+[#blas_2]#2.#
 
 [width="100%",cols="100%",]
 |===
@@ -137,7 +97,7 @@ a|
 triangular matrix
 |===
 
-[#ga2 .anchor]##
+[#blas_3]#3.#
 
 [width="100%",cols="100%",]
 |===
@@ -159,7 +119,7 @@ a|
 |  |general matrix multiplication
 |===
 
-[#ga3 .anchor]##
+[#blas_4]#4.#
 
 [width="100%",cols="100%",]
 |===
@@ -185,7 +145,7 @@ symmetric rank k update: _m1_ = _t_ * _m1_ + _t2_ * (_m2_ * _m2^T^_)
 
 |===
 
-[#ga4 .anchor]##
+[#blas_5]#5.#
 
 [width="100%",cols="100%",]
 |===
@@ -211,7 +171,7 @@ hermitian rank k update: _m1_ = _t_ * _m1_ + _t2_ * (_m2_ * _m2^H^_)
 
 |===
 
-[#ga5 .anchor]##
+[#blas_6]#6.#
 
 [width="100%",cols="100%",]
 |===
@@ -239,7 +199,7 @@ _m3^T^_) + _t2_ * (_m3_ * _m2^T^_)
 
 |===
 
-[#ga6 .anchor]##
+[#blas_7]#7.#
 
 [width="100%",cols="100%",]
 |===
