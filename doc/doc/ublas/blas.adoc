@@ -7,11 +7,6 @@
 === Functions
 [width="100%",cols="100%",]
 |===
-| |
-
-a|
-
-|
 
 |template<class M1, class T, class M2, class M3> M1 & link:#blas_1[boost::numeric::ublas::blas_3::tmm] (M1 &m1, const T &t,
 const M2 &m2, const M3 &m3) triangular matrix multiplication
