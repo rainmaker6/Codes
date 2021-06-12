@@ -11,6 +11,7 @@ vector's element.
 
 ==== Example
 
+[source,cpp]
 ....
 #include <boost/numeric/ublas/vector.hpp>
 #include <boost/numeric/ublas/vector_proxy.hpp>
@@ -40,7 +41,7 @@ Defined in the header vector_proxy.hpp.
 
 ==== Model of
 
-link:expression_concept.html#vector_expression[Vector Expression] .
+link:expression_concept.adoc#vector_expression[Vector Expression] .
 
 If the specified range falls outside that of the index range of the
 vector, then the `vector_range` is not a well formed Vector Expression.
@@ -50,7 +51,7 @@ vector is _undefined_.
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:expression_concept.html#vector_expression[Vector Expression] .
+link:expression_concept.adoc#vector_expression[Vector Expression] .
 
 ==== Public base classes
 
@@ -153,6 +154,7 @@ The free `subrange` functions support the construction of vector ranges.
 
 ===== Prototypes
 
+[source,cpp]
 ....
     template<class V>
     vector_range<V> subrange (V &data,
@@ -173,6 +175,7 @@ function.
 
 ===== Prototypes
 
+[source,cpp]
 ....
     template<class V>
     vector_range<V> project (V &data, const range &r);
@@ -191,7 +194,7 @@ Defined in the header vector_proxy.hpp.
 ===== Type requirements
 
 * `V` is a model of
-link:expression_concept.html#vector_expression[Vector Expression] .
+link:expression_concept.adoc#vector_expression[Vector Expression] .
 
 ===== Complexity
 
@@ -199,6 +202,7 @@ Linear depending from the size of the range.
 
 ===== Examples
 
+[source,cpp]
 ....
 #include <boost/numeric/ublas/vector.hpp>
 #include <boost/numeric/ublas/vector_proxy.hpp>
@@ -222,6 +226,7 @@ vector.
 
 ==== Example
 
+[source,cpp]
 ....
 #include <boost/numeric/ublas/vector.hpp>
 #include <boost/numeric/ublas/vector_proxy.hpp>
@@ -251,7 +256,7 @@ Defined in the header vector_proxy.hpp.
 
 ==== Model of
 
-link:expression_concept.html#vector_expression[Vector Expression] .
+link:expression_concept.adoc#vector_expression[Vector Expression] .
 
 If the specified slice falls outside that of the index range of the
 vector, then the `vector_slice` is not a well formed Vector Expression.
@@ -261,7 +266,7 @@ vector is _undefined_.
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:expression_concept.html#vector_expression[Vector Expression] .
+link:expression_concept.adoc#vector_expression[Vector Expression] .
 
 ==== Public base classes
 
@@ -362,6 +367,7 @@ The free `subslice` functions support the construction of vector slices.
 
 ===== Prototypes
 
+[source,cpp]
 ....
     template<class V>
     vector_slice<V> subslice (V &data,
@@ -382,6 +388,7 @@ slices. The resulting slice is computed using this existing slices's
 
 ===== Prototypes
 
+[source,cpp]
 ....
     template<class V>
     vector_slice<V> project (V &data, const slice &s);
@@ -404,7 +411,7 @@ Defined in the header vector_proxy.hpp.
 ===== Type requirements
 
 * `V` is a model of
-link:expression_concept.html#vector_expression[Vector Expression] .
+link:expression_concept.adoc#vector_expression[Vector Expression] .
 
 ===== Complexity
 
@@ -412,6 +419,7 @@ Linear depending from the size of the slice.
 
 ===== Examples
 
+[source,cpp]
 ....
 #include <boost/numeric/ublas/vector.hpp>
 #include <boost/numeric/ublas/vector_proxy.hpp>
