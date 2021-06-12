@@ -42,8 +42,6 @@ matrix_expression< E1 > &e1, const matrix_expression< E2 > &e2, M &m,
 bool init=true) computes `M += A X` or `M = A X` in an optimized fashion.
 |===
 
-'''''
-
 === Function Documentation
 
 [#blas_1]#1.#
