@@ -8,10 +8,10 @@
 
 The templated class `mapped_vector<T, A>` is the base container adaptor
 for sparse vectors using element maps. For a _n_-dimensional sparse
-vector and _0 <= i < n_ the non-zero elements __v__~_i_~ are mapped to
+vector and __0 <= i < n__ the non-zero elements __v__~_i_~ are mapped to
 consecutive elements of the associative container, i.e. for elements _k_
-= __v__~__i__~_1_~~and __k + 1 = v__~__i__~_2_~~of the container holds
-__i__~_1_~ __< i__~_2_~.
+= __v__~_i_~_~1~_ and __k + 1 = __v__~_i_~__~2~__ of the container holds
+__i__~_1_~ __< __i__~_2_~ .
 
 ==== Example
 
@@ -47,12 +47,12 @@ Defined in the header vector_sparse.hpp.
 
 ==== Model of
 
-link:container_concept.html#vector[Vector] .
+link:container_concept.adoc#vector[Vector] .
 
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:container_concept.html#vector[Vector] .
+link:container_concept.adoc#vector[Vector] .
 
 ==== Public base classes
 
@@ -183,8 +183,8 @@ The templated class `compressed_vector<T, IB, IA, TA>` is the base
 container adaptor for compressed vectors. For a _n_-dimensional
 compressed vector and _0 <= i < n_ the non-zero elements __v__~_i_~ are
 mapped to consecutive elements of the index and value container, i.e.
-for elements _k_ = __v__~__i__~_1_~~and __k + 1 = v__~__i__~_2_~~of
-these containers holds __i__~_1_~ __< i__~_2_~.
+for elements _k_ = __v__~_i_~__~1~__ and __k + 1 = __v__~_i_~__~2~__ of
+these containers holds __i__~_1_~ __< __i__~_2_~ .
 
 ==== Example
 
@@ -226,12 +226,12 @@ link:#compressed_vector_2[[2]] |`unbounded_array<T>`
 
 ==== Model of
 
-link:container_concept.html#vector[Vector] .
+link:container_concept.adoc#vector[Vector] .
 
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:container_concept.html#vector[Vector] .
+link:container_concept.adoc#vector[Vector] .
 
 ==== Public base classes
 
@@ -364,8 +364,8 @@ The templated class `coordinate_vector<T, IB, IA, TA>` is the base
 container adaptor for compressed vectors. For a _n_-dimensional sorted
 coordinate vector and _0 <= i < n_ the non-zero elements __v__~_i_~ are
 mapped to consecutive elements of the index and value container, i.e.
-for elements _k_ = __v__~__i__~_1_~~and __k + 1 = v__~__i__~_2_~~of
-these containers holds __i__~_1_~ __< i__~_2_~.
+for elements _k_ = __v__~_i_~__~1~__ and __k + 1 = __v__~_i_~__~2~__ of
+these containers holds __i__~_1_~ __< __i__~_2_~ .
 
 ==== Example
 
@@ -407,12 +407,12 @@ link:#coordinate_vector_2[[2]] |`unbounded_array<T>`
 
 ==== Model of
 
-link:container_concept.html#vector[Vector] .
+link:container_concept.adoc#vector[Vector] .
 
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:container_concept.html#vector[Vector] .
+link:container_concept.adoc#vector[Vector] .
 
 ==== Public base classes
 
