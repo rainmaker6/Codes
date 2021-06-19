@@ -16,15 +16,15 @@ elements.
 
 ==== Refinement of
 
-http://www.sgi.com/tech/stl/RandomAccessContainer.html[Random Access
+http://www.boost.org/sgi/stl/RandomAccessContainer.html[Random Access
 Container] and
-http://www.sgi.com/tech/stl/DefaultConstructible.html[Default
+http://www.boost.org/sgi/stl/DefaultConstructible.html[Default
 Constructible]
 
 ==== Associated types
 
 No additional types beyond those defined by
-http://www.sgi.com/tech/stl/RandomAccessContainer.html[Random Access
+http://www.boost.org/sgi/stl/RandomAccessContainer.html[Random Access
 Container]
 
 ==== Notation
@@ -42,22 +42,22 @@ Container]
 ==== Valid expressions
 
 In addition to the expressions defined in
-http://www.sgi.com/tech/stl/RandomAccessContainer.html[Random Access
+http://www.boost.org/sgi/stl/RandomAccessContainer.html[Random Access
 Container], and
-http://www.sgi.com/tech/stl/DefaultConstructible.html[Default
+http://www.boost.org/sgi/stl/DefaultConstructible.html[Default
 Constructible] the following expressions must be valid:
 
 [cols=",,,",options="header",]
 |===
 |Name |Expression |Type requirements |Return type
 |Size constructor |X(n) |T is
-http://www.sgi.com/tech/stl/DefaultConstructible.html[DefaultConstructible]
+http://www.boost.org/sgi/stl/DefaultConstructible.html[DefaultConstructible]
 |X
 
 |Fill constructor |X(n,t) | |X
 
 |Range constructor |X(i, j) |i and j are
-http://www.sgi.com/tech/stl/InputIterator.html[Input Iterators] whose
+http://www.boost.org/sgi/stl/InputIterator.html[Input Iterators] whose
 value type is convertible to T |X
 
 |Resize |a.resize(n, t) |a is mutable |void
@@ -95,8 +95,8 @@ omitted" in section 5.3.4 paragraph 15 of the ISO C++ standard. |size()==n
 
 ===== Models
 
-* link:unbounded_array.html[unbounded_array]
-* link:bounded_array.html[bounded_array]
+* link:unbounded_array.adoc[unbounded_array]
+* link:bounded_array.adoc[bounded_array]
 
 ===== Notes
 
