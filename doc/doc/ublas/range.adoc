@@ -13,6 +13,7 @@ ranges of elements from vectors and matrices.
 
 ==== Example
 
+[source, cpp]
 ....
 #include <boost/numeric/ublas/storage.hpp>
 
@@ -83,7 +84,7 @@ the end of the `range`.
 
 ==== Preconditions
 
-* `start () <= stop ()`
+* `start () < = stop ()`
 
 === [#slice]####Slice<SizeType,DistanceType>
 
@@ -97,6 +98,7 @@ matrices.
 
 ==== Example
 
+[source,cpp]
 ....
 #include <boost/numeric/ublas/storage.hpp>
 
