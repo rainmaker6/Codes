@@ -18,6 +18,7 @@ new size requirement is smaller. It is therefore inefficient to resize a
 
 ==== Example
 
+[source, cpp]
 ....
 #include <boost/numeric/ublas/storage.hpp>
 
@@ -46,7 +47,7 @@ Defined in the header storage.hpp.
 
 ==== Model of
 
-link:storage_concept.html[Storage]
+link:storage_concept.adoc[Storage]
 
 ==== Type requirements
 
@@ -65,218 +66,77 @@ of the concept.
 * Typography:
 ** Members that are not part of the implemented concepts are in blue.
 
-Member
+[cols=,,,]
+|===
+|Member |Where defined |Description
 
-Where defined
+|`value_type` |https://www.boost.org/sgi/stl/Container.html[Container] |
 
-Description
+|`pointer` |https://www.boost.org/sgi/stl/Container.html[Container] |Defined as `value_type*`
 
-`value_type`
+|`const_pointer` |https://www.boost.org/sgi/stl/Container.html[Container] |Defined as `const value_type*`
 
-http://www.sgi.com/tech/stl/Container.html[Container]
+|`reference` |https://www.boost.org/sgi/stl/Container.html[Container] |Defined as `value_type&`
 
-`pointer`
+|`const_reference` |https://www.boost.org/sgi/stl/Container.html[Container] |Defined as `const value_type&`
 
-http://www.sgi.com/tech/stl/Container.html[Container]
+|`size_type` |https://www.boost.org/sgi/stl/Container.html[Container] |Defined as `Alloc::size_type`
 
-Defined as `value_type*`
+|`difference_type` |https://www.boost.org/sgi/stl/Container.html[Container] |Defined as `Alloc::difference_type`
 
-`const_pointer`
+|`iterator` |https://www.boost.org/sgi/stl/Container.html[Container] |Defined as `pointer`
 
-http://www.sgi.com/tech/stl/Container.html[Container]
+|`const_iterator` |https://www.boost.org/sgi/stl/Container.html[Container] |Defined as `const_pointer`
 
-Defined as `const value_type*`
+|`revere_iterator` |https://www.boost.org/sgi/stl/Container.html[Container] |Defined as `std::reverse_iterator<iterator>`
 
-`reference`
+|`const_revere_iterator` |https://www.boost.org/sgi/stl/Container.html[Container] |Defined as `std::reverse_iterator<const_iterator>`
 
-http://www.sgi.com/tech/stl/Container.html[Container]
+|[blue]#allocator_type# | |Defined as ALLOC
 
-Defined as `value_type&`
+|`explicit unbounded_array (ALLOC &a = ALLOC())` |link:storage_concept.html[Storage] |Creates an `unbounded_array` that holds zero elements, using a specified allocator.
 
-`const_reference`
+|`explicit unbounded_array (size_type size, ALLOC &a = ALLOC())` |link:storage_concept.html[Storage] |Creates a uninitialized `unbounded_array` that holds `size` elements, using a specified allocator. All the elements are default constructed.
 
-http://www.sgi.com/tech/stl/Container.html[Container]
+|`unbounded_array (size_type size, const T& init, ALLOC& a = ALLOC())` |link:storage_concept.html[Storage] |Creates an initialized `unbounded_array` that holds `size` elements,using a specified allocator. All the elements are constructed from the `init` value.
 
-Defined as `const value_type&`
+|`unbounded_array (const unbounded_array &a)` |https://www.boost.org/sgi/stl/Container.html[Container] |The copy constructor.
 
-`size_type`
+|`~unbounded_array ()` |https://www.boost.org/sgi/stl/Container.html[Container] |Deallocates the `unbounded_array` itself.
 
-http://www.sgi.com/tech/stl/Container.html[Container]
+|`void resize (size_type n)` |link:storage_concept.html[Storage] |Reallocates an `unbounded_array` to hold `n` elements. Values are uninitialised.
 
-Defined as `Alloc::size_type`
+|`void resize(size_type n, const T& t)` |link:storage_concept.html[Storage] |Reallocates an `unbounded_array` to hold `n` elements. Values are copies of `t`
 
-`difference_type`
+|`size_type size () const` |https://www.boost.org/sgi/stl/Container.html[Container] |Returns the size of the `unbounded_array`.
 
-http://www.sgi.com/tech/stl/Container.html[Container]
+|`const_reference operator [] (size_type i) const` |https://www.boost.org/sgi/stl/Container.html[Container] |Returns a `const` reference of the `i` -th element.
 
-Defined as `Alloc::difference_type`
+|`reference operator [] (size_type i)` |https://www.boost.org/sgi/stl/Container.html[Container] |Returns a reference of the `i`-th element.
 
-`iterator`
+|`unbounded_array &operator = (const unbounded_array &a)` |https://www.boost.org/sgi/stl/Container.html[Container] |The assignment operator.
 
-http://www.sgi.com/tech/stl/Container.html[Container]
+|[blue]#`unbounded_array &assign_temporary (unbounded_array &a)`# | |Assigns a temporary. May change the array `a`.
 
-Defined as `pointer`
+|`void swap (unbounded_array &a)` |https://www.boost.org/sgi/stl/Container.html[Container] |Swaps the contents of the arrays.
 
-`const_iterator`
+|`const_iterator begin () const` |https://www.boost.org/sgi/stl/Container.html[Container] |Returns a `const_iterator` pointing to the beginning of the `unbounded_array`.
 
-http://www.sgi.com/tech/stl/Container.html[Container]
+|`const_iterator end () const` |https://www.boost.org/sgi/stl/Container.html[Container] |Returns a `const_iterator` pointing to the end of the `unbounded_array`.
 
-Defined as `const_pointer`
+|`iterator begin ()` |https://www.boost.org/sgi/stl/Container.html[Container] |Returns a `iterator` pointing to the beginning of the `unbounded_array`.
 
-`revere_iterator`
+|`iterator end ()` |https://www.boost.org/sgi/stl/Container.html[Container] |Returns a `iterator` pointing to the end of the `unbounded_array`.
 
-http://www.sgi.com/tech/stl/Container.html[Container]
+|`const_reverse_iterator rbegin () const` |https://www.boost.org/sgi/stl/ReversibleContainer.html[ReversibleContainer] |Returns a `const_reverse_iterator` pointing to the beginning of the reversed `unbounded_array`.
 
-Defined as `std::reverse_iterator<iterator>`
+|`const_reverse_iterator rend () const` |https://www.boost.org/sgi/stl/ReversibleContainer.html[ReversibleContainer] |Returns a `const_reverse_iterator` pointing to the end of the reversed `unbounded_array`. 
 
-`const_revere_iterator`
+|`reverse_iterator rbegin ()` |https://www.boost.org/sgi/stl/ReversibleContainer.html[ReversibleContainer] |Returns a `reverse_iterator` pointing to the beginning of the reversed `unbounded_array`.
 
-http://www.sgi.com/tech/stl/Container.html[Container]
+|`reverse_iterator rend ()` |https://www.boost.org/sgi/stl/ReversibleContainer.html[ReversibleContainer] |Returns a `reverse_iterator` pointing to the end of the reversed `unbounded_array`.
 
-Defined as `std::reverse_iterator<const_iterator>`
-
-allocator_type
-
-Defined as ALLOC
-
-`explicit unbounded_array (ALLOC &a = ALLOC())`
-
-link:storage_concept.html[Storage]
-
-Creates an `unbounded_array` that holds zero elements, using a specified
-allocator.
-
-`explicit unbounded_array (size_type size, ALLOC &a = ALLOC())`
-
-link:storage_concept.html[Storage]
-
-Creates a uninitialized `unbounded_array` that holds `size` elements,
-using a specified allocator. All the elements are default constructed.
-
-`unbounded_array (size_type size, const T& init, ALLOC& a = ALLOC())`
-
-link:storage_concept.html[Storage]
-
-Creates an initialized `unbounded_array` that holds `size` elements,
-using a specified allocator. All the elements are constructed from the
-`init` value.
-
-`unbounded_array (const unbounded_array &a)`
-
-http://www.sgi.com/tech/stl/Container.html[Container]
-
-The copy constructor.
-
-`~unbounded_array ()`
-
-http://www.sgi.com/tech/stl/Container.html[Container]
-
-Deallocates the `unbounded_array` itself.
-
-`void resize (size_type n)`
-
-link:storage_concept.html[Storage]
-
-Reallocates an `unbounded_array` to hold `n` elements. Values are
-uninitialised.
-
-`void resize(size_type n, const T& t)`
-
-link:storage_concept.html[Storage]
-
-Reallocates an `unbounded_array` to hold `n` elements. Values are copies
-of `t`
-
-`size_type size () const`
-
-http://www.sgi.com/tech/stl/Container.html[Container]
-
-Returns the size of the `unbounded_array`.
-
-`const_reference operator [] (size_type i) const`
-
-http://www.sgi.com/tech/stl/Container.html[Container]
-
-Returns a `const` reference of the `i` -th element.
-
-`reference operator [] (size_type i)`
-
-http://www.sgi.com/tech/stl/Container.html[Container]
-
-Returns a reference of the `i`-th element.
-
-`unbounded_array &operator = (const unbounded_array &a)`
-
-http://www.sgi.com/tech/stl/Container.html[Container]
-
-The assignment operator.
-
-`unbounded_array &assign_temporary (unbounded_array &a)`
-
-Assigns a temporary. May change the array `a`.
-
-`void swap (unbounded_array &a)`
-
-http://www.sgi.com/tech/stl/Container.html[Container]
-
-Swaps the contents of the arrays.
-
-`const_iterator begin () const`
-
-http://www.sgi.com/tech/stl/Container.html[Container]
-
-Returns a `const_iterator` pointing to the beginning of the
-`unbounded_array`.
-
-`const_iterator end () const`
-
-http://www.sgi.com/tech/stl/Container.html[Container]
-
-Returns a `const_iterator` pointing to the end of the `unbounded_array`.
-
-`iterator begin ()`
-
-http://www.sgi.com/tech/stl/Container.html[Container]
-
-Returns a `iterator` pointing to the beginning of the `unbounded_array`.
-
-`iterator end ()`
-
-http://www.sgi.com/tech/stl/Container.html[Container]
-
-Returns a `iterator` pointing to the end of the `unbounded_array`.
-
-`const_reverse_iterator rbegin () const`
-
-http://www.sgi.com/tech/stl/ReversibleContainer.html[Reversible
-Container]
-
-Returns a `const_reverse_iterator` pointing to the beginning of the
-reversed `unbounded_array`.
-
-`const_reverse_iterator rend () const`
-
-http://www.sgi.com/tech/stl/ReversibleContainer.html[Reversible
-Container]
-
-Returns a `const_reverse_iterator` pointing to the end of the reversed
-`unbounded_array`.
-
-`reverse_iterator rbegin ()`
-
-http://www.sgi.com/tech/stl/ReversibleContainer.html[Reversible
-Container]
-
-Returns a `reverse_iterator` pointing to the beginning of the reversed
-`unbounded_array`.
-
-`reverse_iterator rend ()`
-
-http://www.sgi.com/tech/stl/ReversibleContainer.html[Reversible
-Container]
-
-Returns a `reverse_iterator` pointing to the end of the reversed
-`unbounded_array`.
+|===
 
 '''''
 
