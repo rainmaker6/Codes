@@ -8,11 +8,12 @@
 
 The templated class `hermitian_matrix<T, F1, F2, A>` is the base
 container adaptor for hermitian matrices. For a _(n x n_ )-dimensional
-hermitian matrix and _0 <= i < n_, _0 <= j < n_ holds __h__~_i, j_~ __=
-h__~_j, i_~^_-_^. The storage of hermitian matrices is packed.
+hermitian matrix and _0 < = i < n_, _0 < = j < n_ holds __h__~_i,j_~=
+__h__~_j,i_~^_-_^. The storage of hermitian matrices is packed.
 
 ==== Example
 
+[source,cpp]
 ....
 #include <boost/numeric/ublas/hermitian.hpp>
 #include <boost/numeric/ublas/io.hpp>
@@ -60,12 +61,12 @@ link:#hermitian_matrix_2[[2]] |`row_major`
 
 ==== Model of
 
-link:container_concept.html#matrix[Matrix] .
+link:container_concept.adoc#matrix[Matrix] .
 
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:container_concept.html#matrix[Matrix] .
+link:container_concept.adoc#matrix[Matrix] .
 
 ==== Public base classes
 
@@ -223,6 +224,7 @@ adaptor for other matrices.
 
 ==== Example
 
+[source,cpp]
 ....
 #include <boost/numeric/ublas/hermitian.hpp>
 #include <boost/numeric/ublas/io.hpp>
@@ -265,12 +267,12 @@ link:#hermitian_adaptor_1[[1]] |`lower`
 
 ==== Model of
 
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ==== Public base classes
 
