@@ -8,18 +8,19 @@
 
 The templated class `mapped_matrix<T, F, A>` is the base container
 adaptor for sparse matricies using element maps. For a _(m
-xn_)-dimensional sparse matrix and _0 <= i < m_, _0 <= j < n_ the
-non-zero elements __m__~_i, j_~ are mapped via _(i x n + j)_ for row
+xn_)-dimensional sparse matrix and _0 < = i < m_, _0 < = j < n_ the
+non-zero elements __h__~_i,j_~ are mapped via _(i x n + j)_ for row
 major orientation or via _(i + j x m)_ for column major orientation to
 consecutive elements of the associative container, i.e. for elements _k_
-= __m__~__i__~_1_~~ ~__,j__~_1_~~and __k + 1 = m__~__i__~_2_~~
-~__,j__~_2_~~of the container holds __i__~_1_~ __< i__~_2_~ or
+= __m__~_i1,j1_~ and __k + 1 = __m__~_i2,j2_~ 
+of the container holds __i__~_1_~ __< i__~_2_~ or
 __(i__~_1_~ __= i__~_2_~ and __j__~_1_~ __< j__~_2_~_)_ with row major
 orientation or __j__~_1_~ __< j__~_2_~ or __(j__~_1_~ __= j__~_2_~ and
-__i__~_1_~ __< i__~_2_~_)_ with column major orientation.
+__i__~_1_~ __< __i__~_2_~) with column major orientation.
 
 ==== Example
 
+[source,cpp]
 ....
 #include <boost/numeric/ublas/matrix_sparse.hpp>
 #include <boost/numeric/ublas/io.hpp>
@@ -216,18 +217,19 @@ equivalent to `std::map<std::size_t, T>`.
 
 The templated class `compressed_matrix<T, F, IB, IA, TA>` is the base
 container adaptor for compressed matrices. For a _(m x n_ )-dimensional
-compressed matrix and _0 <= i < m_, _0 <= j < n_ the non-zero elements
-__m__~_i, j_~ are mapped via _(i x n + j)_ for row major orientation or
+compressed matrix and _0 < = i < m_, _0 < = j < n_ the non-zero elements
+__m__~_i,j_~ are mapped via _(i x n + j)_ for row major orientation or
 via _(i + j x m)_ for column major orientation to consecutive elements
 of the index and value containers, i.e. for elements _k_ =
-__m__~__i__~_1_~~ ~__,j__~_1_~~and __k + 1 = m__~__i__~_2_~~
-~__,j__~_2_~~of the container holds __i__~_1_~ __< i__~_2_~ or
+__m__~_i1,j1_~and __k + 1 = __m__~_i2,j2_~
+of the container holds __i__~_1_~ __< i__~_2_~ or
 __(i__~_1_~ __= i__~_2_~ and __j__~_1_~ __< j__~_2_~_)_ with row major
 orientation or __j__~_1_~ __< j__~_2_~ or __(j__~_1_~ __= j__~_2_~ and
 __i__~_1_~ __< i__~_2_~_)_ with column major orientation.
 
 ==== Example
 
+[source,cpp]
 ....
 #include <boost/numeric/ublas/matrix_sparse.hpp>
 #include <boost/numeric/ublas/io.hpp>
@@ -432,18 +434,19 @@ are `unbounded_array<>` , `bounded_array<>` and `std::vector<>` .
 
 The templated class `coordinate_matrix<T, F, IB, IA, TA>` is the base
 container adaptor for compressed matrices. For a _(m x n_ )-dimensional
-sorted coordinate matrix and _0 <= i < m_, _0 <= j < n_ the non-zero
-elements __m__~_i, j_~ are mapped via _(i x n + j)_ for row major
+sorted coordinate matrix and _0 < = i < m_, _0 < = j < n_ the non-zero
+elements __m__~_i,j_~ are mapped via _(i x n + j)_ for row major
 orientation or via _(i + j x m)_ for column major orientation to
 consecutive elements of the index and value containers, i.e. for
-elements _k_ = __m__~__i__~_1_~~ ~__,j__~_1_~~and __k + 1 =
-m__~__i__~_2_~~ ~__,j__~_2_~~of the container holds __i__~_1_~ __<
+elements _k_ = __m__~_i1,j1_~ and __k + 1 =
+__m__~_i2,j2_~ of the container holds __i__~_1_~ __<
 i__~_2_~ or __(i__~_1_~ __= i__~_2_~ and __j__~_1_~ __< j__~_2_~_)_ with
 row major orientation or __j__~_1_~ __< j__~_2_~ or __(j__~_1_~ __=
 j__~_2_~ and __i__~_1_~ __< i__~_2_~_)_ with column major orientation.
 
 ==== Example
 
+[source,cpp]
 ....
 #include <boost/numeric/ublas/matrix_sparse.hpp>
 #include <boost/numeric/ublas/io.hpp>
