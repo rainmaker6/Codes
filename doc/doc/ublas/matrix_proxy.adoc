@@ -10,6 +10,7 @@ The templated class `matrix_row<M>` allows addressing a row of a matrix.
 
 ==== Example
 
+[source,cpp]
 ....
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/matrix_proxy.hpp>
@@ -41,7 +42,7 @@ Defined in the header matrix_proxy.hpp.
 
 ==== Model of
 
-link:expression_concept.html#vector_expression[Vector Expression] .
+link:expression_concept.adoc#vector_expression[Vector Expression] .
 
 If the specified row falls outside that of the row index range of the
 matrix, then the `matrix_row` is not a well formed Vector Expression.
@@ -51,7 +52,7 @@ _undefined_.
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:expression_concept.html#vector_expression[Vector Expression] .
+link:expression_concept.adoc#vector_expression[Vector Expression] .
 
 ==== Public base classes
 
@@ -145,6 +146,7 @@ The free `row` functions support the construction of matrix rows.
 
 ===== Prototypes
 
+[source,cpp]
 ....
     template<class M>
     matrix_row<M> row (M &data, std::size_t i);
@@ -159,7 +161,7 @@ Defined in the header matrix_proxy.hpp.
 ===== Type requirements
 
 * `M` is a model of
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ===== Complexity
 
@@ -167,6 +169,7 @@ Linear depending from the size of the row.
 
 ===== Examples
 
+[source,cpp]
 ....
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/matrix_proxy.hpp>
@@ -192,6 +195,7 @@ matrix.
 
 ==== Example
 
+[source,cpp]
 ....
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/matrix_proxy.hpp>
@@ -223,7 +227,7 @@ Defined in the header matrix_proxy.hpp.
 
 ==== Model of
 
-link:expression_concept.html#vector_expression[Vector Expression] .
+link:expression_concept.adoc#vector_expression[Vector Expression] .
 
 If the specified column falls outside that of the column index range of
 the matrix, then the `matrix_column` is not a well formed Vector
@@ -233,7 +237,7 @@ is _undefined_.
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:expression_concept.html#vector_expression[Vector Expression] .
+link:expression_concept.adoc#vector_expression[Vector Expression] .
 
 ==== Public base classes
 
@@ -328,6 +332,7 @@ The free `column` functions support the construction of matrix columns.
 
 ===== Prototypes
 
+[source,cpp]
 ....
     template<class M>
     matrix_column<M> column (M &data, std::size_t j);
@@ -342,7 +347,7 @@ Defined in the header matrix_proxy.hpp.
 ===== Type requirements
 
 * `M` is a model of
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ===== Complexity
 
@@ -350,6 +355,7 @@ Linear depending from the size of the column.
 
 ===== Examples
 
+[source,cpp]
 ....
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/matrix_proxy.hpp>
@@ -375,6 +381,7 @@ vector of a matrix.
 
 ==== Example
 
+[source,cpp]
 ....
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/matrix_proxy.hpp>
@@ -406,7 +413,7 @@ Defined in the header matrix_proxy.hpp.
 
 ==== Model of
 
-link:expression_concept.html#vector_expression[Vector Expression] .
+link:expression_concept.adoc#vector_expression[Vector Expression] .
 
 If the specified ranges fall outside that of the index range of the
 matrix, then the `matrix_vector_range` is not a well formed Vector
@@ -416,7 +423,7 @@ is _undefined_.
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:expression_concept.html#vector_expression[Vector Expression] .
+link:expression_concept.adoc#vector_expression[Vector Expression] .
 
 ==== Public base classes
 
@@ -513,6 +520,7 @@ sub vector of a matrix.
 
 ==== Example
 
+[source,cpp]
 ....
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/matrix_proxy.hpp>
@@ -544,7 +552,7 @@ Defined in the header matrix_proxy.hpp.
 
 ==== Model of
 
-link:expression_concept.html#vector_expression[Vector Expression] .
+link:expression_concept.adoc#vector_expression[Vector Expression] .
 
 If the specified slices fall outside that of the index range of the
 matrix, then the `matrix_vector_slice` is not a well formed Vector
@@ -554,7 +562,7 @@ is _undefined_.
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:expression_concept.html#vector_expression[Vector Expression] .
+link:expression_concept.adoc#vector_expression[Vector Expression] .
 
 ==== Public base classes
 
@@ -651,6 +659,7 @@ a matrix.
 
 ==== Example
 
+[source,cpp]
 ....
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/matrix_proxy.hpp>
@@ -681,7 +690,7 @@ Defined in the header matrix_proxy.hpp.
 
 ==== Model of
 
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 If the specified ranges fall outside that of the index range of the
 matrix, then the `matrix_range` is not a well formed Matrix Expression.
@@ -691,7 +700,7 @@ _undefined_.
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ==== Public base classes
 
@@ -818,6 +827,7 @@ The free `subrange` functions support the construction of matrix ranges.
 
 ===== Prototypes
 
+[source,cpp]
 ....
     template<class M>
     matrix_range<M> subrange (M &data,
@@ -838,6 +848,7 @@ function.
 
 ===== Prototypes
 
+[source,cpp]
 ....
     template<class M>
     matrix_range<M> project (M &data, const range &r1, const range &r2);
@@ -856,7 +867,7 @@ Defined in the header matrix_proxy.hpp.
 ===== Type requirements
 
 * `M` is a model of
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ===== Complexity
 
@@ -864,6 +875,7 @@ Quadratic depending from the size of the ranges.
 
 ===== Examples
 
+[source,cpp]
 ....
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/matrix_proxy.hpp>
@@ -888,6 +900,7 @@ matrix of a matrix.
 
 ==== Example
 
+[source,cpp]
 ....
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/matrix_proxy.hpp>
@@ -918,7 +931,7 @@ Defined in the header matrix_proxy.hpp.
 
 ==== Model of
 
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 If the specified slices fall outside that of the index range of the
 matrix, then the `matrix_slice` is not a well formed Matrix Expression.
@@ -928,7 +941,7 @@ _undefined_.
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ==== Public base classes
 
@@ -1052,6 +1065,7 @@ The free `subslice` functions support the construction of matrix slices.
 
 ===== Prototypes
 
+[source,cpp]
 ....
     template<class M>
     matrix_slice<M> subslice (M &data,
@@ -1068,12 +1082,13 @@ The free `subslice` functions support the construction of matrix slices.
 ===== Description
 
 The free `project` functions support the construction of matrix slices.
-Existing `matrix_slice`'s can be composed with further ranges or slices.
+Existing `matrix_slice` 's can be composed with further ranges or slices.
 The resulting slices are computed using this existing slices' `compose`
 function.
 
 ===== Prototypes
 
+[source,cpp]
 ....
     template<class M>
     matrix_slice<M> project (M &data, const slice &s1, const slice &s2);
@@ -1096,7 +1111,7 @@ Defined in the header matrix_proxy.hpp.
 ===== Type requirements
 
 * `M` is a model of
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ===== Complexity
 
@@ -1104,6 +1119,7 @@ Quadratic depending from the size of the slices.
 
 ===== Examples
 
+[source,cpp]
 ....
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/matrix_proxy.hpp>
