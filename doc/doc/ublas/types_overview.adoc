@@ -2,7 +2,8 @@
 
 [[toc]]
 
-Contents:::
+Contents:
+  +
   link:#vectors[Vectors]
   +
   link:#vector_proxies[Vector Proxies]
