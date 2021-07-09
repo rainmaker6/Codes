@@ -8,11 +8,12 @@
 
 The templated class `symmetric_matrix<T, F1, F2, A>` is the base
 container adaptor for symmetric matrices. For a _(n x n_ )-dimensional
-symmetric matrix and _0 <= i < n_, _0 <= j < n_ holds __s__~_i, j_~ __=
-s__~_j, i_~. The storage of symmetric matrices is packed.
+symmetric matrix and _0 < = i < n_, _0 < = j < n_ holds __s__~_i,j_~=
+__s__~_j,i_~. The storage of symmetric matrices is packed.
 
 ==== Example
 
+[source, cpp]
 ....
 #include <boost/numeric/ublas/symmetric.hpp>
 #include <boost/numeric/ublas/io.hpp>
@@ -45,23 +46,23 @@ Defined in the header symmetric.hpp.
 |`T` |The type of object stored in the matrix. |
 
 |`F1` |Functor describing the type of the symmetric matrix.
-[##symmetric_matrix_1]#[1]# |`lower`
+link:#symmetric_matrix_1[[1]] |`lower`
 
 |`F2` |Functor describing the storage organization.
-[##symmetric_matrix_2]#[2]# |`row_major`
+link:#symmetric_matrix_2[[2]] |`row_major`
 
-|`A` |The type of the adapted array. [##symmetric_matrix_3]#[3]#
+|`A` |The type of the adapted array. link:#symmetric_matrix_3[[3]]
 |`unbounded_array<T>`
 |===
 
 ==== Model of
 
-link:container_concept.html#matrix[Matrix] .
+link:container_concept.adoc#matrix[Matrix] .
 
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:container_concept.html#matrix[Matrix] .
+link:container_concept.adoc#matrix[Matrix] .
 
 ==== Public base classes
 
@@ -216,6 +217,7 @@ adaptor for other matrices.
 
 ==== Example
 
+[source, cpp]
 ....
 #include <boost/numeric/ublas/symmetric.hpp>
 #include <boost/numeric/ublas/io.hpp>
@@ -254,12 +256,12 @@ link:#symmetric_adaptor_1[[1]] |`lower`
 
 ==== Model of
 
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ==== Public base classes
 
