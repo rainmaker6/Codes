@@ -13,6 +13,7 @@ simple purpose. It allows the definition of a default template parameter
 
 ==== Example
 
+[source, cpp]
 ....
 #include <boost/numeric/ublas/storage_sparse.hpp>
 
@@ -70,6 +71,7 @@ are invalidated. The capacity can be directly control using the
 
 ==== Example
 
+[source, cpp]
 ....
 #include <boost/numeric/ublas/storage_sparse.hpp>
 
