@@ -358,10 +358,10 @@ A <- a x y__^_H_^ __+ a__^_-_^ __y x__^_H_^ _+ A_
 or` C = solve (herm (A), B, tag)` or` inplace_solve (herm (A), B, tag)`
 |__C <- A__^_-1_^ _B_ or__ +
 B <- A__^_-1_^ _B_ or__ +
-C <- A_^_T_^_-1_^^ _B_ or__ +
-B <- A_^_-1_^ _B_ or__ +
-C <- A_^_H_^_-1_^^ _B_ or__ +
-B <- A_^_H_^_-1_^^ _B_ |Solves a system of linear equations with
+C <- _A_^_T_^^_-1_^ _B_ or__ +
+B <- _A_^_-1_^ _B_ or__ +
+C <- _A_^_H_^^_-1_^ _B_ or__ +
+B <- _A_^_H_^^_-1_^ _B_ |Solves a system of linear equations with
 triangular form, i.e. _A_ is triangular.
 
 |`_g_mm _s_mm _h_mm` |`C = a * prod (A, B) + b * C` or +
