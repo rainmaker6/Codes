@@ -111,15 +111,15 @@ primitives:
 |Description |Function
 
 |Left multiplication of vectors with a matrix
-|`vector_expression prod<``vector_type`
-`> (const matrix_expression &, const vector_expression &); vector_expression prod (const matrix_expression &, const vector_expression &);`
+|`vector_expression prod<vector_type
+> (const matrix_expression &, const vector_expression &); vector_expression prod (const matrix_expression &, const vector_expression &);`
 
 |Right multiplication of vectors with a matrix
-|`vector_expression prod<``vector_type`
-`> (const vector_expression &, const matrix_expression &); vector_expression prod (const vector_expression &, const matrix_expression &);`
+|`vector_expression prod<vector_type
+> (const vector_expression &, const matrix_expression &); vector_expression prod (const vector_expression &, const matrix_expression &);`
 
-|Multiplication of matrices |`matrix_expression prod<``matrix_type`
-`> (const matrix_expression &, const matrix_expression &); matrix_expression prod (const matrix_expression &, const matrix_expression &);`
+|Multiplication of matrices |`matrix_expression prod<matrix_type
+> (const matrix_expression &, const matrix_expression &); matrix_expression prod (const matrix_expression &, const matrix_expression &);`
 
 |Inner product of vectors
 |`scalar_expression inner_prod (const vector_expression &, const vector_expression &);`
@@ -225,21 +225,21 @@ and matrices.
 |===
 |BLAS Call |Mapped Library Expression |Mathematical Description |Comment
 
-|`sasum` OR `dasum` |`norm_1 (x)` |_sum |x~i~|_ |Computes the _l~1~_
+|`sasum` OR `dasum` |`norm_1 (x)` |`sum(mod(x~i~))` |Computes the _l~1~_
 (sum) norm of a real vector.
 
-|`scasum` OR `dzasum` |_`real (sum (v)) + imag (sum (v))`_ |_sum
-re(x~i~) + sum im(x~i~)_ |Computes the sum of elements of a complex
+|`scasum` OR `dzasum` |`real (sum (v)) + imag (sum (v))` |`_sum
+re(x~i~) + sum im(x~i~)_` |Computes the sum of elements of a complex
 vector.
 
-|`_nrm2` |`norm_2 (x)` |__sqrt (sum |x__~_i_~|^_2_^ _)_ |Computes the
+|`_nrm2` |`norm_2 (x)` |`sqrt ((sum(mod(x~i~)^_2_^)))` |Computes the
 _l~2~_ (euclidean) norm of a vector.
 
-|`i_amax` |`norm_inf (x) index_norm_inf (x)` |__max |x__~_i_~_|_
+|`i_amax` |`norm_inf (x) index_norm_inf (x)` |`max(mod(x~i~))`
 |Computes the _l~inf~_ (maximum) norm of a vector. +
 BLAS computes the index of the first element having this value.
 
-|`_dot _dotu _dotc` |`inner_prod (x, y)`or` inner_prod (conj (x), y)`
+|`_dot _dotu _dotc` |`inner_prod (x, y)` or `inner_prod (conj (x), y)`
 |__x__^_T_^ _y_ or +
 __x__^_H_^ _y_ |Computes the inner product of two vectors. +
 BLAS implements certain loop unrollment.
@@ -251,7 +251,7 @@ BLAS implements certain loop unrollment.
 another. +
 BLAS implements certain loop unrollment.
 
-|`_swap` |`swap (x, y)` |_x <-> y_ |Swaps two vectors. +
+|`_swap` |`swap (x, y)` |_x <--> y_ |Swaps two vectors. +
 BLAS implements certain loop unrollment.
 
 |`_scal csscal zdscal` |`x *= a` |_x <- a x_ |Scales a vector. +
@@ -276,7 +276,7 @@ BLAS implements certain loop unrollment.
 |===
 |BLAS Call |Mapped Library Expression |Mathematical Description |Comment
 
-|`_t_mv` |`x = prod (A, x)` or` x = prod (trans (A), x)` or` x = prod (herm (A), x)` |_x <- A x_ or__ + x <- A__^_T_^ _x_ or__ + x <- A__^_H_^ _x_ |Computes the product of a matrix with a vector.
+|`_t_mv` |`x = prod (A, x)` or `x = prod (trans (A), x)` or `x = prod (herm (A), x)` |_x <- A x_ or__ + x <- A__^_T_^ _x_ or__ + x <- A__^_H_^ _x_ |Computes the product of a matrix with a vector.
 
 |`_t_sv` |`y = solve (A, x, tag)` or +
 `inplace_solve (A, x, tag)` or +
@@ -285,10 +285,10 @@ BLAS implements certain loop unrollment.
 `y = solve (herm (A), x, tag)`or +
 `inplace_solve (herm (A), x, tag)` |__y <- A__^_-1_^ _x_ or__ +
 x <- A__^_-1_^ _x_ or__ +
-y <- A__^__T__^_-1_^^ _x_ or__ +
-x <- A__^__T__^_-1_^^ _x_ or__ +
-y <- A__^__H__^_-1_^^ _x_ or__ +
-x <- A__^__H__^_-1_^^ _x_
+y <- A^_T_^^_-1_^ _x_ or__ +
+x <- A^_T_^^_-1_^ _x_ or__ +
+y <- A^_H_^^_-1_^ _x_ or__ +
+x <- A^_H_^^_-1_^ _x_
 |Solves a system of linear equations with triangular form, i.e. _A_ is
 triangular.
 
@@ -358,10 +358,10 @@ A <- a x y__^_H_^ __+ a__^_-_^ __y x__^_H_^ _+ A_
 or` C = solve (herm (A), B, tag)` or` inplace_solve (herm (A), B, tag)`
 |__C <- A__^_-1_^ _B_ or__ +
 B <- A__^_-1_^ _B_ or__ +
-C <- A__^__T__^_-1_^^ _B_ or__ +
-B <- A__^_-1_^ _B_ or__ +
-C <- A__^__H__^_-1_^^ _B_ or__ +
-B <- A__^__H__^_-1_^^ _B_ |Solves a system of linear equations with
+C <- A_^_T_^_-1_^^ _B_ or__ +
+B <- A_^_-1_^ _B_ or__ +
+C <- A_^_H_^_-1_^^ _B_ or__ +
+B <- A_^_H_^_-1_^^ _B_ |Solves a system of linear equations with
 triangular form, i.e. _A_ is triangular.
 
 |`_g_mm _s_mm _h_mm` |`C = a * prod (A, B) + b * C` or +
