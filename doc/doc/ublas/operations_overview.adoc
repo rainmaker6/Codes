@@ -20,8 +20,8 @@ Contents:::
 |`u, v, w` |are vectors
 |`i, j, k` |are integer values
 |`t, t1, t2` |are scalar values
-|`r, r1, r2` |are link:range.html[ranges], e.g. `range(0, 3)`
-|`s, s1, s2` |are link:range.html#slice[slices], e.g. `slice(0, 1, 3)`
+|`r, r1, r2` |are link:range.adoc[ranges], e.g. `range(0, 3)`
+|`s, s1, s2` |are link:range.adoc#slice[slices], e.g. `slice(0, 1, 3)`
 |===
 
 === [#blas]#Basic Linear Algebra#
@@ -102,11 +102,11 @@ axpy_prod(A, B, C, true);  // C = A * B
 axpy_prod(A, B, C, false); // C += A * B
 ....
 
-_Note:_ The last argument (`bool init`) of `axpy_prod` is optional.
+*_Note:_ The last argument (`bool init`) of `axpy_prod` is optional.
 Currently it defaults to `true`, but this may change in the future.
 Setting the `init` to `true` is equivalent to calling `w.clear()` before
 `axpy_prod`. There are some specialisation for products of compressed
-matrices that give a large speed up compared to `prod`.
+matrices that give a large speed up compared to `prod`.*
 
 ....
 w = block_prod<matrix_type, 64> (A, u); // w = A * u
@@ -114,10 +114,10 @@ w = block_prod<matrix_type, 64> (u, A); // w = trans(A) * u
 C = block_prod<matrix_type, 64> (A, B); // C = A * B
 ....
 
-_Note:_ The blocksize can be any integer. However, the actual speed
+*_Note:_ The blocksize can be any integer. However, the actual speed
 depends very significantly on the combination of blocksize, CPU and
 compiler. The function `block_prod` is designed for large dense
-matrices.
+matrices.*
 
 ==== rank-k updates
 
@@ -126,10 +126,10 @@ opb_prod(A, B, C, true);  // C = A * B
 opb_prod(A, B, C, false); // C += A * B
 ....
 
-_Note:_ The last argument (`bool init`) of `opb_prod` is optional.
+*_Note:_ The last argument (`bool init`) of `opb_prod` is optional.
 Currently it defaults to `true`, but this may change in the future. This
 function may give a speedup if `A` has less columns than rows, because
-the product is computed as a sum of outer products.
+the product is computed as a sum of outer products.*
 
 === [#sub]#Submatrices, Subvectors#
 
@@ -155,12 +155,12 @@ project(A, s1, s2) = C;    // assign the submatrix of A specified by the two ind
 row(A, i) = w; column(A, j) = w;    // a row or column of matrix as a vector
 ....
 
-_Note:_ A range `r = range(start, stop)` contains all indices `i` with
+*_Note:_ A range `r = range(start, stop)` contains all indices `i` with
 `start <= i < stop`. A slice is something more general. The slice
 `s = slice(start, stride, size)` contains the indices
 `start, start+stride, ..., start+(size-1)*stride`. The stride can be 0
 or negative! If `start >= stop` for a range or `size == 0` for a slice
-then it contains no elements.
+then it contains no elements.*
 
 Sub-ranges and sub-slices of vectors and matrices can be created
 directly with the `subrange` and `sublice` functions:
@@ -183,11 +183,11 @@ matrix_vector_range<matrix_type> (A, r1, r2);
 matrix_vector_slice<matrix_type> (A, s1, s2);
 ....
 
-_Note:_ These matrix proxies take a sequence of elements of a matrix and
+*_Note:_ These matrix proxies take a sequence of elements of a matrix and
 allow you to access these as a vector. In particular
 `matrix_vector_slice` can do this in a very general way.
 `matrix_vector_range` is less useful as the elements must lie along a
-diagonal.
+diagonal.*
 
 _Example:_ To access the first two elements of a sub column of a matrix
 we access the row with a slice with stride 1 and the column with a slice
@@ -230,8 +230,8 @@ elements. For example:
 value = const_cast<const VEC>(v)[i];   // VEC is the type of V
 ....
 
-If more then one element needs to be accessed `const_iterator`'s should
-be used in preference to `iterator`'s for the same reason. For the more
+If more then one element needs to be accessed `const_iterator` 's should
+be used in preference to `iterator` 's for the same reason. For the more
 daring 'sparse element proxies' can be completely turned off in uBLAS by
 defining the configuration macro `BOOST_UBLAS_NO_ELEMENT_PROXIES`.
 
