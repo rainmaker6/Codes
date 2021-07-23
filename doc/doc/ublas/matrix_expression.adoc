@@ -23,7 +23,7 @@ Defined in the header expression_types.hpp.
 
 ==== Model of
 
-None. +++Not a Matrix Expression+++!
+None. [underline]#Not a Matrix Expression#
 
 ==== Type requirements
 
@@ -50,7 +50,7 @@ expression.
 
 The `operator[]`, `row`, `column`, `range`, `slice` and `project`
 functions have been removed. Use the free functions defined in
-link:matrix_proxy.html[matrix proxy] instead.
+link:matrix_proxy.adoc[matrix proxy] instead.
 
 === [#matrix_container]####Matrix Container
 
@@ -74,7 +74,7 @@ Defined in the header expression_types.hpp.
 
 ==== Model of
 
-None. +++Not a Matrix Expression OR Matrix+++!
+None. [underline]#Not a Matrix Expression OR Matrix#
 
 ==== Type requirements
 
@@ -119,12 +119,12 @@ Defined in the header matrix_expression.hpp.
 
 ===== Model of
 
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ===== Type requirements
 
 None, except for those imposed by the requirements of
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ===== Public base classes
 
@@ -229,12 +229,12 @@ Defined in the header matrix_expression.hpp.
 
 ===== Model of
 
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ===== Type requirements
 
 None, except for those imposed by the requirements of
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ===== Public base classes
 
@@ -293,6 +293,7 @@ expression.
 
 ===== Prototypes
 
+[source, cpp]
 ....
 template<class E, class F>
     struct matrix_unary1_traits {
@@ -353,7 +354,7 @@ Defined in the header matrix_expression.hpp.
 ===== Type requirements
 
 * `E` is a model of
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ===== Preconditions
 
@@ -365,6 +366,7 @@ Quadratic depending from the size of the matrix expression.
 
 ===== Examples
 
+[source, cpp]
 ....
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
@@ -408,12 +410,12 @@ Defined in the header matrix_expression.hpp.
 
 ===== Model of
 
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ===== Type requirements
 
 None, except for those imposed by the requirements of
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ===== Public base classes
 
@@ -468,6 +470,7 @@ expression.
 
 ===== Prototypes
 
+[source, cpp]
 ....
 template<class E1, class E2, class F>
     struct matrix_binary_traits {
@@ -503,9 +506,9 @@ Defined in the header matrix_expression.hpp.
 ===== Type requirements
 
 * `E1` is a model of
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 * `E2` is a model of
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ===== Preconditions
 
@@ -518,6 +521,7 @@ Quadratic depending from the size of the matrix expressions.
 
 ===== Examples
 
+[source, cpp]
 ....
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
@@ -558,12 +562,12 @@ Defined in the header matrix_expression.hpp.
 
 ===== Model of
 
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ===== Type requirements
 
 None, except for those imposed by the requirements of
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ===== Public base classes
 
@@ -622,6 +626,7 @@ expression.
 
 ===== Prototypes
 
+[source, cpp]
 ....
 template<class T1, class E2, class F>
     struct matrix_binary_scalar1_traits {
@@ -668,9 +673,9 @@ Defined in the header matrix_expression.hpp.
 ===== Type requirements
 
 * `T1/T2` is a model of
-link:expression_concept.html#scalar_expression[Scalar Expression] .
+link:expression_concept.adoc#scalar_expression[Scalar Expression] .
 * `E2/E1` is a model of
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ===== Preconditions
 
@@ -682,6 +687,7 @@ Quadratic depending from the size of the matrix expression.
 
 ===== Examples
 
+[source, cpp]
 ....
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
@@ -724,12 +730,12 @@ Defined in the header matrix_expression.hpp.
 
 ===== Model of
 
-link:expression_concept.html#vector_expression[Vector Expression] .
+link:expression_concept.adoc#vector_expression[Vector Expression] .
 
 ===== Type requirements
 
 None, except for those imposed by the requirements of
-link:expression_concept.html#vector_expression[Vector Expression] .
+link:expression_concept.adoc#vector_expression[Vector Expression] .
 
 ===== Public base classes
 
@@ -771,6 +777,7 @@ expression.
 
 ===== Prototypes
 
+[source, cpp]
 ....
 template<class T1, class E1, class T2, class E2>
     struct matrix_vector_binary1_traits {
@@ -882,11 +889,11 @@ Defined in the header matrix_expression.hpp.
 ===== Type requirements
 
 * `E1` is a model of
-link:expression_concept.html#matrix_expression[Matrix Expression] or
-link:expression_concept.html#vector_expression[Vector Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] or
+link:expression_concept.adoc#vector_expression[Vector Expression] .
 * `E2` is a model of
-link:expression_concept.html#vector_expression[Vector Expression] or
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#vector_expression[Vector Expression] or
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ===== Preconditions
 
@@ -899,6 +906,7 @@ Quadratic depending from the size of the matrix expression.
 
 ===== Examples
 
+[source, cpp]
 ....
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
@@ -922,6 +930,7 @@ int main () {
 
 ===== Prototypes
 
+[source, cpp]
 ....
 template<class E1, class E2>
     struct matrix_vector_solve_traits {
@@ -996,11 +1005,11 @@ Defined in the header triangular.hpp.
 ===== Type requirements
 
 * `E1` is a model of
-link:expression_concept.html#matrix_expression[Matrix Expression] or
-link:expression_concept.html#vector_expression[Vector Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] or
+link:expression_concept.adoc#vector_expression[Vector Expression] .
 * `E2` is a model of
-link:expression_concept.html#vector_expression[Vector Expression] or
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#vector_expression[Vector Expression] or
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ===== Preconditions
 
@@ -1015,6 +1024,7 @@ Quadratic depending from the size of the matrix expression.
 
 ===== Examples
 
+[source, cpp]
 ....
 #include <boost/numeric/ublas/triangular.hpp>
 #include <boost/numeric/ublas/io.hpp>
@@ -1059,12 +1069,12 @@ Defined in the header matrix_expression.hpp.
 
 ===== Model of
 
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ===== Type requirements
 
 None, except for those imposed by the requirements of
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ===== Public base classes
 
@@ -1119,6 +1129,7 @@ expression.
 
 ===== Prototypes
 
+[source, cpp]
 ....
 template<class T1, class E1, class T2, class E2>
     struct matrix_matrix_binary_traits {
@@ -1181,9 +1192,9 @@ Defined in the header matrix_expression.hpp.
 ===== Type requirements
 
 * `E1` is a model of
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 * `E2` is a model of
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ===== Preconditions
 
@@ -1214,6 +1225,7 @@ int main () {
 
 ===== Prototypes
 
+[source, cpp]
 ....
 template<class E1, class E2>
     struct matrix_matrix_solve_traits {
@@ -1261,9 +1273,9 @@ Defined in the header triangular.hpp.
 ===== Type requirements
 
 * `E1` is a model of
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 * `E2` is a model of
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ===== Preconditions
 
@@ -1276,6 +1288,7 @@ Cubic depending from the size of the matrix expressions.
 
 ===== Examples
 
+[source, cpp]
 ....
 #include <boost/numeric/ublas/triangular.hpp>
 #include <boost/numeric/ublas/io.hpp>
