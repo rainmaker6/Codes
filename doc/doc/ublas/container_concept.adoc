@@ -347,7 +347,7 @@ Expression] .
 |===
 |Name |Expression |Precondition |Semantics |Postcondition
 
-|Sizing constructor |`T t(n1, n2, ..., np)` |`__n__~_r_~` >=1 for 1< = 1 < = p |Allocates a `p`-order tensor with dimension extents `__n__~_1_~, __n__~_2_~, .... __n__~_p_~`. |`t.size(r)==nr` for 1 < = r < = p.
+|Sizing constructor |`T t(n1, n2, ..., np)` |`__n__~_r_~` > =1 for 1< = 1 < = p |Allocates a `p` -order tensor with dimension extents `__n__~_1_~, __n__~_2_~, .... __n__~_p_~`. |`t.size(r)==nr` for 1 < = r < = p.
 
 |Write |`t.at(i1,i2,...,ip)=v` |0 < = `__i__~_r_~` < `__n__~_r_~` for 1 < = r < = p. |Writes an element at multi-index position `__i__~_1_~, __i__~_2_~, ... __i__~_p_~` with value `v`. |`t(i1,i2,...,ip)` is equal to `v`.
 
@@ -364,13 +364,13 @@ Expression] .
 ==== Complexity guarantees
 
 The run-time complexity of contructor is linear in the tensor's size
-__n__~_1_~ x __n__~_2_~ x ... __n__~_p_~.
+`__n__~_1_~ x __n__~_2_~ x ... __n__~_p_~`.
 
 The run-time complexity of `write()` and `read()` is linear in the order
 of the tensor.
 
 The run-time complexity of resize is at most linear in the tensor's size
-__m__~_1_~ x __m__~_2_~ x ... __n__~_q_~.
+`__m__~_1_~ x __m__~_2_~ x ... __n__~_q_~`.
 
 ==== Invariants
 
