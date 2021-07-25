@@ -347,15 +347,15 @@ Expression] .
 |===
 |Name |Expression |Precondition |Semantics |Postcondition
 
-|Sizing constructor |`T t(n1, n2, ..., np)` |__n__~_r_~ >=1 for 1< = 1 < = p |Allocates a `p`-order tensor with dimension extents __n__~_1_~, __n__~_2_~, .... __n__~_p_~. |`t.size(r)==nr` for 1 < = r < = p.
+|Sizing constructor |`T t(n1, n2, ..., np)` |`__n__~_r_~` >=1 for 1< = 1 < = p |Allocates a `p`-order tensor with dimension extents `__n__~_1_~, __n__~_2_~, .... __n__~_p_~`. |`t.size(r)==nr` for 1 < = r < = p.
 
-|Write |`t.at(i1,i2,...,ip)=v` |0 < = __i__~_r_~ < __n__~_r_~ for 1 < = r < = p. |Writes an element at multi-index position __i__~_1_~, __i__~_2_~, ... __i__~_p_~ with value `v`. |`t(i1,i2,...,ip)` is equal to `v`.
+|Write |`t.at(i1,i2,...,ip)=v` |0 < = `__i__~_r_~` < `__n__~_r_~` for 1 < = r < = p. |Writes an element at multi-index position `__i__~_1_~, __i__~_2_~, ... __i__~_p_~` with value `v`. |`t(i1,i2,...,ip)` is equal to `v`.
 
-|Read |`v=t.at(i1,i2,...,ip)` |0 < = __i__~_r_~ < __n__~_r_~ for 1 < = r <= p. |Reads the element at multi-index position __i__~_1_~, __i__~_2_~, ... __i__~_p_~ and returns a value `v`. |`t(i1,i2,...,ip)` is equal to `v`.
+|Read |`v=t.at(i1,i2,...,ip)` |0 < = `__i__~_r_~` < `__n__~_r_~` for 1 < = r < = p. |Reads the element at multi-index position `__i__~_1_~, __i__~_2_~, ... __i__~_p_~` and returns a value `v`. |`t(i1,i2,...,ip)` is equal to `v`.
 
 |Clear |`t.clear()` | |Removes all elements from the container. |
 
-|Resize |`t.resize(m1, m2, ..., mq)` |__m__~_r_~ > = 1 for 1 < = 1 < = q |Reallocate the matrix so that it can hold __m__~_1_~ x __m__~_2_~ x ... __m__~_q_~ elements. + Erases or appends elements in order to bring the matrix to the prescribed size. Appended elements are `value_type()` copies. |`t.size(r) == mr` for 1 < = r < = q.
+|Resize |`t.resize(m1, m2, ..., mq)` |`__m__~_r_~` > = 1 for 1 < = 1 < = q |Reallocate the matrix so that it can hold `__m__~_1_~ x __m__~_2_~ x ... __m__~_q_~` elements. + Erases or appends elements in order to bring the matrix to the prescribed size. Appended elements are `value_type()` copies. |`t.size(r) == mr` for 1 < = r < = q.
 
 |Storage |`m.data()` | |Returns a reference to the underlying dense storage.| |
 
