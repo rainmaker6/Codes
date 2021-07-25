@@ -10,14 +10,14 @@ A Vector describes common aspects of dense, packed and sparse vectors.
 
 ==== Refinement of
 
-http://www.sgi.com/tech/stl/DefaultConstructible.html[DefaultConstructible],
-link:expression_concept.html#vector_expression[Vector Expression]
+https://www.boost.org/sgi/stl/DefaultConstructible.html[DefaultConstructible],
+link:expression_concept.adoc#vector_expression[Vector Expression]
 link:#vector_expression_note[[1]].
 
 ==== Associated types
 
 In addition to the types defined by
-link:expression_concept.html#vector_expression[Vector Expression]
+link:expression_concept.adoc#vector_expression[Vector Expression]
 
 [cols=",,",]
 |===
@@ -26,7 +26,7 @@ base type.
 
 |Storage array |V::array_type |Dense Vector ONLY. The type of underlying
 storage array used to store the elements. The array_type must model the
-link:storage_concept.html[*Storage*] concept.
+link:storage_concept.adoc[*Storage*] concept.
 |===
 
 ==== Notation
@@ -45,8 +45,8 @@ link:storage_concept.html[*Storage*] concept.
 ==== Valid expressions
 
 In addition to the expressions defined in
-http://www.sgi.com/tech/stl/DefaultConstructible.html[DefaultConstructible],
-link:expression_concept.html#vector_expression[Vector Expression] the
+https://www.boost.org/sgi/stl/DefaultConstructible.html[DefaultConstructible],
+link:expression_concept.adoc#vector_expression[Vector Expression] the
 following expressions must be valid.
 
 [width="100%",cols="25%,25%,25%,25%",]
@@ -71,7 +71,7 @@ mutable, `const array_type&` otherwise
 ==== Expression semantics
 
 Semantics of an expression is defined only where it differs from, or is
-not defined in link:expression_concept.html#vector_expression[Vector
+not defined in link:expression_concept.adoc#vector_expression[Vector
 Expression] .
 
 [width="100%",cols=",,,,",options="header",]
@@ -149,14 +149,14 @@ A Matrix describes common aspects of dense, packed and sparse matrices.
 
 ==== Refinement of
 
-http://www.sgi.com/tech/stl/DefaultConstructible.html[DefaultConstructible],
-link:expression_concept.html#matrix_expression[Matrix Expression]
+https://www.boost.org/sgi/stl/DefaultConstructible.html[DefaultConstructible],
+link:expression_concept.adoc#matrix_expression[Matrix Expression]
 link:#matrix_expression_note[[1]] .
 
 ==== Associated types
 
 In addition to the types defined by
-link:expression_concept.html#matrix_expression[Matrix Expression]
+link:expression_concept.adoc#matrix_expression[Matrix Expression]
 
 [cols=",,",]
 |===
@@ -165,7 +165,7 @@ base type.
 
 |Storage array |M::array_type |Dense Matrix ONLY. The type of underlying
 storage array used to store the elements. The array_type must model the
-link:storage_concept.html[*Storage*] concept.
+link:storage_concept.adoc[*Storage*] concept.
 |===
 
 ==== Notation
@@ -184,7 +184,7 @@ link:storage_concept.html[*Storage*] concept.
 ==== Valid expressions
 
 In addition to the expressions defined in
-link:expression_concept.html#matrix_expression[Matrix Expression] the
+link:expression_concept.adoc#matrix_expression[Matrix Expression] the
 following expressions must be valid.
 
 [width="100%",cols="25%,25%,25%,25%",]
@@ -276,14 +276,14 @@ A Tensor describes common aspects of dense multidimensional arrays.
 
 ==== Refinement of
 
-http://www.sgi.com/tech/stl/DefaultConstructible.html[DefaultConstructible],
-link:expression_concept.html#tensor_expression[Tensor Expression]
+https://www.boost.org/sgi/stl/DefaultConstructible.html[DefaultConstructible],
+link:expression_concept.adoc#tensor_expression[Tensor Expression]
 link:#tensor_expression_note[[1]] .
 
 ==== Associated types
 
 In addition to the types defined by
-link:expression_concept.html#tensor_expression[Tensor Expression]
+link:expression_concept.adoc#tensor_expression[Tensor Expression]
 
 [cols=",,",]
 |===
@@ -292,7 +292,7 @@ from this public base type.
 
 |Storage array |`tensor_t::array_type` |Dense tensor ONLY. The type of
 underlying storage array used to store the elements. The array_type must
-model the link:storage_concept.html[*Storage*] concept.
+model the link:storage_concept.adoc[*Storage*] concept.
 |===
 
 ==== Notation
@@ -316,7 +316,7 @@ model the link:storage_concept.html[*Storage*] concept.
 ==== Valid expressions
 
 In addition to the expressions defined in
-link:expression_concept.html#tensor_expression[Tensor Expression] the
+link:expression_concept.adoc#tensor_expression[Tensor Expression] the
 following expressions must be valid.
 
 [cols=",,,",]
@@ -340,7 +340,7 @@ mutable, `const_pointer` otherwise
 ==== Expression semantics
 
 Semantics of an expression is defined only where it differs from, or is
-not defined in link:expression_concept.html#tensor_expression[Tensor
+not defined in link:expression_concept.adoc#tensor_expression[Tensor
 Expression] .
 
 [width="100%",cols=",,,,",options="header",]
