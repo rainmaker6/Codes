@@ -83,11 +83,11 @@ elements. |`v.size () == n`.
 |Element access link:#element_access_note[[2]] |`v[n]` |`0<n>v.size()`
 |returns the n-th element in v | 
 
-|Insert |`v.insert_element (i, t)` |`0 <= i < v.size ()`. |Inserts an
+|Insert |`v.insert_element (i, t)` |`0 < = i < v.size ()`. |Inserts an
 element at `v (i)` with value `t`. The storage requirement of the Vector
 may be increased. |`v (i)` is equal to `t`.
 
-|Erase |`v.erase_element (i)` |`0 <= i < v.size ()` |Destroys the
+|Erase |`v.erase_element (i)` |`0 < = i < v.size ()` |Destroys the
 element as `v (i)` and replaces it with the default `value_type ()`. The
 storage requirement of the Vector may be decreased. |`v (i)` is equal to
 `value_type ()`.
@@ -218,14 +218,14 @@ Expression] .
 
 |Sizing constructor |`M m (n1, n2)` |`n1 >= 0` and `n2 >= 0` |Allocates a matrix of `n1` rows and `n2` columns. |`m.size1 () == n1` and `m.size2 () == n2`.
 
-|Insert |`m.insert_element (i, j, t)` |`0 <= i < m.size1 ()`, + `0 <= j < m.size2 ()`. |Inserts an element at `m (i, j)` with value `t`. The storage requirement of the Matrix may be increased. `m (i, j)` is equal to `t`. |`m(i,j)` is equal to `t`. 
+|Insert |`m.insert_element (i, j, t)` |`0 < = i < m.size1 ()`, + `0 < = j < m.size2 ()`. |Inserts an element at `m (i, j)` with value `t`. The storage requirement of the Matrix may be increased. `m (i, j)` is equal to `t`. |`m(i,j)` is equal to `t`. 
 
 |Erase |`m.erase_element (i, j)` |`0 <= i < m.size1 ()`and ` 0 <= j < m.size2` |Destroys the element as `m (i, j)` and replaces it with the default `value_type ()`. The storage requirement of the Matrix may be decreased. |`m (i, j)` is equal to `value_type ()`.
 
 |Clear |`m.clear ()` | |Equivalent to +
-`for (i = 0; i < m.size1 (); ++ i)` +
-  `for (j = 0; j < m.size2 (); ++ j)` +
-    `m.erase_element (i, j);` |
+`for (i = 0; i < m.size1 (); ++ i) +
+  for (j = 0; j < m.size2 (); ++ j) +
+    m.erase_element (i, j);` |
 
 |Resize |`m.resize (n1, n2)  m.resize (n1, n2, p)` | |Reallocate the matrix so that it can hold `n1` rows and `n2` columns. +
 Erases or appends elements in order to bring the matrix to the
@@ -347,15 +347,15 @@ Expression] .
 |===
 |Name |Expression |Precondition |Semantics |Postcondition
 
-|Sizing constructor |`T t(n1, n2, ..., np)` |$n_r \geq 1$ for $1\leq 1 \leq p $ |Allocates a `p`-order tensor with dimension extents $n_1,n_2,\dots,n_p$. |`t.size(r)==nr` for $1\leq r \leq p$.
+|Sizing constructor |`T t(n1, n2, ..., np)` |__n__~_r_~ >=1 for 1< = 1 < = p |Allocates a `p`-order tensor with dimension extents __n__~_1_~, __n__~_2_~, .... __n__~_p_~. |`t.size(r)==nr` for 1 < = r < = p.
 
-|Write |`t.at(i1,i2,...,ip)=v` |$0 \leq i_r < n_r$ for $1 \leq r \leq p$. |Writes an element at multi-index position $i_1,i_2,\dots,i_p$ with value `v`. |`t(i1,i2,...,ip)` is equal to `v`.
+|Write |`t.at(i1,i2,...,ip)=v` |0 < = __i__~_r_~ < __n__~_r_~ for 1 < = r < = p. |Writes an element at multi-index position __i__~_1_~, __i__~_2_~, ... __i__~_p_~ with value `v`. |`t(i1,i2,...,ip)` is equal to `v`.
 
-|Read |`v=t.at(i1,i2,...,ip)` |$0 \leq i_r < n_r$ for $1 \leq r \leq p$. |Reads the element at multi-index position $(i_1,i2_,\dots,i_p)$ and returns a value `v`. |`t(i1,i2,...,ip)` is equal to `v`.
+|Read |`v=t.at(i1,i2,...,ip)` |0 < = __i__~_r_~ < __n__~_r_~ for 1 < = r <= p. |Reads the element at multi-index position __i__~_1_~, __i__~_2_~, ... __i__~_p_~ and returns a value `v`. |`t(i1,i2,...,ip)` is equal to `v`.
 
 |Clear |`t.clear()` | |Removes all elements from the container. |
 
-|Resize |`t.resize(m1, m2, ..., mq)` |$m_r \geq 1$ for $1\leq 1 \leq q $ |Reallocate the matrix so that it can hold $m_1\times m_2\times \cdots \times m_q$ elements. + Erases or appends elements in order to bring the matrix to the prescribed size. Appended elements are `value_type()` copies. |`t.size(r) == mr` for $1\leq r \leq q$.
+|Resize |`t.resize(m1, m2, ..., mq)` |__m__~_r_~ > = 1 for 1 < = 1 < = q |Reallocate the matrix so that it can hold __m__~_1_~ x __m__~_2_~ x ... __m__~_q_~ elements. + Erases or appends elements in order to bring the matrix to the prescribed size. Appended elements are `value_type()` copies. |`t.size(r) == mr` for 1 < = r < = q.
 
 |Storage |`m.data()` | |Returns a reference to the underlying dense storage.| |
 
@@ -364,13 +364,13 @@ Expression] .
 ==== Complexity guarantees
 
 The run-time complexity of contructor is linear in the tensor's size
-$n_1 \times n_2 \times \cdots \times n_p$.
+__n__~_1_~ x __n__~_2_~ x ... __n__~_p_~.
 
 The run-time complexity of `write()` and `read()` is linear in the order
 of the tensor.
 
 The run-time complexity of resize is at most linear in the tensor's size
-$m_1 \times m_2 \times \cdots \times n_q$.
+__m__~_1_~ x __m__~_2_~ x ... __n__~_q_~.
 
 ==== Invariants
 
