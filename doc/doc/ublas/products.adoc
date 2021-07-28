@@ -48,13 +48,11 @@ a|
 computes `v += A x` or `v = A x` in an optimized fashion.
 
 *Parameters:*::
-  [cols=",,",]
-  !===
-  ! !_e1_  !the matrix expression `A`
-  ! !_e2_  !the vector expression `x`
-  ! !_v_  !the result vector `v`
-  ! !_init_  !a boolean parameter
-  !===
+ _e1_  the matrix expression `A`,
+ _e2_  the vector expression `x`,
+ _v_  the result vector `v`,
+ _init_  a boolean parameter
+
 
 `axpy_prod(A, x, v, init)` implements the well known axpy-product.
 Setting _init_ to `true` is equivalent to call `v.clear()` before
@@ -93,13 +91,10 @@ a|
 computes `v += AT x` or `v = AT x` in an optimized fashion.
 
 *Parameters:*::
-  [cols=",,",]
-  !===
-  ! !_e1_  !the vector expression `x`
-  ! !_e2_  !the matrix expression `A`
-  ! !_v_  !the result vector `v`
-  ! !_init_  !a boolean parameter
-  !===
+  _e1_  the vector expression `x`,
+  _e2_  the matrix expression `A`,
+  _v_  the result vector `v`,
+  _init_  a boolean parameter
 
 `axpy_prod(x, A, v, init)` implements the well known axpy-product.
 Setting _init_ to `true` is equivalent to call `v.clear()` before
@@ -138,13 +133,11 @@ a|
 computes `M += A X` or `M = A X` in an optimized fashion.
 
 *Parameters:*::
-  [cols=",,",]
-  !===
-  ! !_e1_  !the matrix expression `A`
-  ! !_e2_  !the matrix expression `X`
-  ! !_m_  !the result matrix `M`
-  ! !_init_  !a boolean parameter
-  !===
+  _e1_  !the matrix expression `A`,
+  _e2_  !the matrix expression `X`,
+  _m_  !the result matrix `M`,
+  _init_  !a boolean parameter
+
 
 `axpy_prod(A, X, M, init)` implements the well known axpy-product.
 Setting _init_ to `true` is equivalent to call `M.clear()` before
@@ -182,13 +175,10 @@ a|
 computes `M += A X` or `M = A X` in an optimized fashion.
 
 *Parameters:*::
-  [cols=",,",]
-  !===
-  ! !_e1_  !the matrix expression `A`
-  ! !_e2_  !the matrix expression `X`
-  ! !_m_  !the result matrix `M`
-  ! !_init_  !a boolean parameter
-  !===
+  _e1_  the matrix expression `A`
+  _e2_  the matrix expression `X`
+  _m_  the result matrix `M`
+  _init_  a boolean parameter
 
 `opb_prod(A, X, M, init)` implements the well known axpy-product.
 Setting _init_ to `true` is equivalent to call `M.clear()` before
