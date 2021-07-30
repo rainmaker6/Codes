@@ -8,7 +8,7 @@
 
 The templated class `banded_matrix<T, F, A>` is the base container
 adaptor for banded matrices. For a _(m x n_)-dimensional banded matrix
-with _l_ lower and _u_ upper diagonals and _0 <= i < m_, _0 <= j < n_
+with _l_ lower and _u_ upper diagonals and _0 < = i < m_, _0 < = j < n_
 holds __b__~_i,j_~ = _0_, if _i > j + l_ or _i < j - u_. The storage of
 banded matrices is packed.
 
