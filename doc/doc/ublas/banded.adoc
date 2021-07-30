@@ -9,11 +9,12 @@
 The templated class `banded_matrix<T, F, A>` is the base container
 adaptor for banded matrices. For a _(m x n_)-dimensional banded matrix
 with _l_ lower and _u_ upper diagonals and _0 <= i < m_, _0 <= j < n_
-holds __b__~_i, j_~ _= 0_, if _i > j + l_ or _i < j - u_. The storage of
+holds __b__~_i,j_~ = _0_, if _i > j + l_ or _i < j - u_. The storage of
 banded matrices is packed.
 
 ==== Example
 
+[source, cpp]
 ....
 #include <boost/numeric/ublas/banded.hpp>
 #include <boost/numeric/ublas/io.hpp>
@@ -49,12 +50,12 @@ link:#banded_matrix_1[[1]] |`row_major`
 
 ==== Model of
 
-link:container_concept.html#matrix[Matrix] .
+link:container_concept.adoc#matrix[Matrix] .
 
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:container_concept.html#matrix[Matrix] .
+link:container_concept.adoc#matrix[Matrix] .
 
 ==== Public base classes
 
@@ -219,6 +220,7 @@ other matrices.
 
 ==== Example
 
+[source, cpp]
 ....
 #include <boost/numeric/ublas/banded.hpp>
 #include <boost/numeric/ublas/io.hpp>
@@ -248,12 +250,12 @@ Defined in the header banded.hpp.
 
 ==== Model of
 
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ==== Type requirements
 
 None, except for those imposed by the requirements of
-link:expression_concept.html#matrix_expression[Matrix Expression] .
+link:expression_concept.adoc#matrix_expression[Matrix Expression] .
 
 ==== Public base classes
 
