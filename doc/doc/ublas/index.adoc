@@ -1,4 +1,4 @@
-== image:Boost.png[logo]Basic Linear Algebra Library
+== Basic Linear Algebra Library
 
 [[toc]]
 

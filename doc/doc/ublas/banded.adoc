@@ -1,8 +1,8 @@
-== image:Boost.png[image]Banded Matrix
+== Banded Matrix
 
 [[toc]]
 
-=== [#banded_matrix]####Banded Matrix
+=== [#banded_matrix]#Banded Matrix#
 
 ==== Description
 
@@ -211,7 +211,7 @@ organization are `row_major` and `column_major`.
 [#banded_matrix_2]#[2]# Supported parameters for the adapted array are
 `unbounded_array<T>` , `bounded_array<T>` and `std::vector<T>` .
 
-=== [#banded_adaptor]####Banded Adaptor
+=== [#banded_adaptor]#Banded Adaptor#
 
 ==== Description
 
