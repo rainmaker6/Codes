@@ -1,8 +1,8 @@
-== image:../Boost.png[image]Tensor Expressions
+== Tensor Expressions
 
 [[toc]]
 
-=== [#tensor_expression]####Tensor Expression
+=== [#tensor_expression]#Tensor Expression#
 
 ==== Description
 
@@ -54,9 +54,9 @@ None.
 reference to the derived expression.
 |===
 
-=== [#entrywise_tensor_operations]####Entrywise Tensor Operations
+=== [#entrywise_tensor_operations]#Entrywise Tensor Operations#
 
-==== [#binary_tensor_expression]####Binary Tensor Expression
+==== [#binary_tensor_expression]#Binary Tensor Expression#
 
 ===== Description
 
@@ -112,7 +112,7 @@ None.
 reference to the i-th element of the expression.
 |===
 
-==== [#unary_tensor_expression]####Unary Tensor Expression
+==== [#unary_tensor_expression]#Unary Tensor Expression#
 
 ===== Description
 

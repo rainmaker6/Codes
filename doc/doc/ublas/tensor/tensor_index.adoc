@@ -1,17 +1,18 @@
-== image:../Boost.png[image]Tensor Index
+== Tensor Index
 
 [[toc]]
 
-=== [#tensor index]####tensor_index<value_t, storage_t, array_t, N>
+=== [#tensor index]#tensor_index<value_t, storage_t, array_t, N>#
 
 ==== Description
 
 The template class `tensor_index` decorates the
-link:../tensor.html#tensor[tensor] template class with indices for
+link:../tensor.adoc#tensor[tensor] template class with indices for
 tensor contraction.
 
 ==== Example
 
+[source, cpp]
 ....
 #include <boost/numeric/ublas/tensor/einstein.hpp>
 

@@ -1,17 +1,18 @@
-== image:../Boost.png[image]Strides
+== Strides
 
 [[toc]]
 
-=== [#extents]####basic_strides<size_type, format_type>
+=== [#extents]#basic_strides<size_type, format_type>#
 
 ==== Description
 
 The template class `basic_strides` contains weights for a given storage
 format in order to map multi-indices to scalar memory indices for
-link:../tensor.html#tensor[tensor] instances.
+link:../tensor.adoc#tensor[tensor] instances.
 
 ==== Example
 
+[source, cpp]
 ....
 #include <boost/numeric/ublas/tensor/strides.hpp>
 

@@ -1,16 +1,17 @@
-== image:../Boost.png[image]Extents
+== Extents
 
 [[toc]]
 
-=== [#extents]####basic_extents<size_type>
+=== [#extents]#basic_extents<size_type>#
 
 ==== Description
 
 The template class `basic_extents` specifies dimension extents of a
-link:../tensor.html#tensor[tensor] instance.
+link:../tensor.adoc#tensor[tensor] instance.
 
 ==== Example
 
+[source, cpp]
 ....
 #include <boost/numeric/ublas/tensor/extents.hpp>
 
