@@ -130,7 +130,8 @@ Random Access Column/Row Iterator]
 
 === Release notes
 
-Release notes can be found link:release_notes.adoc[here][#further_information]#
+Release notes can be found link:release_notes.adoc[here].
+[further_information]
 
 === Known limitations
 
